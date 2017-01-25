@@ -366,7 +366,6 @@ function stickyFB(windowWidth) {
 
 //----------------------------------------------------
 if(!isContentPage){
-	console.log('Start running in main page');
 deferResizeToParent(function() {
     (function(e, t) {
         if (!e) return t;
@@ -506,7 +505,6 @@ deferResizeToParent(function() {
     });
 });
 }else{
-	console.log('Start runnning Content page');
 	//Content Page script
 	deferJquery(function() {
     handleImg();
