@@ -539,7 +539,143 @@ deferResizeToParent(function() {
 }
 //----------------------------------------------------
 // All Page Last section
-function deferImg(){for(var b=document.getElementsByTagName("img"),a=0;a<b.length;a++)b[a].getAttribute("data-src")&&b[a].setAttribute("src",b[a].getAttribute("data-src"))}
-function stickySidebar(){var b=$("#main-wrapper"),a=b.offset().top,c=$("#HTML3"),d=c.height(),e=a-d,f=b.height()+e,g=a+$("#HTML8").height();$(window).scroll(function(){var a=$(this).scrollTop();f=b.height()+e;a<g?c.css({position:"relative"}):a>f?c.css({position:"absolute",bottom:"0",top:"auto"}):c.css({position:"fixed",top:"0",height:d+"px"})})};deferResizeToParent(function(){if(1200>=(0<window.innerWidth?window.innerWidth:screen.width)){var a=$(document.getElementById("sidebar-wrapper2").outerHTML);a.find("#HTML3").remove();a.prependTo("#sidebar-wrapper3")}else-1!=window.location.href.indexOf("?m=1")||/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||stickySidebar();window.onload=deferImg;window.selectnav=function(){var a=function(a,e){function c(a){var d;a||(a=window.event);a.target?d=a.target:a.srcElement&&(d=a.srcElement);3===d.nodeType&&(d=d.parentNode);d.value&&(window.location.href=d.value)}function g(a){a=a.nodeName.toLowerCase();return"ul"===a||"ol"===a}function h(a){for(var d=1;document.getElementById("selectnav"+d);d++);return a?"selectnav"+d:"selectnav"+(d-1)}function n(a){k++;var d=a.children.length,b="",e="",c=k-1;if(d){if(c){for(;c--;)e+=r;e+=" "}for(c=0;c<d;c++){var f=a.children[c].children[0];if("undefined"!==typeof f){var t=f.innerText||f.textContent,l="";m&&(l=-1!==f.className.search(m)||-1!==f.parentNode.className.search(m)?p:"");u&&!l&&(l=f.href===document.URL?p:"");b+='<option value="'+f.href+'" '+l+">"+e+t+"</option>";v&&(f=a.children[c].children[1])&&g(f)&&(b+=n(f))}}1===k&&q&&(b='<option value="">'+q+"</option>"+b);1===k&&(b='<select class="selectnav" id="'+h(!0)+'">'+b+"</select>");k--;return b}}if((a=document.getElementById(a))&&g(a)&&"insertAdjacentHTML"in window.document.documentElement){document.documentElement.className+=" js";var b=e||{},m=b.activeclass||"active",u="boolean"===typeof b.autoselect?b.autoselect:!0,v="boolean"===typeof b.nested?b.nested:!0,r=b.indent||"\u2192",q=b.label||"- Navigation -",k=0,p=" selected ";a.insertAdjacentHTML("afterend",n(a));b=document.getElementById(h());b.addEventListener&&b.addEventListener("change",c);b.attachEvent&&b.attachEvent("onchange",c);return b}};return function(e,h){a(e,h)}}();selectnav("nav");$(".imageContainer img").resizeToParent();$("#sBtn button").click(function(){$("#sBox").animate({top:"0px"});$("#sTxt").focus()});$("#sBox button.remove").click(function(){$("#sBox").animate({top:"-80px"})});$(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')});
+function displayRecentPost(){
+	var allInfo = document.getElementById("rawRecentPosts").value.split(',');
+	var recentlyHtml = '<ul>';
+	var popIndex = 0;
+	for (var index = 0;index<5;++index){
+		var indexTitle = index;
+		var indexLink = index+5;
+		var indexImg = index+10;
+		
+		//check img for add <img> or <div class="pop1"></div>
+		if(allInfo[indexImg].length > 0){
+			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+		}else{
+			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><div class="pop'+(++popIndex)+'"></div></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+		}		
+	}
+	recentlyHtml += '</ul>';
+	document.getElementById('HTML2').getElementsByTagName('div')[0].innerHTML = recentlyHtml;
+}
+
+
+function stickySidebar() {
+    var b = $("#main-wrapper"),
+        a = b.offset().top,
+        c = $("#HTML3"),
+        d = c.height(),
+        e = a - d,
+        f = b.height() + e,
+        g = a + $("#HTML8").height();
+    $(window).scroll(function() {
+        var a = $(this).scrollTop();
+        f = b.height() + e;
+        a < g ? c.css({
+            position: "relative"
+        }) : a > f ? c.css({
+            position: "absolute",
+            bottom: "0",
+            top: "auto"
+        }) : c.css({
+            position: "fixed",
+            top: "0",
+            height: d + "px"
+        })
+    })
+};
+deferResizeToParent(function() {
+    if (1200 >= (0 < window.innerWidth ? window.innerWidth : screen.width)) {
+        var a = $(document.getElementById("sidebar-wrapper2").outerHTML);
+        a.find("#HTML3").remove();
+        a.prependTo("#sidebar-wrapper3")
+    } else -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
+    window.onload = displayRecentPost;
+    window.selectnav = function() {
+        var a = function(a, e) {
+            function c(a) {
+                var d;
+                a || (a = window.event);
+                a.target ? d = a.target : a.srcElement && (d = a.srcElement);
+                3 === d.nodeType && (d = d.parentNode);
+                d.value && (window.location.href = d.value)
+            }
+
+            function g(a) {
+                a = a.nodeName.toLowerCase();
+                return "ul" === a || "ol" === a
+            }
+
+            function h(a) {
+                for (var d = 1; document.getElementById("selectnav" + d); d++);
+                return a ? "selectnav" + d : "selectnav" + (d - 1)
+            }
+
+            function n(a) {
+                k++;
+                var d = a.children.length,
+                    b = "",
+                    e = "",
+                    c = k - 1;
+                if (d) {
+                    if (c) {
+                        for (; c--;) e += r;
+                        e += " "
+                    }
+                    for (c = 0; c < d; c++) {
+                        var f = a.children[c].children[0];
+                        if ("undefined" !== typeof f) {
+                            var t = f.innerText || f.textContent,
+                                l = "";
+                            m && (l = -1 !== f.className.search(m) || -1 !== f.parentNode.className.search(m) ? p : "");
+                            u && !l && (l = f.href === document.URL ? p : "");
+                            b += '<option value="' + f.href + '" ' + l + ">" + e + t + "</option>";
+                            v && (f = a.children[c].children[1]) && g(f) && (b += n(f))
+                        }
+                    }
+                    1 === k && q && (b = '<option value="">' + q + "</option>" + b);
+                    1 === k && (b = '<select class="selectnav" id="' + h(!0) + '">' + b + "</select>");
+                    k--;
+                    return b
+                }
+            }
+            if ((a = document.getElementById(a)) && g(a) && "insertAdjacentHTML" in window.document.documentElement) {
+                document.documentElement.className += " js";
+                var b = e || {},
+                    m = b.activeclass || "active",
+                    u = "boolean" === typeof b.autoselect ? b.autoselect : !0,
+                    v = "boolean" === typeof b.nested ? b.nested : !0,
+                    r = b.indent || "\u2192",
+                    q = b.label || "- Navigation -",
+                    k = 0,
+                    p = " selected ";
+                a.insertAdjacentHTML("afterend", n(a));
+                b = document.getElementById(h());
+                b.addEventListener && b.addEventListener("change", c);
+                b.attachEvent && b.attachEvent("onchange", c);
+                return b
+            }
+        };
+        return function(e, h) {
+            a(e, h)
+        }
+    }();
+    selectnav("nav");
+    $(".imageContainer img").resizeToParent();
+    $("#sBtn button").click(function() {
+        $("#sBox").animate({
+            top: "0px"
+        });
+        $("#sTxt").focus()
+    });
+    $("#sBox button.remove").click(function() {
+        $("#sBox").animate({
+            top: "-80px"
+        })
+    });
+    $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
+});
+
+
 function findScriptSection(){$(function(){var a=document.getElementsByTagName("body")[0].innerHTML,e=a.lastIndexOf("-widgets.js"),g=a.indexOf("http",e-85),g=a.substring(g,e+11),e=a.indexOf("_WidgetManager._Init",e)+21,h=a.indexOf(");",e),c=a.substring(e,h).replace(/["']/g,"").split(",");$.getScript(g,function(a,e,g){3<=c.length&&(_WidgetManager._Init(c[0],c[1],c[2]+""),_WidgetManager._RegisterWidget("_ContactFormView",new _WidgetInfo("ContactForm2","footter-w4",null,document.getElementById("ContactForm2"),{contactFormMessageSendingMsg:"\u0e01\u0e33\u0e25&#3633;\u0e07\u0e2a&#3656;\u0e07...",contactFormMessageSentMsg:"\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e41\u0e25&#3657;\u0e27",contactFormMessageNotSentMsg:"\u0e44\u0e21&#3656;\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e44\u0e14&#3657; \u0e42\u0e1b\u0e23\u0e14\u0e25\u0e2d\u0e07\u0e2d&#3637;\u0e01\u0e04\u0e23&#3633;&#3657;\u0e07\u0e43\u0e19\u0e20\u0e32\u0e22\u0e2b\u0e25&#3633;\u0e07",contactFormInvalidEmailMsg:"\u0e15&#3657;\u0e2d\u0e07\u0e23\u0e30\u0e1a&#3640;\u0e17&#3637;&#3656;\u0e2d\u0e22&#3641;&#3656;\u0e2d&#3637;\u0e40\u0e21\u0e25\u0e17&#3637;&#3656;\u0e16&#3641;\u0e01\u0e15&#3657;\u0e2d\u0e07",contactFormEmptyMessageMsg:"\u0e0a&#3656;\u0e2d\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e08\u0e30\u0e15&#3657;\u0e2d\u0e07\u0e44\u0e21&#3656;\u0e40\u0e27&#3657;\u0e19\u0e27&#3656;\u0e32\u0e07",title:"Contact Us",blogId:"233816824204858149",contactFormNameMsg:"\u0e0a&#3639;&#3656;\u0e2d",contactFormEmailMsg:"\u0e2d&#3637;\u0e40\u0e21\u0e25",contactFormMessageMsg:"\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21",contactFormSendMsg:"\u0e2a&#3656;\u0e07",submitUrl:"https://www.blogger.com/contact-form.do"},"displayModeFull")))})})}
 deferJquery(findScriptSection);
