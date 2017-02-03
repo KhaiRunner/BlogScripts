@@ -516,7 +516,13 @@ deferResizeToParent(function() {
         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    (function(a, b, c) {
+    
+	deferJquery(function() {
+    handleImg();
+    loadRelatedPosts();
+	
+	$.ajaxSetup({cache: true});
+	(function(a, b, c) {
         var d = a.getElementsByTagName(b)[0];
         if (!a.getElementById(c)) {
             a = a.createElement(b);
@@ -525,13 +531,6 @@ deferResizeToParent(function() {
             d.parentNode.insertBefore(a, d)
         }
     })(document, "script", "twitter-wjs");
-	
-	
-	deferJquery(function() {
-    handleImg();
-    loadRelatedPosts();
-	
-	$.ajaxSetup({cache: true});
     $.getScript("https://apis.google.com/js/platform.js");
 	
     var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
