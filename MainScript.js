@@ -586,7 +586,6 @@ deferResizeToParent(function() {
         a.find("#HTML3").remove();
         a.prependTo("#sidebar-wrapper3")
     } else -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
-    window.onload = displayRecentPost;
     window.selectnav = function() {
         var a = function(a, e) {
             function c(a) {
@@ -669,6 +668,7 @@ deferResizeToParent(function() {
             top: "-80px"
         })
     });
+	displayRecentPost();
     $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
 });
 
