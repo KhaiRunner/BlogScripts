@@ -507,7 +507,7 @@ deferResizeToParent(function() {
 });
 }else{
 	//Content Page script
-	
+	//Load Facebook Frist
 	(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -516,16 +516,6 @@ deferResizeToParent(function() {
         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-	
-	deferJquery(function() {
-    handleImg();
-    loadRelatedPosts();
-	
-	 $.ajaxSetup({
-        cache: true
-    });
-    
-	$.getScript("https://apis.google.com/js/platform.js");
     (function(a, b, c) {
         var d = a.getElementsByTagName(b)[0];
         if (!a.getElementById(c)) {
@@ -535,6 +525,15 @@ deferResizeToParent(function() {
             d.parentNode.insertBefore(a, d)
         }
     })(document, "script", "twitter-wjs");
+	
+	
+	deferJquery(function() {
+    handleImg();
+    loadRelatedPosts();
+	
+	$.ajaxSetup({cache: true});
+    $.getScript("https://apis.google.com/js/platform.js");
+	
     var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     stickyFB(windowWidth);
 });
