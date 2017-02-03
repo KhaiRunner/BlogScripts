@@ -1,5 +1,15 @@
 ﻿//------------------All Page First section------------------
 var isContentPage = document.getElementById('isContent').value == '1';
+//Load Facebook Frist
+	(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
 
 function addWidgets(){
 	document.getElementById('HTML8').innerHTML = "<h2>แต่งบ้าน</h2><div class='widget-content list-label-widget-content'><ul><li><a href='/search/label/ห้องนอน'><b>💤</b>ห้องนอน</a></li><li><a href='/search/label/ห้องนอนเด็ก'><b>👶</b>ห้องนอนเด็ก</a></li><li><a href='/search/label/ห้องนั่งเล่น'><b>📺</b>ห้องนั่งเล่น</a></li><li><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕</b>ตู้เสื้อผ้า</a></li><li><a href='/search/label/เก้าอี้และโซฟา'><b>💺</b>เก้าอี้และโซฟา</a></li><li><a href='/search/label/ชั้นหนังสือ'><b>📚</b>ชั้นหนังสือ</a></li><li><a href='/search/label/แต่งผนัง'><b>🎨</b>แต่งผนัง</a></li><li><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢</b>แบบโฮมออฟฟิศ</a></li><li><a href='/search/label/สวนสวย'><b>🌷</b>สวนสวย</a></li><li><a href='/search/label/ห้องน้ำ'><b>🚽</b>ห้องน้ำ</a></li><li><a href='/search/label/แบบห้องครัว'><b>🍴</b>แบบห้องครัว</a></li></ul></div>";
@@ -507,15 +517,7 @@ deferResizeToParent(function() {
 });
 }else{
 	//Content Page script
-	//Load Facebook Frist
-	(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+	
     
 	deferJquery(function() {
     handleImg();
