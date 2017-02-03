@@ -511,10 +511,11 @@ deferResizeToParent(function() {
     handleImg();
     loadRelatedPosts();
 });
-deferResizeToParent(function() {
+deferJquery(function() {
     $.ajaxSetup({
         cache: true
     });
+	$(".fb-comments").attr("data-href", window.location.href);
     $.getScript("https://apis.google.com/js/platform.js");
     (function(a, b, c) {
         var d = a.getElementsByTagName(b)[0];
