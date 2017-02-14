@@ -31,6 +31,9 @@ function updateLink(links){
 			if(isMobile && checkUrl.indexOf(mainUrl) == 0 && checkUrl.indexOf("?m=1")==-1){
 				checkUrl += "?m=1";
 				links[i].setAttribute('href', checkUrl)
+			}else{
+				
+				console.log(checkUrl);
 			}
 			
 			if(checkUrl.indexOf(httpUrl) == 0){
