@@ -29,12 +29,12 @@ function updateLink(){
 	var httpUrl = "http://" + window.location.hostname;
 	for(var i=0; i<links.length; ++i) {
 			var checkUrl = links[i].href;
-			if(isMobile && checkUrl.startsWith(mainUrl) && checkUrl.indexOf("?m=1")==-1){
+			if(isMobile && checkUrl.indexOf(mainUrl) == 0 && checkUrl.indexOf("?m=1")==-1){
 				checkUrl += "?m=1";
 				links[i].setAttribute('href', checkUrl)
 			}
 			
-			if(checkUrl.startsWith(httpUrl)){
+			if(checkUrl.indexOf(httpUrl) == 0){
 				links[i].setAttribute('href', checkUrl.replace("http:", "https:"));
 			}
 	}
