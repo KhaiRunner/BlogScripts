@@ -249,9 +249,7 @@ function LoadInfo() {
         });
         $(".imageContainer img").resizeToParent();
 
-		if(window.location.href.indexOf('?m=1')!=-1){
-			updateLink($('#main-wrapper a').toArray());
-		}
+		updateLink($('#main-wrapper a').toArray());
     });
 }
 
@@ -332,9 +330,7 @@ function loadRelatedPosts() {
             }
         }
         showRelatedPosts(relatedTitles, relatedUrls, thumburl);
-		if(window.location.href.indexOf('?m=1')!=-1){
-			updateLink($('#related-posts a').toArray());
-		}
+		updateLink($('#related-posts a').toArray());
     });
 }
 
