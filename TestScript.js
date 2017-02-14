@@ -28,17 +28,17 @@ function updateLink(links){
 	var httpUrl = "http://" + window.location.hostname;
 	for(var i=0; i<links.length; ++i) {
 			var checkUrl = links[i].href;
+			if(checkUrl.indexOf(httpUrl) == 0){
+				checkUrl = checkUrl.replace("http:", "https:");
+				links[i].setAttribute('href', checkUrl);
+			}
+			
 			if(isMobile && checkUrl.indexOf(mainUrl) == 0 && checkUrl.indexOf("?m=1")==-1){
 				checkUrl += "?m=1";
 				links[i].setAttribute('href', checkUrl)
-			}else{
-				
-				console.log(checkUrl);
 			}
 			
-			if(checkUrl.indexOf(httpUrl) == 0){
-				links[i].setAttribute('href', checkUrl.replace("http:", "https:"));
-			}
+			
 	}
 }
 
