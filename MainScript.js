@@ -23,23 +23,26 @@ function deferJquery(a){window.jQuery?a():setTimeout(function(){deferJquery(a)},
 function deferResizeToParent(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){deferResizeToParent(a)},50)}
 deferJquery(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
 function updateLink(links){
+	var isMobile = window.location.href.indexOf('?m=1')!=-1;
 	var mainUrl = window.location.origin;
+	var httpUrl = "http://" + window.location.hostname;
 	for(var i=0; i<links.length; ++i) {
 			var checkUrl = links[i].href;
-			if(checkUrl.startsWith(mainUrl) && checkUrl.indexOf("?m=1")==-1){
-				links[i].setAttribute('href', checkUrl+"?m=1")
-				
+			if(checkUrl.indexOf(httpUrl) == 0){
+				checkUrl = checkUrl.replace("http:", "https:");
+				links[i].setAttribute('href', checkUrl);
 			}
+			
+			if(isMobile && checkUrl.indexOf(mainUrl) == 0 && checkUrl.indexOf("?m=1")==-1){
+				checkUrl += "?m=1";
+				links[i].setAttribute('href', checkUrl)
+			}
+			
+			
 	}
 }
 
-function checkLinks(){
-	if(window.location.href.indexOf('?m=1')==-1){
-		return;
-	}
-	var links = document.getElementsByTagName("a");
-	updateLink(links);
-}checkLinks();
+updateLink(document.getElementsByTagName("a"));
 
 //===================Main/Search/Label=============================
 function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
@@ -246,9 +249,7 @@ function LoadInfo() {
         });
         $(".imageContainer img").resizeToParent();
 
-		if(window.location.href.indexOf('?m=1')!=-1){
-			updateLink($('#main-wrapper a').toArray());
-		}
+		updateLink($('#main-wrapper a').toArray());
     });
 }
 
@@ -329,9 +330,7 @@ function loadRelatedPosts() {
             }
         }
         showRelatedPosts(relatedTitles, relatedUrls, thumburl);
-		if(window.location.href.indexOf('?m=1')!=-1){
-			updateLink($('#related-posts a').toArray());
-		}
+		updateLink($('#related-posts a').toArray());
     });
 }
 
