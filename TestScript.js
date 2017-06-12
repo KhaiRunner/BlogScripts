@@ -512,7 +512,7 @@ deferResizeToParent(function() {
     
 	deferJquery(function() {
     handleImg();
-    loadRelatedPosts();
+    //loadRelatedPosts();
 	
 	$.ajaxSetup({cache: true});
 	(function(a, b, c) {
