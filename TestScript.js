@@ -263,79 +263,8 @@ function handleImg() {
     });
 }
 
-function showRelatedPosts(relatedTitles, relatedUrls, thumburl) {
-    var maxresults = 3;
-    for (var i = 0; i < relatedUrls.length; ++i) {
-        if (!(relatedTitles[i])) {
-            relatedUrls.splice(i, 1);
-            relatedTitles.splice(i, 1);
-            thumburl.splice(i, 1);
-            --i;
-        }
-    }
-    var r = Math.floor((relatedTitles.length - 1) * Math.random());
-    var i = 0;
-    var displayHtml = '<div class="c"/>';
-    if (relatedTitles.length > 0) displayHtml = '<h2><span>Related Posts</span></h2>' + displayHtml;
-    while (i < relatedTitles.length && i < maxresults) {
-        thumburl[r] = thumburl[r].replace('s72-c', 's160');
-        displayHtml += '<a href="' + relatedUrls[r] + '"><img class="related_img" src="' + thumburl[r] + '"/><br/><div id="related-title">' + relatedTitles[r] + '</div></a>';
-        if (r < relatedTitles.length - 1) {
-            ++r;
-        } else {
-            r = 0;
-        }++i;
-    }
-    displayHtml += '</div>';
-    $('#related-posts')[0].innerHTML = displayHtml;
-    relatedUrls.splice(0, relatedUrls.length);
-    thumburl.splice(0, thumburl.length);
-    relatedTitles.splice(0, relatedTitles.length);
-}
-
-function loadRelatedPosts() {
-    var category = 'บ้านสวยๆ';
-    var categoriesList = $('.adsUnderContent .labelom a:not(:first)');
-    if (categoriesList.length > 2) {
-        for (var i = categoriesList.length - 1; i >= 0; --i) {
-            var currentCategory = categoriesList[i].text;
-            if (currentCategory != 'บ้านสวยๆ' || currentCategory != 'แต่งบ้าน') {
-                category = currentCategory;
-                break;
-            }
-        }
-    } else {
-        category = categoriesList.length > 0 ? categoriesList[0].text : 'บ้านสวยๆ';
-    }
-    var relatedPostUrl = '/feeds/posts/default/-/' + category + '?alt=json&max-results=3';
-    $.getJSON(relatedPostUrl, function(data) {
-        var relatedTitlesNum = 0;
-        var relatedTitles = new Array();
-        var relatedUrls = new Array();
-        var thumburl = new Array();
-        var entryList = data.feed.entry;
-        for (var i = 0; i < entryList.length; ++i) {
-            var entry = entryList[i];
-            relatedTitles[relatedTitlesNum] = entry.title.$t;
-            var thumb = entry.media$thumbnail;
-            thumburl[relatedTitlesNum] = (thumb && thumb.url) ? thumb.url : 'http://goo.gl/4Bk4TZ';
-            if (relatedTitles[relatedTitlesNum].length > 35) relatedTitles[relatedTitlesNum] = relatedTitles[relatedTitlesNum].substring(0, 35) + "...";
-            var linkObjects = entry.link;
-            for (var k = linkObjects.length - 1; k >= 0; --k) {
-                if (linkObjects[k].rel == 'alternate') {
-                    relatedUrls[relatedTitlesNum] = linkObjects[k].href;
-                    ++relatedTitlesNum;
-                    break;
-                }
-            }
-        }
-        showRelatedPosts(relatedTitles, relatedUrls, thumburl);
-		updateLink($('#related-posts a').toArray());
-    });
-}
-
 function stickyFB(windowWidth) {
-    if (windowWidth > 1200) return;
+    //if (windowWidth > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
         socialFloat = $('#socialFloat .fbLike'),
@@ -512,7 +441,6 @@ deferResizeToParent(function() {
     
 	deferJquery(function() {
     handleImg();
-    //loadRelatedPosts();
 	
 	$.ajaxSetup({cache: true});
 	(function(a, b, c) {
