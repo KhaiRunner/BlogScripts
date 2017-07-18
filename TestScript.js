@@ -20,21 +20,24 @@ function addWidgets(){
 addWidgets();
 
 //Load Facebook SDK
- window.fbAsyncInit = function() {
+window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1510966302504763', // testing
-      xfbml      : true,
-      version    : 'v2.0'
+      appId            : '1510966302504763', // testing
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.9'
     });
+    FB.AppEvents.logPageView();
   };
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
 
 function deferJquery(a){window.jQuery?a():setTimeout(function(){deferJquery(a)},50)}
 function deferResizeToParent(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){deferResizeToParent(a)},50)}
