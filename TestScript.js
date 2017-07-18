@@ -20,6 +20,13 @@ function addWidgets(){
 addWidgets();
 
 //Load Facebook SDK
+ window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1510966302504763', // testing
+      xfbml      : true,
+      version    : 'v2.0'
+    });
+  };
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
