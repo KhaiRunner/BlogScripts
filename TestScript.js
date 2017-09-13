@@ -473,9 +473,9 @@ function displayRecentPost(){
 		
 		//check img for add <img> or <div class="pop1"></div>
 		if(allInfo[indexImg].length > 0){
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'"><b>» </b>'+allInfo[indexTitle]+'</a></div></div></li>';
+			recentlyHtml += '<li class="c"><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'"><b>» </b>'+allInfo[indexTitle]+'</a></div></div></li>';
 		}else{
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><div class="pop'+(++popIndex)+'"></div></a></div><div class="t"><a href="'+allInfo[indexLink]+'"><b>» </b>'+allInfo[indexTitle]+'</a></div></div></li>';
+			recentlyHtml += '<li class="c"><div class="p"><a href="'+allInfo[indexLink]+'"><div class="pop'+(++popIndex)+'"></div></a></div><div class="t"><a href="'+allInfo[indexLink]+'"><b>» </b>'+allInfo[indexTitle]+'</a></div></div></li>';
 		}		
 	}
 	recentlyHtml += '</ul>';
