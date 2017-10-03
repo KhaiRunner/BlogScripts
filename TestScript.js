@@ -556,7 +556,7 @@ deferResizeToParent(function() {
                         }
                     }
                     1 === k && q && (b = '<option value="">' + q + "</option>" + b);
-                    1 === k && (b = '<select class="selectnav" id="' + h(!0) + '">' + b + "</select>");
+                    1 === k && (b = '<select class="m" id="' + h(!0) + '">' + b + "</select>");
                     k--;
                     return b
                 }
@@ -582,15 +582,15 @@ deferResizeToParent(function() {
             a(e, h)
         }
     }();
-    selectnav("nav");
+    selectnav("n");
     $(".imageContainer img").resizeToParent();
-    $("#sBtn button").click(function() {
+    $("#sBtn").click(function() {
         $("#sBox").animate({
             top: "0px"
         });
-        $("#sTxt").focus()
+        $("#sT").focus()
     });
-    $("#sBox button.remove").click(function() {
+    $("#sBox>.remove").click(function() {
         $("#sBox").animate({
             top: "-80px"
         })
