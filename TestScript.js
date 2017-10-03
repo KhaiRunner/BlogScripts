@@ -509,9 +509,9 @@ function stickySidebar() {
 };
 deferResizeToParent(function() {
     if (1200 >= (0 < window.innerWidth ? window.innerWidth : screen.width)) {
-        var a = $(document.getElementById("sidebar-wrapper2").outerHTML);
+        var a = $(document.getElementById("sb2").outerHTML);
         a.find("#HTML3").remove();
-        a.prependTo("#sidebar-wrapper3")
+        a.prependTo("#sb3")
     } else -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
     window.selectnav = function() {
         var a = function(a, e) {
