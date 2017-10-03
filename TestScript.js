@@ -2,7 +2,6 @@
 var isContentPage = document.getElementById('isContent').value == '1';
 
 
-
 function addWidgets(){
 	document.getElementById('HTML8').innerHTML = "<h2>แต่งบ้าน</h2><div class='widget-content list-label-widget-content'><ul><li><a href='/search/label/ห้องนอน'><b>💤</b>ห้องนอน</a></li><li><a href='/search/label/ห้องนอนเด็ก'><b>👶</b>ห้องนอนเด็ก</a></li><li><a href='/search/label/ห้องนั่งเล่น'><b>📺</b>ห้องนั่งเล่น</a></li><li><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕</b>ตู้เสื้อผ้า</a></li><li><a href='/search/label/เก้าอี้และโซฟา'><b>💺</b>เก้าอี้และโซฟา</a></li><li><a href='/search/label/ชั้นหนังสือ'><b>📚</b>ชั้นหนังสือ</a></li><li><a href='/search/label/แต่งผนัง'><b>🎨</b>แต่งผนัง</a></li><li><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢</b>แบบโฮมออฟฟิศ</a></li><li><a href='/search/label/สวนสวย'><b>🌷</b>สวนสวย</a></li><li><a href='/search/label/ห้องน้ำ'><b>🚽</b>ห้องน้ำ</a></li><li><a href='/search/label/แบบห้องครัว'><b>🍴</b>แบบห้องครัว</a></li></ul></div>";
 	document.getElementById('HTML7').innerHTML = "<h2>สีห้อง</h2><div class='widget-content list-label-widget-content'><ul><li><a href='/search/label/โทนสีครีม'><b>🎨</b>สีครีม</a></li><li><a href='/search/label/โทนสีชมพู'><b>🎨</b>สีชมพู</a></li><li><a href='/search/label/โทนสีดำ'><b>🎨</b>สีดำ</a></li><li><a href='/search/label/โทนสีฟ้า'><b>🎨</b>สีฟ้า</a></li><li><a href='/search/label/โทนสีม่วง'><b>🎨</b>สีม่วง</a></li><li><a href='/search/label/โทนสีเขียว'><b>🎨</b>สีเขียว</a></li></ul></div>";
