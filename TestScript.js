@@ -267,7 +267,7 @@ function stickyFB(windowWidth) {
     if (windowWidth > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
-        socialFloat = $('#socialFloat .fbLike'),
+        socialFloat = $('#fbP .fb'),
         socialHeight = socialFloat.height(),
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
