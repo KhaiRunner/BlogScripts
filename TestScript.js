@@ -590,7 +590,7 @@ deferResizeToParent(function() {
         });
         $("#sT").focus()
     });
-    $("#sBox>.remove").click(function() {
+    $("#sBox>.del").click(function() {
         $("#sBox").animate({
             top: "-80px"
         })
