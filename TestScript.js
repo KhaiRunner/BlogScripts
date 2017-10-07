@@ -256,11 +256,12 @@ function LoadInfo() {
 
 //===================Content Page=============================
 function handleImg() {
-    $('[id^=adMid_] a:has(img)').each(function() {
-        $(this).replaceWith(function() {
-            return $('img', this);
-        });
-    });
+    // $('[id^=adMid_] a:has(img)').each(function() {
+        // $(this).replaceWith(function() {
+            // return $('img', this);
+        // });
+    // });
+	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
 
 function stickyFB(windowWidth) {
