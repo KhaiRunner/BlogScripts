@@ -586,7 +586,7 @@ deferResizeToParent(function() {
         });
         $("#sT").focus()
     });
-    $("#sBox>.del").click(function() {
+    $(".del").click(function() {
         $("#sBox").animate({
             top: "-80px"
         })
