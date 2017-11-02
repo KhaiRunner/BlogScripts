@@ -1,9 +1,13 @@
-﻿//------------------All Page First section------------------
-var isContentPage = document.getElementById('isContent').value == '1';
+﻿/*
+(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(displayRecentPost)|(stickySidebar)|(findScriptSection)
+(?1iCP)(?2aW)(?3djq)(?4dRP)(?5uL)(?6oI)(?7lT)(?8LI)(?9hI)(?10sFB)(?11dRP)(?12sSB)(?13SS)
+*/
+//------------------All Page First section------------------
+var iCP = document.getElementById('isContent').value == '1';
 
 
 
-function addWidgets(){
+function aW(){
 	document.getElementById('HTML8').innerHTML = "<h2>แต่งบ้าน</h2><div class='widget-content ll'><ul><li><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a></li><li><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a></li><li><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a></li><li><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a></li><li><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a></li><li><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a></li><li><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a></li><li><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a></li><li><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a></li><li><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a></li><li><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></li></ul></div>";
 	document.getElementById('HTML7').innerHTML = "<h2>สีห้อง</h2><div class='widget-content ll'><ul><li><a href='/search/label/โทนสีครีม'><b>🎨 </b>สีครีม</a></li><li><a href='/search/label/โทนสีชมพู'><b>🎨 </b>สีชมพู</a></li><li><a href='/search/label/โทนสีดำ'><b>🎨 </b>สีดำ</a></li><li><a href='/search/label/โทนสีฟ้า'><b>🎨 </b>สีฟ้า</a></li><li><a href='/search/label/โทนสีม่วง'><b>🎨 </b>สีม่วง</a></li><li><a href='/search/label/โทนสีเขียว'><b>🎨 </b>สีเขียว</a></li></ul></div>";
 	document.getElementById('HTML12').innerHTML = "<div class='widget-content'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
@@ -17,12 +21,12 @@ function addWidgets(){
 		+ "</div></div></div></div><div class='ft'><div class='section'><div class='widget HTML' data-version='1' id='HTML9'><h2>More Topics</h2><div class='widget-content cl'><span><a href='/search/label/IKEA'>IKEA</a></span><span><a href='/search/label/SB Design Square'>SB</a></span><span><a href='/search/label/การเลือกซื้อบ้าน'>เล&#3639;อกซ&#3639;&#3657;อบ&#3657;าน</a></span><span><a href='/search/label/คอนโด'>คอนโด</a></span><span><a href='/search/label/ตากผ้า'>ตากผ&#3657;า</a></span><span><a href='/search/label/บันได'>บ&#3633;นได</a></span><span><a href='/search/label/บ้านชั้นเดียว'>บ&#3657;านช&#3633;&#3657;นเด&#3637;ยว</a></span><span><a href='/search/label/ม่าน'>ม&#3656;าน</a></span><span><a href='/search/label/วางแผนการเงิน'>แผนการเง&#3636;น</a></span><span><a href='/search/label/เครื่องซักผ้า'>เคร&#3639;&#3656;องซ&#3633;กผ&#3657;า</a></span><span><a href='/search/label/แต่งบ้าน'>แต&#3656;งบ&#3657;าน</a></span></div></div></div></div><div class='ft'><div class='section' id='ft4'><div class='widget ContactForm' data-version='1' id='ContactForm2'><h2>Contact Us</h2><div class='wn contact-form-widget'><div class='form'><form name='contact-form'><p></p>ช&#3639;&#3656;อ<br/><input class='cf contact-form-name' id='ContactForm2_contact-form-name' name='name' size='30' type='text' value=''/><p></p>อ&#3637;เมล<b>*</b><br/><input class='cf contact-form-email' id='ContactForm2_contact-form-email' name='email' size='30' type='text' value=''/><p></p>ข&#3657;อความ<b>*</b><br/><textarea class='cf contact-form-email-message' cols='25' id='ContactForm2_contact-form-email-message' name='email-message' rows='5'></textarea><p></p><input class='cfb contact-form-button contact-form-button-submit' id='ContactForm2_contact-form-submit' type='button' value='ส่ง'/><p></p><div style='text-align:center;max-width:222px;width:100%'><p class='contact-form-error-message' id='ContactForm2_contact-form-error-message'></p><p class='contact-form-success-message' id='ContactForm2_contact-form-success-message'></p></div></form></div></div></div></div></div></div>";
 	
 }
-addWidgets();
+aW();
 
-function deferJquery(a){window.jQuery?a():setTimeout(function(){deferJquery(a)},10)}
-function deferResizeToParent(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){deferResizeToParent(a)},10)}
-deferJquery(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
-function updateLink(links){
+function djq(a){window.jQuery?a():setTimeout(function(){djq(a)},10)}
+function dRP(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){dRP(a)},10)}
+djq(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
+function uL(links){
 	var isMobile = window.location.href.indexOf('?m=1')!=-1;
 	var mainUrl = window.location.origin;
 	var httpUrl = "http://" + window.location.hostname;
@@ -42,10 +46,10 @@ function updateLink(links){
 	}
 }
 
-updateLink(document.getElementsByTagName("a"));
+uL(document.getElementsByTagName("a"));
 
 //===================Main/Search/Label=============================
-function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
+function oI(lowResUrl, htmlSectionId, imageIndex) {
     switch (htmlSectionId) {
         case 'mainSliderArea':
             return lowResUrl.replace('s72-c', 's1600');
@@ -62,7 +66,7 @@ function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
     return lowResUrl;
 }
 
-function labelthumbs(json, categoryNeeded, htmlElement, params) {
+function lT(json, categoryNeeded, htmlElement, params) {
     var showpostthumbnails = params.showpostthumbnails;
     var displaymore = params.displaymore;
     var displayseparator = params.displayseparator;
@@ -102,7 +106,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
         }
         var thumb = n.media$thumbnail;
         var l = (thumb && thumb.url) ? thumb.url : "http://goo.gl/LsGgtD";
-        l = optimizeImg(l, htmlElement.id, countNeedPosts);
+        l = oI(l, htmlElement.id, countNeedPosts);
         var p = n.published.$t;
         var v = p.substring(0, 4);
         var m = p.substring(5, 7);
@@ -175,7 +179,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
     htmlElement.innerHTML = displayHtml;
 }
 
-function LoadInfo() {
+function LI() {
     if (!$('#mainSlider').length) return;
     var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
     $.getJSON(recentlyPostUrl, function(data) {
@@ -189,7 +193,7 @@ function LoadInfo() {
             showpostsummary: false,
             numchars: 100
         };
-        labelthumbs(data, $('#mainSlider').val(), $('#mainSliderArea')[0], paramsMainSlider);
+        lT(data, $('#mainSlider').val(), $('#mainSliderArea')[0], paramsMainSlider);
         $('.slider').unslider({
             speed: 500,
             delay: 3000,
@@ -207,7 +211,7 @@ function LoadInfo() {
         $(window).bind("load", function() {
             $('.slider, .cover').css("visibility", "visible");
         });
-        labelthumbs(data, $('#recent1Category').val(), $('#recent1Area')[0], {
+        lT(data, $('#recent1Category').val(), $('#recent1Area')[0], {
             numposts: 4,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -215,7 +219,7 @@ function LoadInfo() {
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#recent2Category').val(), $('#recent2Area')[0], {
+        lT(data, $('#recent2Category').val(), $('#recent2Area')[0], {
             numposts: 2,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -223,7 +227,7 @@ function LoadInfo() {
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#recent3Category').val(), $('#recent3Area')[0], {
+        lT(data, $('#recent3Category').val(), $('#recent3Area')[0], {
             numposts: 6,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -231,7 +235,7 @@ function LoadInfo() {
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#recent5Category').val(), $('#recent5Area')[0], {
+        lT(data, $('#recent5Category').val(), $('#recent5Area')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -239,7 +243,7 @@ function LoadInfo() {
             showpostsummary: true,
             numchars: 150
         });
-        labelthumbs(data, $('#recent6Category').val(), $('#recent6Area')[0], {
+        lT(data, $('#recent6Category').val(), $('#recent6Area')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -249,17 +253,17 @@ function LoadInfo() {
         });
         $(".imageContainer img").resizeToParent();
 
-		updateLink($('#main-wrapper a').toArray());
+		uL($('#main-wrapper a').toArray());
     });
 }
 
 
 //===================Content Page=============================
-function handleImg() {
+function hI() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
 
-function stickyFB(windowWidth) {
+function sFB(windowWidth) {
     if (windowWidth > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
@@ -292,8 +296,8 @@ function stickyFB(windowWidth) {
 
 
 //----------------------------------------------------
-if(!isContentPage){
-deferResizeToParent(function() {
+if(!iCP){
+dRP(function() {
     (function(e, t) {
         if (!e) return t;
         var n = function() {
@@ -426,15 +430,15 @@ deferResizeToParent(function() {
             })
         }
     })(window.jQuery, false)
-    LoadInfo();
+    LI();
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
         return src.replace('s72-c', 's1600');
     });
 });
 }else{
 	//Content Page script
-	deferJquery(function() {
-    handleImg();
+	djq(function() {
+    hI();
 	
 	$.ajaxSetup({cache: true});
 	(function(a, b, c) {
@@ -449,7 +453,7 @@ deferResizeToParent(function() {
     $.getScript("https://apis.google.com/js/platform.js");
 	
     var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    stickyFB(windowWidth);
+    sFB(windowWidth);
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -467,7 +471,7 @@ deferResizeToParent(function() {
 }
 //----------------------------------------------------
 // All Page Last section
-function displayRecentPost(){
+function dRP(){
 	var allInfo = document.getElementById("rawRecentPosts").value.split(',');
 	var recentlyHtml = '<ul>';
 	var popIndex = 5;
@@ -488,7 +492,7 @@ function displayRecentPost(){
 }
 
 
-function stickySidebar() {
+function sSB() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
         c = $("#HTML3"),
@@ -512,12 +516,12 @@ function stickySidebar() {
         })
     })
 };
-deferResizeToParent(function() {
+dRP(function() {
     if (1200 >= (0 < window.innerWidth ? window.innerWidth : screen.width)) {
         var a = $(document.getElementById("sb2").outerHTML);
         a.find("#HTML3").remove();
         a.prependTo("#sb3")
-    } else -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
+    } else -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || sSB();
     window.selectnav = function() {
         var a = function(a, e) {
             function c(a) {
@@ -600,10 +604,10 @@ deferResizeToParent(function() {
             top: "-80px"
         })
     });
-	displayRecentPost();
+	dRP();
     $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
 });
 
 
-function findScriptSection(){$(function(){var a=document.getElementsByTagName("body")[0].innerHTML,e=a.lastIndexOf("-widgets.js"),g=a.indexOf("http",e-85),g=a.substring(g,e+11),e=a.indexOf("_WidgetManager._Init",e)+21,h=a.indexOf(");",e),c=a.substring(e,h).replace(/["']/g,"").split(",");$.getScript(g,function(a,e,g){3<=c.length&&(_WidgetManager._Init(c[0],c[1],c[2]+""),_WidgetManager._RegisterWidget("_ContactFormView",new _WidgetInfo("ContactForm2","ft4",null,document.getElementById("ContactForm2"),{contactFormMessageSendingMsg:"\u0e01\u0e33\u0e25&#3633;\u0e07\u0e2a&#3656;\u0e07...",contactFormMessageSentMsg:"\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e41\u0e25&#3657;\u0e27",contactFormMessageNotSentMsg:"\u0e44\u0e21&#3656;\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e44\u0e14&#3657; \u0e42\u0e1b\u0e23\u0e14\u0e25\u0e2d\u0e07\u0e2d&#3637;\u0e01\u0e04\u0e23&#3633;&#3657;\u0e07\u0e43\u0e19\u0e20\u0e32\u0e22\u0e2b\u0e25&#3633;\u0e07",contactFormInvalidEmailMsg:"\u0e15&#3657;\u0e2d\u0e07\u0e23\u0e30\u0e1a&#3640;\u0e17&#3637;&#3656;\u0e2d\u0e22&#3641;&#3656;\u0e2d&#3637;\u0e40\u0e21\u0e25\u0e17&#3637;&#3656;\u0e16&#3641;\u0e01\u0e15&#3657;\u0e2d\u0e07",contactFormEmptyMessageMsg:"\u0e0a&#3656;\u0e2d\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e08\u0e30\u0e15&#3657;\u0e2d\u0e07\u0e44\u0e21&#3656;\u0e40\u0e27&#3657;\u0e19\u0e27&#3656;\u0e32\u0e07",title:"Contact Us",blogId:"233816824204858149",contactFormNameMsg:"\u0e0a&#3639;&#3656;\u0e2d",contactFormEmailMsg:"\u0e2d&#3637;\u0e40\u0e21\u0e25",contactFormMessageMsg:"\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21",contactFormSendMsg:"\u0e2a&#3656;\u0e07",submitUrl:"https://www.blogger.com/contact-form.do"},"displayModeFull")))})})}
-deferJquery(findScriptSection);
+function SS(){$(function(){var a=document.getElementsByTagName("body")[0].innerHTML,e=a.lastIndexOf("-widgets.js"),g=a.indexOf("http",e-85),g=a.substring(g,e+11),e=a.indexOf("_WidgetManager._Init",e)+21,h=a.indexOf(");",e),c=a.substring(e,h).replace(/["']/g,"").split(",");$.getScript(g,function(a,e,g){3<=c.length&&(_WidgetManager._Init(c[0],c[1],c[2]+""),_WidgetManager._RegisterWidget("_ContactFormView",new _WidgetInfo("ContactForm2","ft4",null,document.getElementById("ContactForm2"),{contactFormMessageSendingMsg:"\u0e01\u0e33\u0e25&#3633;\u0e07\u0e2a&#3656;\u0e07...",contactFormMessageSentMsg:"\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e41\u0e25&#3657;\u0e27",contactFormMessageNotSentMsg:"\u0e44\u0e21&#3656;\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e44\u0e14&#3657; \u0e42\u0e1b\u0e23\u0e14\u0e25\u0e2d\u0e07\u0e2d&#3637;\u0e01\u0e04\u0e23&#3633;&#3657;\u0e07\u0e43\u0e19\u0e20\u0e32\u0e22\u0e2b\u0e25&#3633;\u0e07",contactFormInvalidEmailMsg:"\u0e15&#3657;\u0e2d\u0e07\u0e23\u0e30\u0e1a&#3640;\u0e17&#3637;&#3656;\u0e2d\u0e22&#3641;&#3656;\u0e2d&#3637;\u0e40\u0e21\u0e25\u0e17&#3637;&#3656;\u0e16&#3641;\u0e01\u0e15&#3657;\u0e2d\u0e07",contactFormEmptyMessageMsg:"\u0e0a&#3656;\u0e2d\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e08\u0e30\u0e15&#3657;\u0e2d\u0e07\u0e44\u0e21&#3656;\u0e40\u0e27&#3657;\u0e19\u0e27&#3656;\u0e32\u0e07",title:"Contact Us",blogId:"233816824204858149",contactFormNameMsg:"\u0e0a&#3639;&#3656;\u0e2d",contactFormEmailMsg:"\u0e2d&#3637;\u0e40\u0e21\u0e25",contactFormMessageMsg:"\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21",contactFormSendMsg:"\u0e2a&#3656;\u0e07",submitUrl:"https://www.blogger.com/contact-form.do"},"displayModeFull")))})})}
+djq(SS);
