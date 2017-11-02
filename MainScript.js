@@ -1,4 +1,8 @@
-﻿//------------------All Page First section------------------
+﻿/*
+(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(displayRecentPost)|(stickySidebar)|(findScriptSection)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)
+*/
+//------------------All Page First section------------------
 var isContentPage = document.getElementById('isContent').value == '1';
 
 
