@@ -463,7 +463,7 @@ deferResizeToParent(function() {
 			message = "This is the latest post."
 		}
 		pagerLink.removeAttr('href');
-		pagerLink[0].innerHTML += " <span style='color:#666'>"+message+"</span></a> ";
+		pagerLink[0].innerHTML += " <div style='color:#666;font-size:16px'>"+message+"</div></a> ";
 	}
 });
    
