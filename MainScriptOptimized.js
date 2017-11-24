@@ -297,6 +297,7 @@ function J(windowWidth) {
 
 //----------------------------------------------------
 if(!A){
+document.getElementById("overbg").classList.remove('item');
 D(function() {
     (function(e, t) {
         if (!e) return t;
