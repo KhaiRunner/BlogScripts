@@ -297,6 +297,7 @@ function stickyFB(windowWidth) {
 
 //----------------------------------------------------
 if(!isContentPage){
+document.getElementById("overbg").classList.remove('item');
 deferResizeToParent(function() {
     (function(e, t) {
         if (!e) return t;
