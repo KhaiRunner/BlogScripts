@@ -473,7 +473,7 @@ deferResizeToParent(function() {
 // All Page Last section
 function displayRecentPost(){
 	var allInfo = document.getElementById("rawRecentPosts").value.split(',');
-	var recentlyHtml = '<ul class="wc pp">';
+	var recentlyHtml = '<ul class="wc pp"><h2>Recent Posts</h2>';
 	var popIndex = 5;
 	for (var index = 0;index<5;++index){
 		var indexTitle = index;
