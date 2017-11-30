@@ -488,7 +488,7 @@ function displayRecentPost(){
 		}		
 	}
 	recentlyHtml += '</ul>';
-	document.getElementById('HTML2').getElementsByTagName('div')[0].innerHTML = recentlyHtml;
+	document.getElementById('HTML2').innerHTML = recentlyHtml;
 }
 
 
