@@ -605,11 +605,7 @@ deferResizeToParent(function() {
         })
     });
 	displayRecentPost();
-	var errorPage = $(".error_page #main-wrapper");
-	if(errorPage.length > 0){
-		errorPage.prepend('<div class="error-title"><span>404</span>')
-		document.title = 'Not Found - Build Sweet Home';
-	}
+    $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
 });
 
 
