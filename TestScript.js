@@ -604,7 +604,6 @@ deferResizeToParent(function() {
             top: "-80px"
         })
     });
-	
 	displayRecentPost();
     $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
 });
