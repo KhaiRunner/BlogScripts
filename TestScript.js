@@ -530,12 +530,7 @@ deferResizeToParent(function() {
                 3 === d.nodeType && (d = d.parentNode);
                 d.value && (window.location.href = d.value)
             }
-
-            function g(a) {
-                a = a.nodeName.toLowerCase();
-                return "ul" === a || "ol" === a
-            }
-
+			
             function h(a) {
                 for (var d = 1; document.getElementById("selectnav" + d); d++);
                 return a ? "selectnav" + d : "selectnav" + (d - 1)
@@ -560,7 +555,7 @@ deferResizeToParent(function() {
                             m && (l = -1 !== f.className.search(m) || -1 !== f.parentNode.className.search(m) ? p : "");
                             u && !l && (l = f.href === document.URL ? p : "");
                             b += '<option value="' + f.href + '" ' + l + ">" + e + t + "</option>";
-                            v && (f = a.children[c].children[1]) && g(f) && (b += n(f))
+                            v && (f = a.children[c].children[1]) && (b += n(f))
                         }
                     }
                     1 === k && q && (b = '<option value="">' + q + "</option>" + b);
@@ -569,7 +564,7 @@ deferResizeToParent(function() {
                     return b
                 }
             }
-            if ((a = document.getElementById(a)) && g(a) && "insertAdjacentHTML" in window.document.documentElement) {
+            if ((a = document.getElementById(a)) && "insertAdjacentHTML" in window.document.documentElement) {
                 document.documentElement.className += " js";
                 var b = e || {},
                     m = b.activeclass || "active",
