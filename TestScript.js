@@ -548,8 +548,6 @@ deferResizeToParent(function() {
                         e += " "
                     }
                     for (c = 0; c < d; c++) {
-						console.log(a);
-						console.log(children[c]);
                         var f = a.children[c];
                         if ("undefined" !== typeof f) {
                             var t = f.innerText || f.textContent,
