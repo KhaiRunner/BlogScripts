@@ -474,7 +474,8 @@ deferResizeToParent(function() {
 //----------------------------------------------------
 // All Page Last section
 function displayRecentPost(){
-	var allInfo = document.getElementById("rawRecentPosts").value.split(',');
+	//rawRecentPosts -> r
+	var allInfo = document.getElementById("r").value.split(',');
 	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
 	var popIndex = 5;
 	for (var index = 0;index<5;++index){
