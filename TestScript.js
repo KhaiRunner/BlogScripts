@@ -9,7 +9,7 @@ var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 function addWidgets(){
 	//-----------------------------------
 	//Update Sidebar both left and right.
-	var htmlSidebarRight = '<div class="sidebar" id="sb"><div class="widget" id="HTML6"/><div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2"/></div><div class="widget" id="HTML7"/><div class="widget" id="HTML12"/></div>';
+	var htmlSidebarRight = '<div class="sidebar" id="sb"><div class="widget" id="HTML6"/><div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2"/></div><div class="widget" id="HTML7"/><div class="widget" id="HTML12"/></div><div id="sb3"><div id="sb2" class="sidebar"><div class="widget" id="HTML9"/></div></div></div>';
 	var parser = new DOMParser();
 	var doc = parser.parseFromString(htmlSidebarRight, "text/xml");
 	doc.getElementById('HTML6').innerHTML = '<h2>Weekly Popular Posts</h2>'
