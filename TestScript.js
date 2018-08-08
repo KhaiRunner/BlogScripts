@@ -5,7 +5,8 @@
 //------------------All Page First section------------------
 var isContentPage = document.getElementById('isContent').value == '1';
 
-
+var test = 0 < window.innerWidth ? window.innerWidth : screen.width;
+console.log(test);
 
 function addWidgets(){
 	document.getElementById('HTML6').innerHTML = '<h2>Weekly Popular Posts</h2>'
