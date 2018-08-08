@@ -4,9 +4,7 @@
 */
 //------------------All Page First section------------------
 var isContentPage = document.getElementById('isContent').value == '1';
-
-var test = 0 < window.innerWidth ? window.innerWidth : screen.width;
-console.log(test);
+var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 
 function addWidgets(){
 	document.getElementById('HTML6').innerHTML = '<h2>Weekly Popular Posts</h2>'
@@ -14,7 +12,6 @@ function addWidgets(){
 	document.getElementById('HTML7').innerHTML = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
 	document.getElementById('HTML12').innerHTML = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
 	
-	var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 	var displayArea = windowWidth>1200?'HTML8':'HTML9';	
 	document.getElementById(displayArea).innerHTML = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
 	document.getElementById('f').innerHTML = "<div class='ft'><div class='widget' id='HTML4'><h2>Home Decor</h2><div class='cl i'><span><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a></span><span><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a></span><span><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a></span><span><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a></span><span><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a></span><span><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a></span><span><a href='/search/label/พรม'><b>👣 </b>พรม</a></span><span><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a></span><span><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></span></div></div></div>"
@@ -455,7 +452,6 @@ deferResizeToParent(function() {
     })(document, "script", "twitter-wjs");
     $.getScript("https://apis.google.com/js/platform.js");
 	
-    var windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     stickyFB(windowWidth);
 	
 	//Fix link
@@ -521,8 +517,7 @@ function stickySidebar() {
     })
 };
 deferResizeToParent(function() {
-	var screenWidth = (0 < window.innerWidth ? window.innerWidth : screen.width);
-    if (1200 < screenWidth) {
+    if (1200 < windowWidth) {
         -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
     } 
     $(".imageContainer img").resizeToParent();
