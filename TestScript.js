@@ -6,6 +6,28 @@
 var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 
+function displayRecentPost(){
+	//rawRecentPosts -> r
+	var allInfo = document.getElementById("r").value.split(',');
+	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
+	var popIndex = 5;
+	for (var index = 0;index<5;++index){
+		var indexTitle = index;
+		var indexLink = index+5;
+		var indexImg = index+10;
+		
+		//check img for add <img> or <div class="p1"></div>
+		if(allInfo[indexImg].length > 0){
+			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+		}else{
+			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><div class="p'+(++popIndex)+'"> </div></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+		}		
+	}
+	recentlyHtml += '</ul>';
+	return recentlyHtml;
+	//document.getElementById('HTML2').innerHTML = recentlyHtml;
+}
+
 function addWidgets(){
 	//-----------------------------------
 	//Update Sidebar both left and right.
@@ -491,28 +513,6 @@ deferResizeToParent(function() {
 }
 //----------------------------------------------------
 // All Page Last section
-function displayRecentPost(){
-	//rawRecentPosts -> r
-	var allInfo = document.getElementById("r").value.split(',');
-	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
-	var popIndex = 5;
-	for (var index = 0;index<5;++index){
-		var indexTitle = index;
-		var indexLink = index+5;
-		var indexImg = index+10;
-		
-		//check img for add <img> or <div class="p1"></div>
-		if(allInfo[indexImg].length > 0){
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
-		}else{
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><div class="p'+(++popIndex)+'"> </div></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
-		}		
-	}
-	recentlyHtml += '</ul>';
-	return recentlyHtml;
-	//document.getElementById('HTML2').innerHTML = recentlyHtml;
-}
-
 
 function stickySidebar() {
     var b = $("#main-wrapper"),
