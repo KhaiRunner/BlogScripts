@@ -7,13 +7,14 @@ var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 
 function addWidgets(){
-	
+	//-----------------------------------
 	//Update Sidebar both left and right.
 	var htmlSidebarRight = '<div class="sidebar" id="sb"><div class="widget" id="HTML6"/><div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2"/></div><div class="widget" id="HTML7"/><div class="widget" id="HTML12"/></div>';
 	var parser = new DOMParser();
 	var doc = parser.parseFromString(htmlSidebarRight, "text/xml");
 	doc.getElementById('HTML6').innerHTML = '<h2>Weekly Popular Posts</h2>'
 		+'<ul class="wc pp"><li><div class="p"><a href="/2017/02/front-garden-designs.html"><div class="p1"></div></a></div><div class="t"><a href="/2017/02/front-garden-designs.html">วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/20-modern-two-story-house-design-ideas.html"><div class="p2"></div></a></div><div class="t"><a href="/2017/09/20-modern-two-story-house-design-ideas.html">20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html"><div class="p3"></div></a></div><div class="t"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html">แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></div><div class="c"/></li><li><div class="p"><a href="/2017/02/61-small-kitchen-designs.html"><div class="p4"></div></a></div><div class="t"><a href="/2017/02/61-small-kitchen-designs.html">61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/47-garden-condo-ideas.html"><div class="p5"></div></a></div><div class="t"><a href="/2017/09/47-garden-condo-ideas.html">47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></div><div class="c"/></li></ul>';
+	doc.getElementById('HTML2').innerHTML = displayRecentPost();
 	doc.getElementById('HTML7').innerHTML = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
 	doc.getElementById('HTML12').innerHTML = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
 	
@@ -25,9 +26,11 @@ function addWidgets(){
 	}else{
 		doc.getElementById('HTML9').innerHTML = htmlColorWidget;
 	}
+	
+	
 	document.getElementById('sb').innerHTML = doc.getElementById('sb').innerHTML;
 	
-	
+	//-----------------------------------
 	//Update Footer
 	var htmlFooter = '<div id="fw"><div id="f" class="woo"/><div class="woo" id="cr"><p id="iCR"/></div></div>';
 	var docFooter = parser.parseFromString(htmlFooter, "text/xml");
@@ -506,7 +509,8 @@ function displayRecentPost(){
 		}		
 	}
 	recentlyHtml += '</ul>';
-	document.getElementById('HTML2').innerHTML = recentlyHtml;
+	return recentlyHtml;
+	//document.getElementById('HTML2').innerHTML = recentlyHtml;
 }
 
 
@@ -550,7 +554,6 @@ deferResizeToParent(function() {
             top: "-80px"
         })
     });
-	displayRecentPost();
     $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
 });
 
