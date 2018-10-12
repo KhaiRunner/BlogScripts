@@ -296,6 +296,7 @@ function stickyFB(windowWidth) {
 
 //----------------------------------------------------
 if(!isContentPage){
+document.title = "Build Sweet Home";
 document.getElementById("overbg").classList.remove('item');
 deferResizeToParent(function() {
     (function(e, t) {
@@ -430,7 +431,16 @@ deferResizeToParent(function() {
             })
         }
     })(window.jQuery, false)
-    LoadInfo();
+    //Update meta
+	$('head').append("<meta content='https://buildsweethome.blogspot.com/favicon.ico' property='og:image'/>");
+	if(window.location.pathname == '/'){
+		//Home Page
+		$('head').append("<meta content='ผมอยากให้บ้านเป็นมากกว่าแค่ที่อยู่อาศัย ผมอยากให้เป็นที่ที่เราสามารถอยู่ได้อย่างมีความสุข ได้พักใจได้ผ่อนคลาย พอเวลาผ่านไปเราจะพบว่านี้คือ“ชีวิตที่ดี”' name='description'/>");
+		$('head').append("<meta content='บ้านสวยๆ,สวนสวย,แต่งบ้าน,แบบห้องครัว,ห้องนอน,แต่งผนัง' name='keywords'/>");
+	}
+
+	//Load Info
+	LoadInfo();
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
         return src.replace('s72-c', 's1600');
     });
@@ -534,6 +544,9 @@ deferResizeToParent(function() {
     });
 	displayRecentPost();
     $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
+	if($('.error-title').length > 0){
+		document.title = "Not Found - Build Sweet Home";
+	}
 });
 
 
