@@ -525,5 +525,25 @@ D(function() {
 });
 
 
-function M(){$(function(){var a=document.getElementsByTagName("body")[0].innerHTML,e=a.lastIndexOf("-widgets.js"),g=a.indexOf("http",e-85),g=a.substring(g,e+11),e=a.indexOf("_WidgetManager._Init",e)+21,h=a.indexOf(");",e),c=a.substring(e,h).replace(/["']/g,"").split(",");$.getScript(g,function(a,e,g){3<=c.length&&(_WidgetManager._Init(c[0],c[1],c[2]+""),_WidgetManager._RegisterWidget("_ContactFormView",new _WidgetInfo("ContactForm2","ft4",null,document.getElementById("ContactForm2"),{contactFormMessageSendingMsg:"\u0e01\u0e33\u0e25&#3633;\u0e07\u0e2a&#3656;\u0e07...",contactFormMessageSentMsg:"\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e41\u0e25&#3657;\u0e27",contactFormMessageNotSentMsg:"\u0e44\u0e21&#3656;\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e2a&#3656;\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e44\u0e14&#3657; \u0e42\u0e1b\u0e23\u0e14\u0e25\u0e2d\u0e07\u0e2d&#3637;\u0e01\u0e04\u0e23&#3633;&#3657;\u0e07\u0e43\u0e19\u0e20\u0e32\u0e22\u0e2b\u0e25&#3633;\u0e07",contactFormInvalidEmailMsg:"\u0e15&#3657;\u0e2d\u0e07\u0e23\u0e30\u0e1a&#3640;\u0e17&#3637;&#3656;\u0e2d\u0e22&#3641;&#3656;\u0e2d&#3637;\u0e40\u0e21\u0e25\u0e17&#3637;&#3656;\u0e16&#3641;\u0e01\u0e15&#3657;\u0e2d\u0e07",contactFormEmptyMessageMsg:"\u0e0a&#3656;\u0e2d\u0e07\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e08\u0e30\u0e15&#3657;\u0e2d\u0e07\u0e44\u0e21&#3656;\u0e40\u0e27&#3657;\u0e19\u0e27&#3656;\u0e32\u0e07",title:"Contact Us",blogId:"233816824204858149",contactFormNameMsg:"\u0e0a&#3639;&#3656;\u0e2d",contactFormEmailMsg:"\u0e2d&#3637;\u0e40\u0e21\u0e25",contactFormMessageMsg:"\u0e02&#3657;\u0e2d\u0e04\u0e27\u0e32\u0e21",contactFormSendMsg:"\u0e2a&#3656;\u0e07",submitUrl:"https://www.blogger.com/contact-form.do"},"displayModeFull")))})})}
+function M() {
+    $(function() {
+        var a = document.getElementsByTagName("body")[0].innerHTML,
+            e = a.lastIndexOf("-widgets.js"),
+            g = a.indexOf("http", e - 85),
+            g = a.substring(g, e + 11),
+            e = a.indexOf("_WidgetManager._Init", e) + 21,
+            h = a.indexOf(");", e),
+            c = a.substring(e, h).replace(/["']/g, "").split(",");
+        $.getScript(g, function(a, e, g) {
+            3 <= c.length && (_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
+	'contactFormMessageSendingMsg': 'กำล&#3633;งส&#3656;ง...', 
+	'contactFormMessageSentMsg': 'ส&#3656;งข&#3657;อความแล&#3657;ว', 
+	'contactFormMessageNotSentMsg': 'ไม&#3656;สามารถส&#3656;งข&#3657;อความได&#3657; โปรดลองอ&#3637;กคร&#3633;&#3657;งในภายหล&#3633;ง', 
+	'contactFormInvalidEmailMsg': 'ต&#3657;องระบ&#3640;ท&#3637;&#3656;อย&#3641;&#3656;อ&#3637;เมลท&#3637;&#3656;ถ&#3641;กต&#3657;อง', 
+	'contactFormEmptyMessageMsg': 'ช&#3656;องข&#3657;อความจะต&#3657;องไม&#3656;เว&#3657;นว&#3656;าง', 'title': 'ฟอร&#3660;มรายช&#3639;&#3656;อต&#3636;ดต&#3656;อ', 
+	'blogId': '7362764606334503241', 'contactFormNameMsg': 'ช&#3639;&#3656;อ', 'contactFormEmailMsg': 'อ&#3637;เมล', 
+	'contactFormMessageMsg': 'ข&#3657;อความ', 'contactFormSendMsg': 'ส&#3656;ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull')))
+        })
+    })
+}
 C(M);
