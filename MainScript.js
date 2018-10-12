@@ -439,19 +439,7 @@ deferResizeToParent(function() {
 	//Content Page script
 	deferJquery(function() {
     handleImg();
-	
-	$.ajaxSetup({cache: true});
-	(function(a, b, c) {
-        var d = a.getElementsByTagName(b)[0];
-        if (!a.getElementById(c)) {
-            a = a.createElement(b);
-            a.id = c;
-            a.src = "https://platform.twitter.com/widgets.js";
-            d.parentNode.insertBefore(a, d)
-        }
-    })(document, "script", "twitter-wjs");
-    $.getScript("https://apis.google.com/js/platform.js");
-	
+
     stickyFB(windowWidth);
 	
 	//Fix link
