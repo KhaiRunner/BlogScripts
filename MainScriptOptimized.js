@@ -541,7 +541,7 @@ function M() {
 	'contactFormMessageNotSentMsg': 'ไม&#3656;สามารถส&#3656;งข&#3657;อความได&#3657; โปรดลองอ&#3637;กคร&#3633;&#3657;งในภายหล&#3633;ง', 
 	'contactFormInvalidEmailMsg': 'ต&#3657;องระบ&#3640;ท&#3637;&#3656;อย&#3641;&#3656;อ&#3637;เมลท&#3637;&#3656;ถ&#3641;กต&#3657;อง', 
 	'contactFormEmptyMessageMsg': 'ช&#3656;องข&#3657;อความจะต&#3657;องไม&#3656;เว&#3657;นว&#3656;าง', 'title': 'ฟอร&#3660;มรายช&#3639;&#3656;อต&#3636;ดต&#3656;อ', 
-	'blogId': '7362764606334503241', 'contactFormNameMsg': 'ช&#3639;&#3656;อ', 'contactFormEmailMsg': 'อ&#3637;เมล', 
+	'blogId': '233816824204858149', 'contactFormNameMsg': 'ช&#3639;&#3656;อ', 'contactFormEmailMsg': 'อ&#3637;เมล', 
 	'contactFormMessageMsg': 'ข&#3657;อความ', 'contactFormSendMsg': 'ส&#3656;ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull')))
         })
     })
