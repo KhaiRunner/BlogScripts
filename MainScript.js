@@ -535,22 +535,22 @@ deferResizeToParent(function() {
 
 function findScriptSection() {
     $(function() {
-        var a = document.getElementsByTagName("body")[0].innerHTML,
-            e = a.lastIndexOf("-widgets.js"),
-            g = a.indexOf("http", e - 85),
-            g = a.substring(g, e + 11),
-            e = a.indexOf("_WidgetManager._Init", e) + 21,
-            h = a.indexOf(");", e),
-            c = a.substring(e, h).replace(/["']/g, "").split(",");
-        $.getScript(g, function(a, e, g) {
-            3 <= c.length && (_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
-	'contactFormMessageSendingMsg': 'กำล&#3633;งส&#3656;ง...', 
-	'contactFormMessageSentMsg': 'ส&#3656;งข&#3657;อความแล&#3657;ว', 
-	'contactFormMessageNotSentMsg': 'ไม&#3656;สามารถส&#3656;งข&#3657;อความได&#3657; โปรดลองอ&#3637;กคร&#3633;&#3657;งในภายหล&#3633;ง', 
-	'contactFormInvalidEmailMsg': 'ต&#3657;องระบ&#3640;ท&#3637;&#3656;อย&#3641;&#3656;อ&#3637;เมลท&#3637;&#3656;ถ&#3641;กต&#3657;อง', 
-	'contactFormEmptyMessageMsg': 'ช&#3656;องข&#3657;อความจะต&#3657;องไม&#3656;เว&#3657;นว&#3656;าง', 'title': 'ฟอร&#3660;มรายช&#3639;&#3656;อต&#3636;ดต&#3656;อ', 
-	'blogId': '233816824204858149', 'contactFormNameMsg': 'ช&#3639;&#3656;อ', 'contactFormEmailMsg': 'อ&#3637;เมล', 
-	'contactFormMessageMsg': 'ข&#3657;อความ', 'contactFormSendMsg': 'ส&#3656;ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull')))
+		var urlScript = 'https://www.blogger.com/static/v1/widgets/2518973450-widgets.js';	
+		var blogId = $('#b').val();
+		var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
+		var currentUrl = '\/\/' + window.location.host + window.location.pathname;
+		
+		var c = [sendInfoUrl,currentUrl,blogId];
+		
+        $.getScript(urlScript, function() {
+            _WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
+	'contactFormMessageSendingMsg': 'กำลังส่ง...', 
+	'contactFormMessageSentMsg': 'ส่งข้อความแล้ว', 
+	'contactFormMessageNotSentMsg': 'ไม่สามารถส่งข้อความได้ โปรดลองอีกครั้งในภายหลัง', 
+	'contactFormInvalidEmailMsg': 'ต้องระบุที่อยู่อีเมล์ให้ถูกต้อง', 
+	'contactFormEmptyMessageMsg': 'ข้อความต้องไม่เว้นว่าง', 'title': 'ฟอร์มรายชื่อติดต่อ', 
+	'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
+	'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
         })
     })
 }

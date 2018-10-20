@@ -541,7 +541,6 @@ function findScriptSection() {
 		var currentUrl = '\/\/' + window.location.host + window.location.pathname;
 		
 		var c = [sendInfoUrl,currentUrl,blogId];
-		console.log(c);
 		
         $.getScript(urlScript, function() {
             _WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
