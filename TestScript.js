@@ -535,29 +535,23 @@ deferResizeToParent(function() {
 
 function findScriptSection() {
     $(function() {
-        var a = document.getElementsByTagName("body")[0].innerHTML,
-            e = a.lastIndexOf("-widgets.js"),
-            g = a.indexOf("http", e - 85),
-            g = a.substring(g, e + 11),
-            e = a.indexOf("_WidgetManager._Init", e) + 21,
-            h = a.indexOf(");", e),
-            c = a.substring(e, h).replace(/["']/g, "").split(",");
-			
-			console.log('url ' + g);
-			console.log('cinfo1 ' + c[0]);
-			console.log('cinfo2 ' + c[1]);
-			console.log('cinfo3 ' + c[2]);
-			
-			
-        $.getScript(g, function(a, e, g) {
-            3 <= c.length && (_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
+		var urlScript = 'https://www.blogger.com/static/v1/widgets/2518973450-widgets.js';	
+		var blogId = $($('.post-outer meta')[2]).attr('content');
+		var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
+		var currentUrl = '\/\/' + window.location.host + window.location.pathname;
+		
+		var c = [sendInfoUrl,currentUrl,blogId];
+		console.log(c);
+		
+        $.getScript(urlScript, function() {
+            _WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
 	'contactFormMessageSendingMsg': 'กำลังส่ง...', 
 	'contactFormMessageSentMsg': 'ส่งข้อความแล้ว', 
 	'contactFormMessageNotSentMsg': 'ไม่สามารถส่งข้อความได้ โปรดลองอีกครั้งในภายหลัง', 
 	'contactFormInvalidEmailMsg': 'ต้องระบุที่อยู่อีเมล์ให้ถูกต้อง', 
 	'contactFormEmptyMessageMsg': 'ข้อความต้องไม่เว้นว่าง', 'title': 'ฟอร์มรายชื่อติดต่อ', 
-	'blogId': '233816824204858149', 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
-	'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull')))
+	'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
+	'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
         })
     })
 }
