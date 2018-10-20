@@ -536,7 +536,7 @@ deferResizeToParent(function() {
 function findScriptSection() {
     $(function() {
 		var urlScript = 'https://www.blogger.com/static/v1/widgets/2518973450-widgets.js';	
-		var blogId = $($('.post-outer meta')[2]).attr('content');
+		var blogId = $('#b').val();
 		var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
 		var currentUrl = '\/\/' + window.location.host + window.location.pathname;
 		
