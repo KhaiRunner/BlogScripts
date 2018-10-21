@@ -463,10 +463,16 @@ function displayRecentPost(){
 	var allInfo = document.getElementById("r").value.split(',');
 	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
 	var popIndex = 5;
+	
+	//Update Url in this function because we need to optimize when render HTML so that we need seperate logic.
+	var isMobile = window.location.href.indexOf('?m=1')!=-1;
 	for (var index = 0;index<5;++index){
 		var indexTitle = index;
 		var indexLink = index+5;
 		var indexImg = index+10;
+		if(isMobile){
+			allInfo[indexLink] += '?m=1';
+		}
 		
 		//check img for add <img> or <div class="p1"></div>
 		if(allInfo[indexImg].length > 0){
