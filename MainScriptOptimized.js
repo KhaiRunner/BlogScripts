@@ -22,14 +22,6 @@ function B(){
 }
 B();
 
-//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-FB.init({
-	appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-	autoLogAppEvents : true,
-	xfbml : true,
-	version : 'v3.1'
-});
-
 function C(a){window.jQuery?a():setTimeout(function(){C(a)},10)}
 function D(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){D(a)},10)}
 C(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
