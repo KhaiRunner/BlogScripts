@@ -543,9 +543,17 @@ function findScriptSection() {
 deferJquery(findScriptSection);
 
 //Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-FB.init({
-	appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-	autoLogAppEvents : true,
-	xfbml : true,
-	version : 'v3.1'
-});
+// FB.init({
+	// appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+	// autoLogAppEvents : true,
+	// xfbml : true,
+	// version : 'v3.1'
+// });
+
+window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  }; 
