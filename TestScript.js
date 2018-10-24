@@ -546,4 +546,11 @@ function findScriptSection() {
 		'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
 		'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 }
-deferJquery(findScriptSection);
+deferJquery(function(){
+	FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml : true,
+		version : 'v3.1'
+	});
+	findScriptSection();
+});
