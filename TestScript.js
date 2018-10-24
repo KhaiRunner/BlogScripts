@@ -547,10 +547,13 @@ function findScriptSection() {
 		'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 }
 deferJquery(function(){
-	FB.init({
+	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
+	window.fbAsyncInit = function() {
+    FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml : true,
-		version : 'v3.1'
-	});
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
 	findScriptSection();
 });
