@@ -1,5 +1,5 @@
 ﻿/*
-(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(displayRecentPost)|(stickySidebar)|(findScriptSection)
+(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
 (?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)
 */
 //------------------All Page First section------------------
@@ -7,13 +7,25 @@ var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 
 function addWidgets(){
-	document.getElementById('HTML6').innerHTML = '<h2>Weekly Popular Posts</h2>'
+	var html6 = '<h2>Weekly Popular Posts</h2>'
 		+'<ul class="wc pp"><li><div class="p"><a href="/2017/02/front-garden-designs.html"><div class="p1"></div></a></div><div class="t"><a href="/2017/02/front-garden-designs.html">วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/20-modern-two-story-house-design-ideas.html"><div class="p2"></div></a></div><div class="t"><a href="/2017/09/20-modern-two-story-house-design-ideas.html">20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html"><div class="p3"></div></a></div><div class="t"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html">แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></div><div class="c"/></li><li><div class="p"><a href="/2017/02/61-small-kitchen-designs.html"><div class="p4"></div></a></div><div class="t"><a href="/2017/02/61-small-kitchen-designs.html">61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/47-garden-condo-ideas.html"><div class="p5"></div></a></div><div class="t"><a href="/2017/09/47-garden-condo-ideas.html">47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></div><div class="c"/></li></ul>';
-	document.getElementById('HTML7').innerHTML = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
-	document.getElementById('HTML12').innerHTML = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
+	var html2 = getRecentPost();
+	var html7 = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
+	var html12 = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
 	
+	document.getElementById('sb').innerHTML = '<div class="widget" id="HTML6">'+html6+'</div>'
+											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>'
+											+ '<div class="widget" id="HTML7">'+html7+'</div>'
+											+ '<div class="widget" id="HTML12">'+html12+'</div>';
+
+	
+	//Check display screen fore
 	var displayArea = windowWidth>1200?'HTML8':'HTML9';	
 	document.getElementById(displayArea).innerHTML = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
+	
+	
+	
+	//Footer
 	document.getElementById('f').innerHTML = "<div class='ft'><div class='widget' id='HTML4'><h2>Home Decor</h2><div class='cl i'><span><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a></span><span><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a></span><span><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a></span><span><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a></span><span><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a></span><span><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a></span><span><a href='/search/label/พรม'><b>👣 </b>พรม</a></span><span><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a></span><span><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></span></div></div></div>"
 		+ "<div class='ft'><div class='widget' id='HTML5'><h2>Month's Popular Posts</h2><div class='pp'>"
 		+ '<ul><li><div class="p"><a href="/2017/02/42-small-front-yard-ideas.html"><div class="p11"></div></a></div><div class="t"><a href="/2017/02/42-small-front-yard-ideas.html">42 ไอเดียจัดสวนหน้าบ้าน พื้นที่น้อยๆ</a></div><div class="c"/></li><li><div class="p"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html"><div class="p12"></div></a></div><div class="t"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html">30 แบบห้องครัวบ้านชั้นเดียว หาไอเดียที่ถูกใจกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/cozy-white-condo-interior.html"><div class="p13"></div></a></div><div class="t"><a href="/2017/04/cozy-white-condo-interior.html">แบบแต่งคอนโดสวยๆ เน้นสีขาว สวยงาม น่าอยู่</a></div><div class="c"/></li></ul>'
@@ -458,7 +470,7 @@ deferResizeToParent(function() {
 }
 //----------------------------------------------------
 // All Page Last section
-function displayRecentPost(){
+function getRecentPost(){
 	//rawRecentPosts -> r
 	var allInfo = document.getElementById("r").value.split(',');
 	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
@@ -482,7 +494,7 @@ function displayRecentPost(){
 		}		
 	}
 	recentlyHtml += '</ul>';
-	document.getElementById('HTML2').innerHTML = recentlyHtml;
+	return recentlyHtml;
 }
 
 
@@ -526,7 +538,6 @@ deferResizeToParent(function() {
             top: "-80px"
         })
     });
-	displayRecentPost();
     $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
 });
 
