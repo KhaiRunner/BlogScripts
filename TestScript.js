@@ -13,16 +13,20 @@ function addWidgets(){
 	var html7 = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
 	var html12 = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
 	
-	document.getElementById('sb').innerHTML = '<div class="widget" id="HTML6">'+html6+'</div>'
+	var sidebarHtml = '<div class="widget" id="HTML6">'+html6+'</div>'
 											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>'
 											+ '<div class="widget" id="HTML7">'+html7+'</div>'
 											+ '<div class="widget" id="HTML12">'+html12+'</div>';
 
-	
+											
 	//Check display screen fore
-	var displayArea = windowWidth>1200?'HTML8':'HTML9';	
-	document.getElementById(displayArea).innerHTML = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
-	
+	var htmlLeftSidebar = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
+	if(windowWidth<=1200){
+		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'><div class='widget' id='HTML9'>"+htmlLeftSidebar+"</div></div></div>"
+	}else{
+		document.getElementById('HTML8').innerHTML = htmlLeftSidebar;
+	}
+	document.getElementById('sb').innerHTML = sidebarHtml;
 	
 	
 	//Footer
