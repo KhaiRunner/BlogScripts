@@ -1,10 +1,36 @@
 ﻿/*
-(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)
+(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|optimizeLink|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
 */
 //------------------All Page First section------------------
 var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
+
+function updateLink(links){
+	var isMobile = window.location.href.indexOf('?m=1')!=-1;
+	var mainUrl = window.location.origin;
+	var httpUrl = "http://" + window.location.hostname;
+	for(var i=0; i<links.length; ++i) {
+			var checkUrl = links[i].href;
+			if(checkUrl.indexOf(httpUrl) == 0){
+				checkUrl = checkUrl.replace("http:", "https:");
+				links[i].setAttribute('href', checkUrl);
+			}
+			
+			if(isMobile && checkUrl.indexOf(mainUrl) == 0 && checkUrl.indexOf("?m=1")==-1){
+				checkUrl += "?m=1";
+				links[i].setAttribute('href', checkUrl)
+			}
+	}
+}
+
+function optimizeLink(htmlString){
+	var domSearch = document.createElement('body');
+	domSearch.innerHTML = htmlString;
+	var links = domSearch.getElementsByTagName('a');
+	updateLink(links);
+	return domSearch.innerHTML; 
+}
 
 function addWidgets(){
 	var html6 = '<h2>Weekly Popular Posts</h2>'
@@ -24,44 +50,24 @@ function addWidgets(){
 	if(windowWidth<=1200){
 		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'><div class='widget' id='HTML9'>"+htmlLeftSidebar+"</div></div></div>"
 	}else{
-		document.getElementById('HTML8').innerHTML = htmlLeftSidebar;
+		document.getElementById('HTML8').innerHTML = optimizeLink(htmlLeftSidebar);
 	}
-	document.getElementById('sb').innerHTML = sidebarHtml;
+	document.getElementById('sb').innerHTML = optimizeLink(sidebarHtml);
 	
 	
 	//Footer
-	document.getElementById('fc').innerHTML = "<div id='f' class='woo'><div class='ft'><div class='widget' id='HTML4'><h2>Home Decor</h2><div class='cl i'><span><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a></span><span><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a></span><span><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a></span><span><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a></span><span><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a></span><span><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a></span><span><a href='/search/label/พรม'><b>👣 </b>พรม</a></span><span><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a></span><span><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></span></div></div></div>"
+	var footerHtml = "<div id='f' class='woo'><div class='ft'><div class='widget' id='HTML4'><h2>Home Decor</h2><div class='cl i'><span><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a></span><span><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a></span><span><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a></span><span><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a></span><span><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a></span><span><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a></span><span><a href='/search/label/พรม'><b>👣 </b>พรม</a></span><span><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a></span><span><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></span></div></div></div>"
 		+ "<div class='ft'><div class='widget' id='HTML5'><h2>Month's Popular Posts</h2><div class='pp'>"
 		+ '<ul><li><div class="p"><a href="/2017/02/42-small-front-yard-ideas.html"><div class="p11"></div></a></div><div class="t"><a href="/2017/02/42-small-front-yard-ideas.html">42 ไอเดียจัดสวนหน้าบ้าน พื้นที่น้อยๆ</a></div><div class="c"/></li><li><div class="p"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html"><div class="p12"></div></a></div><div class="t"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html">30 แบบห้องครัวบ้านชั้นเดียว หาไอเดียที่ถูกใจกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/cozy-white-condo-interior.html"><div class="p13"></div></a></div><div class="t"><a href="/2017/04/cozy-white-condo-interior.html">แบบแต่งคอนโดสวยๆ เน้นสีขาว สวยงาม น่าอยู่</a></div><div class="c"/></li></ul>'
 		+ "</div></div></div><div class='ft'><div class='widget' id='HTML9'><h2>More Topics</h2><div class='cl'><span><a href='/search/label/IKEA'>IKEA</a></span><span><a href='/search/label/SB Design Square'>SB</a></span><span><a href='/search/label/การเลือกซื้อบ้าน'>เล&#3639;อกซ&#3639;&#3657;อบ&#3657;าน</a></span><span><a href='/search/label/คอนโด'>คอนโด</a></span><span><a href='/search/label/ตากผ้า'>ตากผ&#3657;า</a></span><span><a href='/search/label/บันได'>บ&#3633;นได</a></span><span><a href='/search/label/บ้านชั้นเดียว'>บ&#3657;านช&#3633;&#3657;นเด&#3637;ยว</a></span><span><a href='/search/label/ม่าน'>ม&#3656;าน</a></span><span><a href='/search/label/วางแผนการเงิน'>แผนการเง&#3636;น</a></span><span><a href='/search/label/เครื่องซักผ้า'>เคร&#3639;&#3656;องซ&#3633;กผ&#3657;า</a></span><span><a href='/search/label/แต่งบ้าน'>แต&#3656;งบ&#3657;าน</a></span></div></div></div><div class='ft'><div id='ft4'><div class='widget ContactForm' id='ContactForm2'><h2>Contact Us</h2><form name='contact-form'><p></p>ช&#3639;&#3656;อ<br/><input class='cf' id='ContactForm2_contact-form-name' name='name' size='30' type='text' value=''/><p></p>อ&#3637;เมล<b>*</b><br/><input class='cf' id='ContactForm2_contact-form-email' name='email' size='30' type='text' value=''/><p></p>ข&#3657;อความ<b>*</b><br/><textarea class='cf' cols='25' id='ContactForm2_contact-form-email-message' name='email-message' rows='5'></textarea><p></p><input class='cfb' id='ContactForm2_contact-form-submit' type='button' value='ส่ง'/><p></p><div style='text-align:center;max-width:222px;width:100%'><p class='contact-form-error-message' id='ContactForm2_contact-form-error-message'></p><p class='contact-form-success-message' id='ContactForm2_contact-form-success-message'></p></div></form></div></div></div></div>"
 		+ "<div class='woo' id='cr'><p id='iCR'><a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2018 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a></div></div></div>";
+		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 }
 addWidgets();
 
 function deferJquery(a){window.jQuery?a():setTimeout(function(){deferJquery(a)},10)}
 function deferResizeToParent(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){deferResizeToParent(a)},10)}
 deferJquery(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
-function updateLink(links){
-	var isMobile = window.location.href.indexOf('?m=1')!=-1;
-	var mainUrl = window.location.origin;
-	var httpUrl = "http://" + window.location.hostname;
-	for(var i=0; i<links.length; ++i) {
-			var checkUrl = links[i].href;
-			if(checkUrl.indexOf(httpUrl) == 0){
-				checkUrl = checkUrl.replace("http:", "https:");
-				links[i].setAttribute('href', checkUrl);
-			}
-			
-			if(isMobile && checkUrl.indexOf(mainUrl) == 0 && checkUrl.indexOf("?m=1")==-1){
-				checkUrl += "?m=1";
-				links[i].setAttribute('href', checkUrl)
-			}
-			
-			
-	}
-}
-
-updateLink(document.getElementsByTagName("a"));
 
 //===================Main/Search/Label=============================
 function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
