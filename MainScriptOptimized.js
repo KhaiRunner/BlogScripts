@@ -1,30 +1,11 @@
 ﻿/*
-(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)
+(A)|(B)|(C)|(D)|(E)||(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
 */
 //------------------All Page First section------------------
 var A = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 
-function B(){
-	document.getElementById('HTML6').innerHTML = '<h2>Weekly Popular Posts</h2>'
-		+'<ul class="wc pp"><li><div class="p"><a href="/2017/02/front-garden-designs.html"><div class="p1"></div></a></div><div class="t"><a href="/2017/02/front-garden-designs.html">วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/20-modern-two-story-house-design-ideas.html"><div class="p2"></div></a></div><div class="t"><a href="/2017/09/20-modern-two-story-house-design-ideas.html">20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html"><div class="p3"></div></a></div><div class="t"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html">แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></div><div class="c"/></li><li><div class="p"><a href="/2017/02/61-small-kitchen-designs.html"><div class="p4"></div></a></div><div class="t"><a href="/2017/02/61-small-kitchen-designs.html">61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/47-garden-condo-ideas.html"><div class="p5"></div></a></div><div class="t"><a href="/2017/09/47-garden-condo-ideas.html">47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></div><div class="c"/></li></ul>';
-	document.getElementById('HTML7').innerHTML = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
-	document.getElementById('HTML12').innerHTML = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
-	
-	var displayArea = windowWidth>1200?'HTML8':'HTML9';	
-	document.getElementById(displayArea).innerHTML = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
-	document.getElementById('f').innerHTML = "<div class='ft'><div class='widget' id='HTML4'><h2>Home Decor</h2><div class='cl i'><span><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a></span><span><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a></span><span><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a></span><span><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a></span><span><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a></span><span><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a></span><span><a href='/search/label/พรม'><b>👣 </b>พรม</a></span><span><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a></span><span><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></span></div></div></div>"
-		+ "<div class='ft'><div class='widget' id='HTML5'><h2>Month's Popular Posts</h2><div class='pp'>"
-		+ '<ul><li><div class="p"><a href="/2017/02/42-small-front-yard-ideas.html"><div class="p11"></div></a></div><div class="t"><a href="/2017/02/42-small-front-yard-ideas.html">42 ไอเดียจัดสวนหน้าบ้าน พื้นที่น้อยๆ</a></div><div class="c"/></li><li><div class="p"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html"><div class="p12"></div></a></div><div class="t"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html">30 แบบห้องครัวบ้านชั้นเดียว หาไอเดียที่ถูกใจกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/cozy-white-condo-interior.html"><div class="p13"></div></a></div><div class="t"><a href="/2017/04/cozy-white-condo-interior.html">แบบแต่งคอนโดสวยๆ เน้นสีขาว สวยงาม น่าอยู่</a></div><div class="c"/></li></ul>'
-		+ "</div></div></div><div class='ft'><div class='widget' id='HTML9'><h2>More Topics</h2><div class='cl'><span><a href='/search/label/IKEA'>IKEA</a></span><span><a href='/search/label/SB Design Square'>SB</a></span><span><a href='/search/label/การเลือกซื้อบ้าน'>เล&#3639;อกซ&#3639;&#3657;อบ&#3657;าน</a></span><span><a href='/search/label/คอนโด'>คอนโด</a></span><span><a href='/search/label/ตากผ้า'>ตากผ&#3657;า</a></span><span><a href='/search/label/บันได'>บ&#3633;นได</a></span><span><a href='/search/label/บ้านชั้นเดียว'>บ&#3657;านช&#3633;&#3657;นเด&#3637;ยว</a></span><span><a href='/search/label/ม่าน'>ม&#3656;าน</a></span><span><a href='/search/label/วางแผนการเงิน'>แผนการเง&#3636;น</a></span><span><a href='/search/label/เครื่องซักผ้า'>เคร&#3639;&#3656;องซ&#3633;กผ&#3657;า</a></span><span><a href='/search/label/แต่งบ้าน'>แต&#3656;งบ&#3657;าน</a></span></div></div></div><div class='ft'><div id='ft4'><div class='widget ContactForm' id='ContactForm2'><h2>Contact Us</h2><form name='contact-form'><p></p>ช&#3639;&#3656;อ<br/><input class='cf' id='ContactForm2_contact-form-name' name='name' size='30' type='text' value=''/><p></p>อ&#3637;เมล<b>*</b><br/><input class='cf' id='ContactForm2_contact-form-email' name='email' size='30' type='text' value=''/><p></p>ข&#3657;อความ<b>*</b><br/><textarea class='cf' cols='25' id='ContactForm2_contact-form-email-message' name='email-message' rows='5'></textarea><p></p><input class='cfb' id='ContactForm2_contact-form-submit' type='button' value='ส่ง'/><p></p><div style='text-align:center;max-width:222px;width:100%'><p class='contact-form-error-message' id='ContactForm2_contact-form-error-message'></p><p class='contact-form-success-message' id='ContactForm2_contact-form-success-message'></p></div></form></div></div></div>";	
-	document.getElementById('iCR').innerHTML = "<a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2018 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a>";
-}
-B();
-
-function C(a){window.jQuery?a():setTimeout(function(){C(a)},10)}
-function D(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){D(a)},10)}
-C(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
 function E(links){
 	var isMobile = window.location.href.indexOf('?m=1')!=-1;
 	var mainUrl = window.location.origin;
@@ -40,12 +21,53 @@ function E(links){
 				checkUrl += "?m=1";
 				links[i].setAttribute('href', checkUrl)
 			}
-			
-			
 	}
 }
 
-E(document.getElementsByTagName("a"));
+function (htmlString){
+	var domSearch = document.createElement('body');
+	domSearch.innerHTML = htmlString;
+	var links = domSearch.getElementsByTagName('a');
+	E(links);
+	return domSearch.innerHTML; 
+}
+
+function B(){
+	var html6 = '<h2>Weekly Popular Posts</h2>'
+		+'<ul class="wc pp"><li><div class="p"><a href="/2017/02/front-garden-designs.html"><div class="p1"></div></a></div><div class="t"><a href="/2017/02/front-garden-designs.html">วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/20-modern-two-story-house-design-ideas.html"><div class="p2"></div></a></div><div class="t"><a href="/2017/09/20-modern-two-story-house-design-ideas.html">20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html"><div class="p3"></div></a></div><div class="t"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html">แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></div><div class="c"/></li><li><div class="p"><a href="/2017/02/61-small-kitchen-designs.html"><div class="p4"></div></a></div><div class="t"><a href="/2017/02/61-small-kitchen-designs.html">61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/47-garden-condo-ideas.html"><div class="p5"></div></a></div><div class="t"><a href="/2017/09/47-garden-condo-ideas.html">47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></div><div class="c"/></li></ul>';
+	var html2 = K();
+	var html7 = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
+	var html12 = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
+	
+	var sidebarHtml = '<div class="widget" id="HTML6">'+html6+'</div>'
+											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>'
+											+ '<div class="widget" id="HTML7">'+html7+'</div>'
+											+ '<div class="widget" id="HTML12">'+html12+'</div>';
+
+											
+	//Check display screen fore
+	var htmlLeftSidebar = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
+	if(windowWidth>1200){
+		document.getElementById('HTML8').innerHTML = (htmlLeftSidebar);
+	}else{
+		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'><div class='widget' id='HTML9'>"+htmlLeftSidebar+"</div></div></div>"
+	}
+	document.getElementById('sb').innerHTML = (sidebarHtml);
+	
+	
+	//Footer
+	var footerHtml = "<div id='f' class='woo'><div class='ft'><div class='widget' id='HTML4'><h2>Home Decor</h2><div class='cl i'><span><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a></span><span><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a></span><span><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a></span><span><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a></span><span><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a></span><span><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a></span><span><a href='/search/label/พรม'><b>👣 </b>พรม</a></span><span><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a></span><span><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></span></div></div></div>"
+		+ "<div class='ft'><div class='widget' id='HTML5'><h2>Month's Popular Posts</h2><div class='pp'>"
+		+ '<ul><li><div class="p"><a href="/2017/02/42-small-front-yard-ideas.html"><div class="p11"></div></a></div><div class="t"><a href="/2017/02/42-small-front-yard-ideas.html">42 ไอเดียจัดสวนหน้าบ้าน พื้นที่น้อยๆ</a></div><div class="c"/></li><li><div class="p"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html"><div class="p12"></div></a></div><div class="t"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html">30 แบบห้องครัวบ้านชั้นเดียว หาไอเดียที่ถูกใจกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/cozy-white-condo-interior.html"><div class="p13"></div></a></div><div class="t"><a href="/2017/04/cozy-white-condo-interior.html">แบบแต่งคอนโดสวยๆ เน้นสีขาว สวยงาม น่าอยู่</a></div><div class="c"/></li></ul>'
+		+ "</div></div></div><div class='ft'><div class='widget' id='HTML9'><h2>More Topics</h2><div class='cl'><span><a href='/search/label/IKEA'>IKEA</a></span><span><a href='/search/label/SB Design Square'>SB</a></span><span><a href='/search/label/การเลือกซื้อบ้าน'>เล&#3639;อกซ&#3639;&#3657;อบ&#3657;าน</a></span><span><a href='/search/label/คอนโด'>คอนโด</a></span><span><a href='/search/label/ตากผ้า'>ตากผ&#3657;า</a></span><span><a href='/search/label/บันได'>บ&#3633;นได</a></span><span><a href='/search/label/บ้านชั้นเดียว'>บ&#3657;านช&#3633;&#3657;นเด&#3637;ยว</a></span><span><a href='/search/label/ม่าน'>ม&#3656;าน</a></span><span><a href='/search/label/วางแผนการเงิน'>แผนการเง&#3636;น</a></span><span><a href='/search/label/เครื่องซักผ้า'>เคร&#3639;&#3656;องซ&#3633;กผ&#3657;า</a></span><span><a href='/search/label/แต่งบ้าน'>แต&#3656;งบ&#3657;าน</a></span></div></div></div><div class='ft'><div id='ft4'><div class='widget ContactForm' id='ContactForm2'><h2>Contact Us</h2><form name='contact-form'><p></p>ช&#3639;&#3656;อ<br/><input class='cf' id='ContactForm2_contact-form-name' name='name' size='30' type='text' value=''/><p></p>อ&#3637;เมล<b>*</b><br/><input class='cf' id='ContactForm2_contact-form-email' name='email' size='30' type='text' value=''/><p></p>ข&#3657;อความ<b>*</b><br/><textarea class='cf' cols='25' id='ContactForm2_contact-form-email-message' name='email-message' rows='5'></textarea><p></p><input class='cfb' id='ContactForm2_contact-form-submit' type='button' value='ส่ง'/><p></p><div style='text-align:center;max-width:222px;width:100%'><p class='contact-form-error-message' id='ContactForm2_contact-form-error-message'></p><p class='contact-form-success-message' id='ContactForm2_contact-form-success-message'></p></div></form></div></div></div></div>"
+		+ "<div class='woo' id='cr'><p id='iCR'><a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2018 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a></div></div></div>";
+		document.getElementById('fc').innerHTML = (footerHtml);
+}
+B();
+
+function C(a){window.jQuery?a():setTimeout(function(){C(a)},10)}
+function D(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){D(a)},10)}
+C(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
 
 //===================Main/Search/Label=============================
 function F(lowResUrl, htmlSectionId, imageIndex) {
@@ -482,7 +504,7 @@ function K(){
 		}		
 	}
 	recentlyHtml += '</ul>';
-	document.getElementById('HTML2').innerHTML = recentlyHtml;
+	return recentlyHtml;
 }
 
 
@@ -526,7 +548,6 @@ D(function() {
             top: "-80px"
         })
     });
-	K();
     $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
 });
 
