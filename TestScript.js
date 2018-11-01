@@ -1,5 +1,5 @@
 ﻿/*
-(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|optimizeLink|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
+(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
 (?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
 */
 //------------------All Page First section------------------
@@ -292,7 +292,7 @@ function stickyFB(windowWidth) {
         socialHeight = socialFloat.height(),
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
-        marginLeft = '-5px';
+        marginLeft = '0';
     if (windowWidth > 440) marginLeft = '-25px';
     else if (windowWidth > 320) marginLeft = '-15px';
     $(window).scroll(function() {
