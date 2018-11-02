@@ -1,6 +1,6 @@
 ﻿/*
-(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
+(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
 */
 //------------------All Page First section------------------
 var A = document.getElementById('isContent').value == '1';
@@ -35,7 +35,7 @@ function F(htmlString){
 function B(){
 	var html6 = '<h2>Weekly Popular Posts</h2>'
 		+'<ul class="wc pp"><li><div class="p"><a href="/2017/02/front-garden-designs.html"><div class="p1"></div></a></div><div class="t"><a href="/2017/02/front-garden-designs.html">วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/20-modern-two-story-house-design-ideas.html"><div class="p2"></div></a></div><div class="t"><a href="/2017/09/20-modern-two-story-house-design-ideas.html">20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html"><div class="p3"></div></a></div><div class="t"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html">แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></div><div class="c"/></li><li><div class="p"><a href="/2017/02/61-small-kitchen-designs.html"><div class="p4"></div></a></div><div class="t"><a href="/2017/02/61-small-kitchen-designs.html">61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/47-garden-condo-ideas.html"><div class="p5"></div></a></div><div class="t"><a href="/2017/09/47-garden-condo-ideas.html">47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></div><div class="c"/></li></ul>';
-	var html2 = L();
+	var html2 = M();
 	var html7 = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
 	var html12 = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
 	
@@ -272,8 +272,8 @@ function I() {
             showpostsummary: true,
             numchars: 150
         });
-        $(".imageContainer img").resizeToParent();
 
+		$(".imageContainer img").resizeToParent();
 		E($('#main-wrapper a').toArray());
     });
 }
@@ -284,7 +284,7 @@ function J() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
 
-function K(windowWidth) {
+function L(windowWidth) {
     if (windowWidth > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
@@ -315,6 +315,16 @@ function K(windowWidth) {
     });
 }
 
+function K(){
+	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
+	window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
+}
 
 //----------------------------------------------------
 if(!A){
@@ -453,16 +463,22 @@ D(function() {
         }
     })(window.jQuery, false)
     I();
+	
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
         return src.replace('s72-c', 's1600');
     });
+	
+	//For label page.
+	$(".imageContainer img").resizeToParent();
 });
 }else{
 	//Content Page script
 	C(function() {
-    J();
-
-    K(windowWidth);
+    
+	//Try to optimize sequence call those functions.
+	K();
+	J();
+	L(windowWidth);    
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -480,7 +496,7 @@ D(function() {
 }
 //----------------------------------------------------
 // All Page Last section
-function L(){
+function M(){
 	//rawRecentPosts -> r
 	var allInfo = document.getElementById("r").value.split(',');
 	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
@@ -507,8 +523,7 @@ function L(){
 	return recentlyHtml;
 }
 
-
-function M() {
+function N() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
         c = $("#HTML3"),
@@ -532,27 +547,8 @@ function M() {
         })
     })
 };
-D(function() {
-    if (1200 < windowWidth) {
-        -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || M();
-    } 
-    $(".imageContainer img").resizeToParent();
-    $("#sBtn").click(function() {
-        $("#sBox").animate({
-            top: "0px"
-        });
-        $("#sT").focus()
-    });
-    $(".del").click(function() {
-        $("#sBox").animate({
-            top: "-80px"
-        })
-    });
-    $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
-});
 
-
-function N() {
+function O() {
 	var blogId = $('#b').val();
 	var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
 	var currentUrl = '\/\/' + window.location.host + window.location.pathname;
@@ -567,14 +563,24 @@ function N() {
 		'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
 		'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 }
-C(function(){
-	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-	window.fbAsyncInit = function() {
-    FB.init({
-		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml      : true,
-		version    : 'v3.1'
+
+C(function() {
+    if (1200 < windowWidth) {
+        -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || N();
+    }
+    $("#sBtn").click(function() {
+        $("#sBox").animate({
+            top: "0px"
+        });
+        $("#sT").focus()
     });
-  };
-	N();
+    $(".del").click(function() {
+        $("#sBox").animate({
+            top: "-80px"
+        })
+    });
+    $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
+
+	
+	O();
 });

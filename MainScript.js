@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
+(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(initFB)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
 */
 //------------------All Page First section------------------
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -272,8 +272,8 @@ function LoadInfo() {
             showpostsummary: true,
             numchars: 150
         });
-        $(".imageContainer img").resizeToParent();
 
+		$(".imageContainer img").resizeToParent();
 		updateLink($('#main-wrapper a').toArray());
     });
 }
@@ -315,6 +315,16 @@ function stickyFB(windowWidth) {
     });
 }
 
+function initFB(){
+	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
+	window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
+}
 
 //----------------------------------------------------
 if(!isContentPage){
@@ -453,16 +463,22 @@ deferResizeToParent(function() {
         }
     })(window.jQuery, false)
     LoadInfo();
+	
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
         return src.replace('s72-c', 's1600');
     });
+	
+	//For label page.
+	$(".imageContainer img").resizeToParent();
 });
 }else{
 	//Content Page script
 	deferJquery(function() {
-    handleImg();
-
-    stickyFB(windowWidth);
+    
+	//Try to optimize sequence call those functions.
+	initFB();
+	handleImg();
+	stickyFB(windowWidth);    
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -507,7 +523,6 @@ function getRecentPost(){
 	return recentlyHtml;
 }
 
-
 function stickySidebar() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
@@ -532,25 +547,6 @@ function stickySidebar() {
         })
     })
 };
-deferResizeToParent(function() {
-    if (1200 < windowWidth) {
-        -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
-    } 
-    $(".imageContainer img").resizeToParent();
-    $("#sBtn").click(function() {
-        $("#sBox").animate({
-            top: "0px"
-        });
-        $("#sT").focus()
-    });
-    $(".del").click(function() {
-        $("#sBox").animate({
-            top: "-80px"
-        })
-    });
-    $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>')
-});
-
 
 function findScriptSection() {
 	var blogId = $('#b').val();
@@ -567,14 +563,24 @@ function findScriptSection() {
 		'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
 		'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 }
-deferJquery(function(){
-	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-	window.fbAsyncInit = function() {
-    FB.init({
-		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml      : true,
-		version    : 'v3.1'
+
+deferJquery(function() {
+    if (1200 < windowWidth) {
+        -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
+    }
+    $("#sBtn").click(function() {
+        $("#sBox").animate({
+            top: "0px"
+        });
+        $("#sT").focus()
     });
-  };
+    $(".del").click(function() {
+        $("#sBox").animate({
+            top: "-80px"
+        })
+    });
+    $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
+
+	
 	findScriptSection();
 });
