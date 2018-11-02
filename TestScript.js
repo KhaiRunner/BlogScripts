@@ -273,6 +273,7 @@ function LoadInfo() {
             numchars: 150
         });
 
+		$(".imageContainer img").resizeToParent();
 		updateLink($('#main-wrapper a').toArray());
     });
 }
@@ -467,7 +468,7 @@ deferResizeToParent(function() {
         return src.replace('s72-c', 's1600');
     });
 	
-	//Main page or label page.
+	//For label page.
 	$(".imageContainer img").resizeToParent();
 });
 }else{
