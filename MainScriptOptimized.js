@@ -2,9 +2,36 @@
 (A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)
 (?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
 */
-//------------------All Page First section------------------
+//==================All Page First section==================
 var A = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
+
+function M(){
+	//rawRecentPosts -> r
+	var allInfo = document.getElementById("r").value.split(',');
+	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
+	var popIndex = 5;
+	
+	//Update Url in this function because we need to optimize when render HTML so that we need seperate logic.
+	var isMobile = window.location.href.indexOf('?m=1')!=-1;
+	for (var index = 0;index<5;++index){
+		var indexTitle = index;
+		var indexLink = index+5;
+		var indexImg = index+10;
+		if(isMobile){
+			allInfo[indexLink] += '?m=1';
+		}
+		
+		//check img for add <img> or <div class="p1"></div>
+		if(allInfo[indexImg].length > 0){
+			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+		}else{
+			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><div class="p'+(++popIndex)+'"></div></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+		}		
+	}
+	recentlyHtml += '</ul>';
+	return recentlyHtml;
+}
 
 function E(links){
 	var isMobile = window.location.href.indexOf('?m=1')!=-1;
@@ -65,9 +92,77 @@ function B(){
 }
 B();
 
-function C(a){window.jQuery?a():setTimeout(function(){C(a)},10)}
-function D(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){D(a)},10)}
-C(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
+//===================Content Page=============================
+function K(){
+	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
+	window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
+}
+
+function C(a){window.jQuery?a():setTimeout(function(){C(a)},5)}
+
+function J() {
+	$('[id^=adMid_] a:has(img)').click(function(){return false;});
+}
+
+function L(windowWidth) {
+    if (windowWidth > 1200) return;
+    var mainContent = $('#main-wrapper .post-body'),
+        mainTop = mainContent.offset().top,
+        socialFloat = $('.fb'),
+        socialHeight = socialFloat.height(),
+        calScrollLength = mainTop + 235,
+        scrollLength = mainContent.height() + calScrollLength,
+        marginLeft = '0';
+    if (windowWidth > 440) marginLeft = '-25px';
+    else if (windowWidth > 320) marginLeft = '-15px';
+    $(window).scroll(function() {
+        var scroll = $(this).scrollTop();
+        scrollLength = mainContent.height() + calScrollLength;
+        if (scroll >= mainTop && scroll <= scrollLength) {
+            socialFloat.css({
+                'position': 'fixed',
+                'top': '10px',
+                'margin-left': marginLeft,
+                'height': (socialHeight + 'px')
+            });
+        } else {
+            socialFloat.css({
+                'position': 'relative',
+                'top': 0,
+                'margin-left': 0
+            });
+        }
+    });
+}
+
+//-----------------------------------------------------------------------
+//Run Script Content Page
+if(A){
+	K();
+	
+	C(function() {
+		J();
+		L(windowWidth);
+		
+		//Fix link
+		var pagerLink = $('.page a[href=""]');
+		if(pagerLink.length > 0){
+			var message = "This is the oldest post.";
+			if(pagerLink.parent().hasClass('next')){
+				message = "This is the latest post."
+			}
+			pagerLink.removeAttr('href');
+			pagerLink[0].innerHTML += " <div style='color:#666'>"+message+"</div></a> ";
+		}
+	});
+}
+
 
 //===================Main/Search/Label=============================
 function G(lowResUrl, htmlSectionId, imageIndex) {
@@ -278,58 +373,17 @@ function I() {
     });
 }
 
+function D(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){D(a)},10)}
+C(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
 
-//===================Content Page=============================
-function J() {
-	$('[id^=adMid_] a:has(img)').click(function(){return false;});
-}
-
-function L(windowWidth) {
-    if (windowWidth > 1200) return;
-    var mainContent = $('#main-wrapper .post-body'),
-        mainTop = mainContent.offset().top,
-        socialFloat = $('.fb'),
-        socialHeight = socialFloat.height(),
-        calScrollLength = mainTop + 235,
-        scrollLength = mainContent.height() + calScrollLength,
-        marginLeft = '0';
-    if (windowWidth > 440) marginLeft = '-25px';
-    else if (windowWidth > 320) marginLeft = '-15px';
-    $(window).scroll(function() {
-        var scroll = $(this).scrollTop();
-        scrollLength = mainContent.height() + calScrollLength;
-        if (scroll >= mainTop && scroll <= scrollLength) {
-            socialFloat.css({
-                'position': 'fixed',
-                'top': '10px',
-                'margin-left': marginLeft,
-                'height': (socialHeight + 'px')
-            });
-        } else {
-            socialFloat.css({
-                'position': 'relative',
-                'top': 0,
-                'margin-left': 0
-            });
-        }
-    });
-}
-
-function K(){
-	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-	window.fbAsyncInit = function() {
-    FB.init({
-		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml      : true,
-		version    : 'v3.1'
-    });
-  };
-}
-
-//----------------------------------------------------
+//-----------------------------------------------------------------------
+//Run Script Main/Search/Label page
+//Seperate if else before we need content page JavaScript process first.
 if(!A){
 document.getElementById("overbg").classList.remove('item');
 D(function() {
+	I();
+	
     (function(e, t) {
         if (!e) return t;
         var n = function() {
@@ -462,66 +516,18 @@ D(function() {
             })
         }
     })(window.jQuery, false)
-    I();
+    
 	
+	//For label page.
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
         return src.replace('s72-c', 's1600');
     });
-	
-	//For label page.
 	$(".imageContainer img").resizeToParent();
 });
-}else{
-	//Content Page script
-	C(function() {
-    
-	//Try to optimize sequence call those functions.
-	K();
-	J();
-	L(windowWidth);    
-	
-	//Fix link
-	var pagerLink = $('.page a[href=""]');
-	if(pagerLink.length > 0){
-		var message = "This is the oldest post.";
-		if(pagerLink.parent().hasClass('next')){
-			message = "This is the latest post."
-		}
-		pagerLink.removeAttr('href');
-		pagerLink[0].innerHTML += " <div style='color:#666'>"+message+"</div></a> ";
-	}
-});
-   
-
 }
+
 //----------------------------------------------------
 // All Page Last section
-function M(){
-	//rawRecentPosts -> r
-	var allInfo = document.getElementById("r").value.split(',');
-	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
-	var popIndex = 5;
-	
-	//Update Url in this function because we need to optimize when render HTML so that we need seperate logic.
-	var isMobile = window.location.href.indexOf('?m=1')!=-1;
-	for (var index = 0;index<5;++index){
-		var indexTitle = index;
-		var indexLink = index+5;
-		var indexImg = index+10;
-		if(isMobile){
-			allInfo[indexLink] += '?m=1';
-		}
-		
-		//check img for add <img> or <div class="p1"></div>
-		if(allInfo[indexImg].length > 0){
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
-		}else{
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><div class="p'+(++popIndex)+'"></div></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
-		}		
-	}
-	recentlyHtml += '</ul>';
-	return recentlyHtml;
-}
 
 function N() {
     var b = $("#main-wrapper"),
