@@ -90,9 +90,8 @@ function addWidgets(){
 		+ "<div id='cr' class='woo'><p><a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2018 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a></div></div></div>";
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 }
-addWidgets();
 
-//===================Content Page=============================
+//Init facebook need to finally ASAP due to slowest result cause effect.
 function initFB(){
 	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
 	window.fbAsyncInit = function() {
@@ -103,7 +102,10 @@ function initFB(){
     });
   };
 }
+initFB();
+addWidgets();
 
+//===================Content Page=============================
 function deferJquery(a){window.jQuery?a():setTimeout(function(){deferJquery(a)},5)}
 
 function handleImg() {
@@ -144,7 +146,7 @@ function stickyFB(windowWidth) {
 //-----------------------------------------------------------------------
 //Run Script Content Page
 if(isContentPage){
-	initFB();
+	
 	
 	deferJquery(function() {
 		handleImg();
