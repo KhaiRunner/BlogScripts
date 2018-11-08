@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(addWidgets)|(deferJquery)|(deferResizeToParent)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(initFB)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
+(isContentPage)|(addWidgets)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(initFB)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -106,8 +106,6 @@ initFB();
 addWidgets();
 
 //===================Content Page=============================
-function deferJquery(a){window.jQuery?a():setTimeout(function(){deferJquery(a)},5)}
-
 function handleImg() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
@@ -146,23 +144,20 @@ function stickyFB(windowWidth) {
 //-----------------------------------------------------------------------
 //Run Script Content Page
 if(isContentPage){
+	handleImg();
+	stickyFB(windowWidth);
 	
-	
-	deferJquery(function() {
-		handleImg();
-		stickyFB(windowWidth);
-		
-		//Fix link
-		var pagerLink = $('.page a[href=""]');
-		if(pagerLink.length > 0){
-			var message = "This is the oldest post.";
-			if(pagerLink.parent().hasClass('next')){
-				message = "This is the latest post."
-			}
-			pagerLink.removeAttr('href');
-			pagerLink[0].innerHTML += " <div style='color:#666'>"+message+"</div></a> ";
+	//Fix link
+	var pagerLink = $('.page a[href=""]');
+	if(pagerLink.length > 0){
+		var message = "This is the oldest post.";
+		if(pagerLink.parent().hasClass('next')){
+			message = "This is the latest post."
 		}
-	});
+		pagerLink.removeAttr('href');
+		pagerLink[0].innerHTML += " <div style='color:#666'>"+message+"</div></a> ";
+	}
+	
 }
 
 
@@ -375,15 +370,14 @@ function LoadInfo() {
     });
 }
 
-function deferResizeToParent(a){window.jQuery&&$.isFunction($.fn.resizeToParent)?a():setTimeout(function(){deferResizeToParent(a)},10)}
-deferJquery(function(){(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);});
+//init function resizeToParent
+(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);
 
 //-----------------------------------------------------------------------
 //Run Script Main/Search/Label page
 //Seperate if else before we need content page JavaScript process first.
 if(!isContentPage){
-document.getElementById("overbg").classList.remove('item');
-deferResizeToParent(function() {
+	document.getElementById("overbg").classList.remove('item');
 	LoadInfo();
 	
     (function(e, t) {
@@ -525,12 +519,10 @@ deferResizeToParent(function() {
         return src.replace('s72-c', 's1600');
     });
 	$(".imageContainer img").resizeToParent();
-});
 }
 
 //----------------------------------------------------
 // All Page Last section
-
 function stickySidebar() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
@@ -572,23 +564,23 @@ function findScriptSection() {
 		'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 }
 
-deferJquery(function() {
-    if (1200 < windowWidth) {
-        -1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
-    }
-    $("#sBtn").click(function() {
-        $("#sBox").animate({
-            top: "0px"
-        });
-        $("#sT").focus()
-    });
-    $(".del").click(function() {
-        $("#sBox").animate({
-            top: "-80px"
-        })
-    });
-    $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
-
-	
-	findScriptSection();
+//-----------------------------------------------------------------------
+//Run Script All page Last section
+if (1200 < windowWidth) {
+	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
+}
+$("#sBtn").click(function() {
+	$("#sBox").animate({
+		top: "0px"
+	});
+	$("#sT").focus()
 });
+$(".del").click(function() {
+	$("#sBox").animate({
+		top: "-80px"
+	})
+});
+$(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
+
+findScriptSection();
+
