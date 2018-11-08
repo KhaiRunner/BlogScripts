@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(addWidgets)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(initFB)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)|(deferWidgetManager)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(findScriptSection)|(deferWidgetManager)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -110,8 +110,8 @@ function handleImg() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
 
-function stickyFB(windowWidth) {
-    if (windowWidth > 1200) return;
+function stickyFB(width) {
+    if (width > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
         socialFloat = $('.fb'),
@@ -119,8 +119,8 @@ function stickyFB(windowWidth) {
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
         marginLeft = '0';
-    if (windowWidth > 440) marginLeft = '-25px';
-    else if (windowWidth > 320) marginLeft = '-15px';
+    if (width > 440) marginLeft = '-25px';
+    else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
         scrollLength = mainContent.height() + calScrollLength;

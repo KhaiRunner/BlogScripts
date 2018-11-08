@@ -1,13 +1,13 @@
 ﻿/*
-(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
+(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
 */
 //==================All Page First section==================
 var A = document.getElementById('isContent').value == '1';
-var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
+var B = 0 < window.innerWidth ? window.innerWidth : screen.width;
 
 //Init facebook need to finally ASAP due to slowest result cause effect.
-function I(){
+function C(){
 	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
 	window.fbAsyncInit = function() {
     FB.init({
@@ -17,9 +17,9 @@ function I(){
     });
   };
 }
-I();
+C();
 
-function K(){
+function D(){
 	//rawRecentPosts -> r
 	var allInfo = document.getElementById("r").value.split(',');
 	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
@@ -46,7 +46,7 @@ function K(){
 	return recentlyHtml;
 }
 
-function C(links){
+function E(links){
 	var isMobile = window.location.href.indexOf('?m=1')!=-1;
 	var mainUrl = window.location.origin;
 	var httpUrl = "http://" + window.location.hostname;
@@ -64,18 +64,18 @@ function C(links){
 	}
 }
 
-function D(htmlString){
+function F(htmlString){
 	var domSearch = document.createElement('body');
 	domSearch.innerHTML = htmlString;
 	var links = domSearch.getElementsByTagName('a');
-	C(links);
+	E(links);
 	return domSearch.innerHTML; 
 }
 
-function B(){
+function G(){
 	var html6 = '<h2>Weekly Popular Posts</h2>'
 		+'<ul class="wc pp"><li><div class="p"><a href="/2017/02/front-garden-designs.html"><div class="p1"></div></a></div><div class="t"><a href="/2017/02/front-garden-designs.html">วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/20-modern-two-story-house-design-ideas.html"><div class="p2"></div></a></div><div class="t"><a href="/2017/09/20-modern-two-story-house-design-ideas.html">20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html"><div class="p3"></div></a></div><div class="t"><a href="/2017/04/2-bedrooms-cozy-condo-interior.html">แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></div><div class="c"/></li><li><div class="p"><a href="/2017/02/61-small-kitchen-designs.html"><div class="p4"></div></a></div><div class="t"><a href="/2017/02/61-small-kitchen-designs.html">61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></div><div class="c"/></li><li><div class="p"><a href="/2017/09/47-garden-condo-ideas.html"><div class="p5"></div></a></div><div class="t"><a href="/2017/09/47-garden-condo-ideas.html">47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></div><div class="c"/></li></ul>';
-	var html2 = K();
+	var html2 = D();
 	var html7 = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
 	var html12 = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
 	
@@ -87,12 +87,12 @@ function B(){
 											
 	//Check display screen fore
 	var htmlLeftSidebar = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
-	if(windowWidth>1200){
-		document.getElementById('HTML8').innerHTML = D(htmlLeftSidebar);
+	if(B>1200){
+		document.getElementById('HTML8').innerHTML = F(htmlLeftSidebar);
 	}else{
 		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'><div class='widget' id='HTML9'>"+htmlLeftSidebar+"</div></div></div>"
 	}
-	document.getElementById('sb').innerHTML = D(sidebarHtml);
+	document.getElementById('sb').innerHTML = F(sidebarHtml);
 	
 	
 	//Footer
@@ -101,17 +101,17 @@ function B(){
 		+ '<ul><li><div class="p"><a href="/2017/02/42-small-front-yard-ideas.html"><div class="p11"></div></a></div><div class="t"><a href="/2017/02/42-small-front-yard-ideas.html">42 ไอเดียจัดสวนหน้าบ้าน พื้นที่น้อยๆ</a></div><div class="c"/></li><li><div class="p"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html"><div class="p12"></div></a></div><div class="t"><a href="/2017/10/30-kitchen-ideas-for-one-floor-house.html">30 แบบห้องครัวบ้านชั้นเดียว หาไอเดียที่ถูกใจกัน</a></div><div class="c"/></li><li><div class="p"><a href="/2017/04/cozy-white-condo-interior.html"><div class="p13"></div></a></div><div class="t"><a href="/2017/04/cozy-white-condo-interior.html">แบบแต่งคอนโดสวยๆ เน้นสีขาว สวยงาม น่าอยู่</a></div><div class="c"/></li></ul>'
 		+ "</div></div></div><div class='ft'><div class='widget' id='HTML9'><h2>More Topics</h2><div class='cl'><span><a href='/search/label/IKEA'>IKEA</a></span><span><a href='/search/label/SB Design Square'>SB</a></span><span><a href='/search/label/การเลือกซื้อบ้าน'>เล&#3639;อกซ&#3639;&#3657;อบ&#3657;าน</a></span><span><a href='/search/label/คอนโด'>คอนโด</a></span><span><a href='/search/label/ตากผ้า'>ตากผ&#3657;า</a></span><span><a href='/search/label/บันได'>บ&#3633;นได</a></span><span><a href='/search/label/บ้านชั้นเดียว'>บ&#3657;านช&#3633;&#3657;นเด&#3637;ยว</a></span><span><a href='/search/label/ม่าน'>ม&#3656;าน</a></span><span><a href='/search/label/วางแผนการเงิน'>แผนการเง&#3636;น</a></span><span><a href='/search/label/เครื่องซักผ้า'>เคร&#3639;&#3656;องซ&#3633;กผ&#3657;า</a></span><span><a href='/search/label/แต่งบ้าน'>แต&#3656;งบ&#3657;าน</a></span></div></div></div><div class='ft'><div id='ft4'><div class='widget ContactForm' id='ContactForm2'><h2>Contact Us</h2><form name='contact-form'><p></p>ช&#3639;&#3656;อ<br/><input class='cf' id='ContactForm2_contact-form-name' name='name' size='30' type='text' value=''/><p></p>อ&#3637;เมล<b>*</b><br/><input class='cf' id='ContactForm2_contact-form-email' name='email' size='30' type='text' value=''/><p></p>ข&#3657;อความ<b>*</b><br/><textarea class='cf' cols='25' id='ContactForm2_contact-form-email-message' name='email-message' rows='5'></textarea><p></p><input class='cfb' id='ContactForm2_contact-form-submit' type='button' value='ส่ง'/><p></p><div style='text-align:center;max-width:222px;width:100%'><p class='contact-form-error-message' id='ContactForm2_contact-form-error-message'></p><p class='contact-form-success-message' id='ContactForm2_contact-form-success-message'></p></div></form></div></div></div></div>"
 		+ "<div id='cr' class='woo'><p><a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2018 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a></div></div></div>";
-		document.getElementById('fc').innerHTML = D(footerHtml);
+		document.getElementById('fc').innerHTML = F(footerHtml);
 }
-B();
+G();
 
 //===================Content Page=============================
-function H() {
+function K() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
 
-function J(windowWidth) {
-    if (windowWidth > 1200) return;
+function L(width) {
+    if (width > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
         socialFloat = $('.fb'),
@@ -119,8 +119,8 @@ function J(windowWidth) {
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
         marginLeft = '0';
-    if (windowWidth > 440) marginLeft = '-25px';
-    else if (windowWidth > 320) marginLeft = '-15px';
+    if (width > 440) marginLeft = '-25px';
+    else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
         scrollLength = mainContent.height() + calScrollLength;
@@ -144,8 +144,8 @@ function J(windowWidth) {
 //-----------------------------------------------------------------------
 //Run Script Content Page
 if(A){
-	H();
-	J(windowWidth);
+	K();
+	L(B);
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -165,7 +165,7 @@ if(A){
 //init function resizeToParent
 (function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);
 
-function E(lowResUrl, htmlSectionId, imageIndex) {
+function H(lowResUrl, htmlSectionId, imageIndex) {
     switch (htmlSectionId) {
         case 'mainSliderArea':
             return lowResUrl.replace('s72-c', 's1600');
@@ -182,7 +182,7 @@ function E(lowResUrl, htmlSectionId, imageIndex) {
     return lowResUrl;
 }
 
-function F(json, categoryNeeded, htmlElement, params) {
+function I(json, categoryNeeded, htmlElement, params) {
     var showpostthumbnails = params.showpostthumbnails;
     var displaymore = params.displaymore;
     var displayseparator = params.displayseparator;
@@ -222,7 +222,7 @@ function F(json, categoryNeeded, htmlElement, params) {
         }
         var thumb = n.media$thumbnail;
         var l = (thumb && thumb.url) ? thumb.url : "http://goo.gl/LsGgtD";
-        l = E(l, htmlElement.id, countNeedPosts);
+        l = H(l, htmlElement.id, countNeedPosts);
         var p = n.published.$t;
         var v = p.substring(0, 4);
         var m = p.substring(5, 7);
@@ -295,7 +295,7 @@ function F(json, categoryNeeded, htmlElement, params) {
     htmlElement.innerHTML = displayHtml;
 }
 
-function G() {
+function J() {
     if (!$('#mainSlider').length) return;
     var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
     $.getJSON(recentlyPostUrl, function(data) {
@@ -309,7 +309,7 @@ function G() {
             showpostsummary: false,
             numchars: 100
         };
-        F(data, $('#mainSlider').val(), $('#mainSliderArea')[0], paramsMainSlider);
+        I(data, $('#mainSlider').val(), $('#mainSliderArea')[0], paramsMainSlider);
         $('.slider').unslider({
             speed: 500,
             delay: 3000,
@@ -327,7 +327,7 @@ function G() {
         $(window).bind("load", function() {
             $('.slider, .cover').css("visibility", "visible");
         });
-        F(data, $('#recent1Category').val(), $('#recent1Area')[0], {
+        I(data, $('#recent1Category').val(), $('#recent1Area')[0], {
             numposts: 4,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -335,7 +335,7 @@ function G() {
             showpostsummary: false,
             numchars: 100
         });
-        F(data, $('#recent2Category').val(), $('#recent2Area')[0], {
+        I(data, $('#recent2Category').val(), $('#recent2Area')[0], {
             numposts: 2,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -343,7 +343,7 @@ function G() {
             showpostsummary: false,
             numchars: 100
         });
-        F(data, $('#recent3Category').val(), $('#recent3Area')[0], {
+        I(data, $('#recent3Category').val(), $('#recent3Area')[0], {
             numposts: 6,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -351,7 +351,7 @@ function G() {
             showpostsummary: false,
             numchars: 100
         });
-        F(data, $('#recent5Category').val(), $('#recent5Area')[0], {
+        I(data, $('#recent5Category').val(), $('#recent5Area')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -359,7 +359,7 @@ function G() {
             showpostsummary: true,
             numchars: 150
         });
-        F(data, $('#recent6Category').val(), $('#recent6Area')[0], {
+        I(data, $('#recent6Category').val(), $('#recent6Area')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -369,7 +369,7 @@ function G() {
         });
 
 		$(".imageContainer img").resizeToParent();
-		C($('#main-wrapper a').toArray());
+		E($('#main-wrapper a').toArray());
     });
 }
 
@@ -378,7 +378,7 @@ function G() {
 //Seperate if else before we need content page JavaScript process first.
 if(!A){
 	document.getElementById("overbg").classList.remove('item');
-	G();
+	J();
 	
 	//init unslider for home page
     (function(e, t) {
@@ -524,7 +524,7 @@ if(!A){
 
 //----------------------------------------------------
 // All Page Last section
-function L() {
+function M() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
         c = $("#HTML3"),
@@ -549,7 +549,7 @@ function L() {
     })
 };
 
-function M() {
+function N() {
 	var blogId = $('#b').val();
 	var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
 	var currentUrl = '\/\/' + window.location.host + window.location.pathname;
@@ -567,8 +567,8 @@ function M() {
 
 //-----------------------------------------------------------------------
 //Run Script All page Last section
-if (1200 < windowWidth) {
-	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || L();
+if (1200 < B) {
+	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || M();
 }
 $("#sBtn").click(function() {
 	$("#sBox").animate({
@@ -584,7 +584,7 @@ $(".del").click(function() {
 $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
 
 //WidgetMangaer we need to wait blog widget.js that just email only.
-function N(a){window._WidgetManager?a():setTimeout(function(){N(a)},5)}
-N(M);
+function O(a){window._WidgetManager?a():setTimeout(function(){O(a)},5)}
+O(N);
 
 
