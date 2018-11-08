@@ -567,7 +567,7 @@ function findScriptSection() {
 //-----------------------------------------------------------------------
 //Run Script All page Last section
 if (1200 < windowWidth) {
-	-1 != /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
+	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
 }
 $("#sBtn").click(function() {
 	$("#sBox").animate({
