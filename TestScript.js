@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(addWidgets)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(initFB)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)
+(isContentPage)|(addWidgets)|(updateLink)|(optimizeLink)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(initFB)|(stickyFB)|(getRecentPost)|(stickySidebar)|(findScriptSection)|(deferWidgetManager)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -582,5 +582,7 @@ $(".del").click(function() {
 });
 $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
 
-findScriptSection();
+function deferWidgetManager(a){_WidgetManager?a():setTimeout(function(){deferWidgetManager(a)},5)}
+deferWidgetManager(findScriptSection);
+
 
