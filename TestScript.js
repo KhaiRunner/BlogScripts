@@ -380,6 +380,7 @@ if(!isContentPage){
 	document.getElementById("overbg").classList.remove('item');
 	LoadInfo();
 	
+	//init unslider for home page
     (function(e, t) {
         if (!e) return t;
         var n = function() {
