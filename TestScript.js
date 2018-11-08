@@ -582,7 +582,7 @@ $(".del").click(function() {
 });
 $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
 
-function deferWidgetManager(a){_WidgetManager?a():setTimeout(function(){deferWidgetManager(a)},5)}
+function deferWidgetManager(a){window._WidgetManager?a():setTimeout(function(){deferWidgetManager(a)},5)}
 deferWidgetManager(findScriptSection);
 
 
