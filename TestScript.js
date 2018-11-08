@@ -6,6 +6,19 @@
 var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 
+//Init facebook need to finally ASAP due to slowest result cause effect.
+function initFB(){
+	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
+	window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
+}
+initFB();
+
 function getRecentPost(){
 	//rawRecentPosts -> r
 	var allInfo = document.getElementById("r").value.split(',');
@@ -90,19 +103,6 @@ function addWidgets(){
 		+ "<div id='cr' class='woo'><p><a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2018 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a></div></div></div>";
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 }
-
-//Init facebook need to finally ASAP due to slowest result cause effect.
-function initFB(){
-	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-	window.fbAsyncInit = function() {
-    FB.init({
-		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml      : true,
-		version    : 'v3.1'
-    });
-  };
-}
-initFB();
 addWidgets();
 
 //===================Content Page=============================
