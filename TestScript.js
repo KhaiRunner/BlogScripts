@@ -427,16 +427,17 @@ function initWidgetManager() {
 		
 		var c = [sendInfoUrl,currentUrl,blogId];
 		_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
-			'contactFormMessageSendingMsg': 'กำลังส่ง...', 
-			'contactFormMessageSentMsg': 'ส่งข้อความแล้ว', 
-			'contactFormMessageNotSentMsg': 'ไม่สามารถส่งข้อความได้ โปรดลองอีกครั้งในภายหลัง', 
-			'contactFormInvalidEmailMsg': 'ต้องระบุที่อยู่อีเมล์ให้ถูกต้อง', 
-			'contactFormEmptyMessageMsg': 'ข้อความต้องไม่เว้นว่าง', 'title': 'ฟอร์มรายชื่อติดต่อ', 
+			'contactFormMessageSendingMsg': 'Sending...', 
+			'contactFormMessageSentMsg': 'Text Sent', 
+			'contactFormMessageNotSentMsg': 'Messages can not be sent. Please try again later.', 
+			'contactFormInvalidEmailMsg': 'Email address must be specified correctly.', 
+			'contactFormEmptyMessageMsg': 'Message can not be empty.', 
+			'title': 'Contact Form', 
 			'blogId': blogId, 
-			'contactFormNameMsg': 'ชื่อ', 
-			'contactFormEmailMsg': 'อีเมล์', 
-			'contactFormMessageMsg': 'ข้อความ', 
-			'contactFormSendMsg': 'ส่ง', 
+			'contactFormNameMsg': 'Name', 
+			'contactFormEmailMsg': 'Email', 
+			'contactFormMessageMsg': 'Message', 
+			'contactFormSendMsg': 'Sent', 
 			'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
 		isInitWidget = true;
     });
