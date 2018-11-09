@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(findScriptSection)|(deferWidgetManager)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -549,20 +549,23 @@ function stickySidebar() {
     })
 };
 
-function findScriptSection() {
-	var blogId = $('#b').val();
-	var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
-	var currentUrl = '\/\/' + window.location.host + window.location.pathname;
-	
-	var c = [sendInfoUrl,currentUrl,blogId];
-	_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
-		'contactFormMessageSendingMsg': 'กำลังส่ง...', 
-		'contactFormMessageSentMsg': 'ส่งข้อความแล้ว', 
-		'contactFormMessageNotSentMsg': 'ไม่สามารถส่งข้อความได้ โปรดลองอีกครั้งในภายหลัง', 
-		'contactFormInvalidEmailMsg': 'ต้องระบุที่อยู่อีเมล์ให้ถูกต้อง', 
-		'contactFormEmptyMessageMsg': 'ข้อความต้องไม่เว้นว่าง', 'title': 'ฟอร์มรายชื่อติดต่อ', 
-		'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
-		'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
+function initWidgetManager() {
+	var urlScript = 'https://www.blogger.com/static/v1/widgets/1171408283-widgets.js';
+	$.getScript(urlScript, function() {
+		var blogId = $('#b').val();
+		var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
+		var currentUrl = '\/\/' + window.location.host + window.location.pathname;
+		
+		var c = [sendInfoUrl,currentUrl,blogId];
+		_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
+			'contactFormMessageSendingMsg': 'กำลังส่ง...', 
+			'contactFormMessageSentMsg': 'ส่งข้อความแล้ว', 
+			'contactFormMessageNotSentMsg': 'ไม่สามารถส่งข้อความได้ โปรดลองอีกครั้งในภายหลัง', 
+			'contactFormInvalidEmailMsg': 'ต้องระบุที่อยู่อีเมล์ให้ถูกต้อง', 
+			'contactFormEmptyMessageMsg': 'ข้อความต้องไม่เว้นว่าง', 'title': 'ฟอร์มรายชื่อติดต่อ', 
+			'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
+			'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
+    });
 }
 
 //-----------------------------------------------------------------------
@@ -581,10 +584,8 @@ $(".del").click(function() {
 		top: "-80px"
 	})
 });
-$(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
+$('#ft4').click(initWidgetManager);
 
-//WidgetMangaer we need to wait blog widget.js that just email only.
-function deferWidgetManager(a){window._WidgetManager?a():setTimeout(function(){deferWidgetManager(a)},5)}
-deferWidgetManager(findScriptSection);
+$(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
 
 
