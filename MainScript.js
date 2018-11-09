@@ -1,10 +1,11 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(findScriptSection)|(deferWidgetManager)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)
 (?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
+var isInitWidget = false;
 
 //Init facebook need to finally ASAP due to slowest result cause effect.
 function initFB(){
@@ -164,6 +165,8 @@ if(isContentPage){
 //===================Main/Search/Label=============================
 //init function resizeToParent
 (function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);
+//init unslider for home page
+(function(e,d){if(!e)return d;var h=function(){this.items=this.el=d;this.sizes=[];this.max=[0,0];this.current=0;this.interval=d;this.opts={speed:500,delay:3E3,complete:d,keys:!d,dots:d,fluid:d};var a=this;this.init=function(a,c){this.el=a;this.ul=a.children("ul");this.max=[a.outerWidth(),a.outerHeight()];this.items=this.ul.children("li").each(this.calculate);this.opts=e.extend(this.opts,c);this.setup();return this};this.calculate=function(b){var c=e(this),f=c.outerWidth();c=c.outerHeight();a.sizes[b]=[f,c];f>a.max[0]&&(a.max[0]=f);c>a.max[1]&&(a.max[1]=c)};this.setup=function(){this.el.css({overflow:"hidden",width:a.max[0],height:this.items.first().outerHeight()});this.ul.css({width:100*this.items.length+"%",position:"relative"});this.items.css("width",100/this.items.length+"%");this.opts.delay!==d&&(this.start(),this.el.hover(this.stop,this.start));this.opts.keys&&e(document).keydown(this.keys);this.opts.dots&&this.dots();if(this.opts.fluid){var b=function(){a.el.css("width",Math.min(Math.round(a.el.outerWidth()/a.el.parent().outerWidth()*100),100)+"%")};b();e(window).resize(b)}this.opts.arrows&&this.el.parent().append('<p class="arrows"><span class="prev">\u00e2\u2020\u0090</span><span class="next">\u00e2\u2020\u2019</span></p>').find(".arrows span").click(function(){e.isFunction(a[this.className])&&a[this.className]()});if(e.event.swipe)this.el.on("swipeleft",a.prev).on("swiperight",a.next)};this.move=function(b,c){this.items.eq(b).length||(b=0);0>b&&(b=this.items.length-1);var f={height:this.items.eq(b).outerHeight()},d=c?5:this.opts.speed;this.ul.is(":animated")||(a.el.find(".dot:eq("+b+")").addClass("active").siblings().removeClass("active"),this.el.animate(f,d)&&this.ul.animate(e.extend({left:"-"+b+"00%"},f),d,function(d){a.current=b;e.isFunction(a.opts.complete)&&!c&&a.opts.complete(a.el)}))};this.start=function(){a.interval=setInterval(function(){a.move(a.current+1)},a.opts.delay)};this.stop=function(){a.interval=clearInterval(a.interval);return a};this.keys=function(b){b=b.which;var c={37:a.prev,39:a.next,27:a.stop};if(e.isFunction(c[b]))c[b]()};this.next=function(){return a.stop().move(a.current+1)};this.prev=function(){return a.stop().move(a.current-1)};this.dots=function(){var b='<ol class="dots">';e.each(this.items,function(a){b+='<li class="dot'+(1>a?" active":"")+'">'+(a+1)+"</li>"});b+="</ol>";this.el.addClass("has-dots").append(b).find(".dot").click(function(){a.move(e(this).index())})}};e.fn.unslider=function(a){var b=this.length;return this.each(function(c){var d=e(this),g=(new h).init(d,a);d.data("unslider"+(1<b?"-"+(c+1):""),g)})}})(window.jQuery,!1);
 
 function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
     switch (htmlSectionId) {
@@ -378,142 +381,7 @@ function LoadInfo() {
 //Seperate if else before we need content page JavaScript process first.
 if(!isContentPage){
 	document.getElementById("overbg").classList.remove('item');
-	LoadInfo();
-	
-	//init unslider for home page
-    (function(e, t) {
-        if (!e) return t;
-        var n = function() {
-            this.el = t;
-            this.items = t;
-            this.sizes = [];
-            this.max = [0, 0];
-            this.current = 0;
-            this.interval = t;
-            this.opts = {
-                speed: 500,
-                delay: 3e3,
-                complete: t,
-                keys: !t,
-                dots: t,
-                fluid: t
-            };
-            var n = this;
-            this.init = function(t, n) {
-                this.el = t;
-                this.ul = t.children("ul");
-                this.max = [t.outerWidth(), t.outerHeight()];
-                this.items = this.ul.children("li").each(this.calculate);
-                this.opts = e.extend(this.opts, n);
-                this.setup();
-                return this
-            };
-            this.calculate = function(t) {
-                var r = e(this),
-                    i = r.outerWidth(),
-                    s = r.outerHeight();
-                n.sizes[t] = [i, s];
-                if (i > n.max[0]) n.max[0] = i;
-                if (s > n.max[1]) n.max[1] = s
-            };
-            this.setup = function() {
-                this.el.css({
-                    overflow: "hidden",
-                    width: n.max[0],
-                    height: this.items.first().outerHeight()
-                });
-                this.ul.css({
-                    width: this.items.length * 100 + "%",
-                    position: "relative"
-                });
-                this.items.css("width", 100 / this.items.length + "%");
-                if (this.opts.delay !== t) {
-                    this.start();
-                    this.el.hover(this.stop, this.start)
-                }
-                this.opts.keys && e(document).keydown(this.keys);
-                this.opts.dots && this.dots();
-                if (this.opts.fluid) {
-                    var r = function() {
-                        n.el.css("width", Math.min(Math.round(n.el.outerWidth() / n.el.parent().outerWidth() * 100), 100) + "%")
-                    };
-                    r();
-                    e(window).resize(r)
-                }
-                if (this.opts.arrows) {
-                    this.el.parent().append('<p class="arrows"><span class="prev">â†</span><span class="next">â†’</span></p>').find(".arrows span").click(function() {
-                        e.isFunction(n[this.className]) && n[this.className]()
-                    })
-                }
-                if (e.event.swipe) {
-                    this.el.on("swipeleft", n.prev).on("swiperight", n.next)
-                }
-            };
-            this.move = function(t, r) {
-                if (!this.items.eq(t).length) t = 0;
-                if (t < 0) t = this.items.length - 1;
-                var i = this.items.eq(t);
-                var s = {
-                    height: i.outerHeight()
-                };
-                var o = r ? 5 : this.opts.speed;
-                if (!this.ul.is(":animated")) {
-                    n.el.find(".dot:eq(" + t + ")").addClass("active").siblings().removeClass("active");
-                    this.el.animate(s, o) && this.ul.animate(e.extend({
-                        left: "-" + t + "00%"
-                    }, s), o, function(i) {
-                        n.current = t;
-                        e.isFunction(n.opts.complete) && !r && n.opts.complete(n.el)
-                    })
-                }
-            };
-            this.start = function() {
-                n.interval = setInterval(function() {
-                    n.move(n.current + 1)
-                }, n.opts.delay)
-            };
-            this.stop = function() {
-                n.interval = clearInterval(n.interval);
-                return n
-            };
-            this.keys = function(t) {
-                var r = t.which;
-                var i = {
-                    37: n.prev,
-                    39: n.next,
-                    27: n.stop
-                };
-                if (e.isFunction(i[r])) {
-                    i[r]()
-                }
-            };
-            this.next = function() {
-                return n.stop().move(n.current + 1)
-            };
-            this.prev = function() {
-                return n.stop().move(n.current - 1)
-            };
-            this.dots = function() {
-                var t = '<ol class="dots">';
-                e.each(this.items, function(e) {
-                    t += '<li class="dot' + (e < 1 ? " active" : "") + '">' + (e + 1) + "</li>"
-                });
-                t += "</ol>";
-                this.el.addClass("has-dots").append(t).find(".dot").click(function() {
-                    n.move(e(this).index())
-                })
-            }
-        };
-        e.fn.unslider = function(t) {
-            var r = this.length;
-            return this.each(function(i) {
-                var s = e(this);
-                var u = (new n).init(s, t);
-                s.data("unslider" + (r > 1 ? "-" + (i + 1) : ""), u)
-            })
-        }
-    })(window.jQuery, false)
-    
+	LoadInfo();	
 	
 	//For label page.
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
@@ -549,20 +417,30 @@ function stickySidebar() {
     })
 };
 
-function findScriptSection() {
-	var blogId = $('#b').val();
-	var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
-	var currentUrl = '\/\/' + window.location.host + window.location.pathname;
-	
-	var c = [sendInfoUrl,currentUrl,blogId];
-	_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
-		'contactFormMessageSendingMsg': 'กำลังส่ง...', 
-		'contactFormMessageSentMsg': 'ส่งข้อความแล้ว', 
-		'contactFormMessageNotSentMsg': 'ไม่สามารถส่งข้อความได้ โปรดลองอีกครั้งในภายหลัง', 
-		'contactFormInvalidEmailMsg': 'ต้องระบุที่อยู่อีเมล์ให้ถูกต้อง', 
-		'contactFormEmptyMessageMsg': 'ข้อความต้องไม่เว้นว่าง', 'title': 'ฟอร์มรายชื่อติดต่อ', 
-		'blogId': blogId, 'contactFormNameMsg': 'ชื่อ', 'contactFormEmailMsg': 'อีเมล์', 
-		'contactFormMessageMsg': 'ข้อความ', 'contactFormSendMsg': 'ส่ง', 'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
+function initWidgetManager() {
+	if(isInitWidget)return;
+	var urlScript = 'https://www.blogger.com/static/v1/widgets/1171408283-widgets.js';
+	$.getScript(urlScript, function() {
+		var blogId = $('#b').val();
+		var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
+		var currentUrl = '\/\/' + window.location.host + window.location.pathname;
+		
+		var c = [sendInfoUrl,currentUrl,blogId];
+		_WidgetManager._Init(c[0], c[1], c[2] + ""), _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm2', 'ft4', document.getElementById('ContactForm2'), {
+			'contactFormMessageSendingMsg': 'Sending...', 
+			'contactFormMessageSentMsg': 'Text Sent', 
+			'contactFormMessageNotSentMsg': 'Messages can not be sent. Please try again later.', 
+			'contactFormInvalidEmailMsg': 'Email address must be specified correctly.', 
+			'contactFormEmptyMessageMsg': 'Message can not be empty.', 
+			'title': 'Contact Form', 
+			'blogId': blogId, 
+			'contactFormNameMsg': 'Name', 
+			'contactFormEmailMsg': 'Email', 
+			'contactFormMessageMsg': 'Message', 
+			'contactFormSendMsg': 'Sent', 
+			'submitUrl': 'https://www.blogger.com/contact-form.do'}, 'displayModeFull'));
+		isInitWidget = true;
+    });
 }
 
 //-----------------------------------------------------------------------
@@ -581,10 +459,8 @@ $(".del").click(function() {
 		top: "-80px"
 	})
 });
-$(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
+$('#ft4').click(initWidgetManager);
 
-//WidgetMangaer we need to wait blog widget.js that just email only.
-function deferWidgetManager(a){window._WidgetManager?a():setTimeout(function(){deferWidgetManager(a)},5)}
-deferWidgetManager(findScriptSection);
+$(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
 
 
