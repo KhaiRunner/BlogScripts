@@ -131,11 +131,11 @@ function stickyFB(width) {
                 'position': 'fixed',
                 'top': '10px',
                 'margin-left': marginLeft + 'px',
-                'height': (socialHeight + 'px')
+                'height': (twFloat.heigth() + 'px')
             });
 			fbFloat.css({
                 'position': 'fixed',
-                'top': '10px',
+                'top': '40px',
                 'margin-left': marginLeft + 'px',
                 'height': (socialHeight + 'px')
             });
