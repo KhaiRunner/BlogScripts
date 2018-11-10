@@ -115,26 +115,37 @@ function stickyFB(width) {
     if (width > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
-        //socialFloat = $('.fb'),
-        socialFloat = $('.soF'),
-        socialHeight = socialFloat.height(),
+        fbFloat = $('.fb'),
+        twFloat = $('#fbP>.tw'),
+        socialHeight = fbFloat.height(),
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
         marginLeft = '0';
-    if (width > 440) marginLeft = '-25px';
-    else if (width > 320) marginLeft = '-15px';
+    if (width > 440) marginLeft = '-25';
+    else if (width > 320) marginLeft = '-15';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
         scrollLength = mainContent.height() + calScrollLength;
         if (scroll >= mainTop && scroll <= scrollLength) {
-            socialFloat.css({
+            twFloat.css({
                 'position': 'fixed',
                 'top': '10px',
-                'margin-left': marginLeft,
+                'margin-left': marginLeft + 'px',
+                'height': (socialHeight + 'px')
+            });
+			fbFloat.css({
+                'position': 'fixed',
+                'top': '10px',
+                'margin-left': marginLeft + 'px',
                 'height': (socialHeight + 'px')
             });
         } else {
-            socialFloat.css({
+            twFloat.css({
+                'position': 'relative',
+                'top': 0,
+                'margin-left': 0
+            });
+			fbFloat.css({
                 'position': 'relative',
                 'top': 0,
                 'margin-left': 0
