@@ -130,13 +130,16 @@ function stickyFB(width) {
             twFloat.css({
                 'position': 'fixed',
                 'top': '0',
-                'margin-left': marginLeft + 'px'
+                'margin-left': marginLeft + 'px',
+				'z-index':1
+				
             });
 			fbFloat.css({
                 'position': 'fixed',
                 'top': '0',
                 'margin-left': (marginLeft+65) + 'px',
-                'height': (fbHeight + 'px')
+                'height': (fbHeight + 'px'),
+				'z-index':1
             });
         } else {
 			var stopFloat = {
