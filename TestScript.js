@@ -123,14 +123,25 @@ function stickyFB(width) {
     else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
-        scrollLength = mainContent.height() + calScrollLength;
-        if (scroll >= mainTop && scroll <= scrollLength) {
+		
+		//Save CPU
+		if(scroll<500){
+			scrollLength = mainContent.height() + calScrollLength;
+		}
+        
+		if (scroll >= mainTop && scroll <= scrollLength) {
+			//save CPU by not set same value
+			if(socialFloat.css('position') == 'fixed')return;
+			
             socialFloat.css({
                 'position': 'fixed',
                 'top': 0,
                 'margin-left': marginLeft
             });
         } else {
+			//save CPU by not set same value
+			if(socialFloat.css('position') == 'relative')return
+			
 			socialFloat.css({
                 'position': 'relative',
                 'top': 0,
