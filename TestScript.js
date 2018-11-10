@@ -134,21 +134,18 @@ function stickyFB(width) {
             });
 			fbFloat.css({
                 'position': 'fixed',
-                'top': '40px',
-                'margin-left': marginLeft + 'px',
+                'top': '0',
+                'margin-left': (marginLeft+65) + 'px',
                 'height': (fbHeight + 'px')
             });
         } else {
-            twFloat.css({
+			var stopFloat = {
                 'position': 'relative',
                 'top': 0,
                 'margin-left': 0
-            });
-			fbFloat.css({
-                'position': 'relative',
-                'top': 0,
-                'margin-left': 0
-            });
+            };
+            twFloat.css(stopFloat);
+			fbFloat.css(stopFloat);
         }
     });
 }
