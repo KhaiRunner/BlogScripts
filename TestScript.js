@@ -115,7 +115,8 @@ function stickyFB(width) {
     if (width > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
-        socialFloat = $('.fb'),
+        //socialFloat = $('.fb'),
+        socialFloat = $('.soF'),
         socialHeight = socialFloat.height(),
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
