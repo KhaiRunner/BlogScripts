@@ -459,8 +459,25 @@ $(".del").click(function() {
 		top: "-80px"
 	})
 });
+
+$('.tw').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = 'https://twitter.com/share?text=' + $('.post-title').text(),
+		
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, 'twitter', opts);
+
+    return false;
+  });
+
 $('#ft4').click(initWidgetManager);
 
 $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
-
-
