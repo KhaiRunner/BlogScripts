@@ -120,9 +120,9 @@ function stickyFB(width) {
         fbHeight = fbFloat.height(),
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
-        marginLeft = '0';
-    if (width > 440) marginLeft = '-25';
-    else if (width > 320) marginLeft = '-15';
+        marginLeft = 0;
+    if (width > 440) marginLeft = -25;
+    else if (width > 320) marginLeft = -15;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
         scrollLength = mainContent.height() + calScrollLength;
