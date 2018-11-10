@@ -117,7 +117,7 @@ function stickyFB(width) {
         mainTop = mainContent.offset().top,
         fbFloat = $('.fb'),
         twFloat = $('#fbP>.tw'),
-        socialHeight = fbFloat.height(),
+        fbHeight = fbFloat.height(),
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
         marginLeft = '0';
@@ -131,13 +131,13 @@ function stickyFB(width) {
                 'position': 'fixed',
                 'top': '10px',
                 'margin-left': marginLeft + 'px',
-                'height': (twFloat.heigth() + 'px')
+                'height': '29px'
             });
 			fbFloat.css({
                 'position': 'fixed',
                 'top': '40px',
                 'margin-left': marginLeft + 'px',
-                'height': (socialHeight + 'px')
+                'height': (fbHeight + 'px')
             });
         } else {
             twFloat.css({
