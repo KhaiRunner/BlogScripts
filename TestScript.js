@@ -129,9 +129,8 @@ function stickyFB(width) {
         if (scroll >= mainTop && scroll <= scrollLength) {
             twFloat.css({
                 'position': 'fixed',
-                'top': '10px',
-                'margin-left': marginLeft + 'px',
-                'height': '29px'
+                'top': '0',
+                'margin-left': marginLeft + 'px'
             });
 			fbFloat.css({
                 'position': 'fixed',
