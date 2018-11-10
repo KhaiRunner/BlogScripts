@@ -130,7 +130,7 @@ function stickyFB(width) {
 		}
         
 		if (scroll >= mainTop && scroll <= scrollLength) {
-			//save CPU by not set same value
+			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloat.css('position') == 'fixed')return;
 			
             socialFloat.css({
@@ -139,7 +139,7 @@ function stickyFB(width) {
                 'margin-left': marginLeft
             });
         } else {
-			//save CPU by not set same value
+			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloat.css('position') == 'relative')return
 			
 			socialFloat.css({

@@ -115,8 +115,7 @@ function L(width) {
     if (width > 1200) return;
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
-        socialFloat = $('.fb'),
-        socialHeight = socialFloat.height(),
+        socialFloat = $('.soF'),
         calScrollLength = mainTop + 235,
         scrollLength = mainContent.height() + calScrollLength,
         marginLeft = '0';
@@ -124,16 +123,26 @@ function L(width) {
     else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
-        scrollLength = mainContent.height() + calScrollLength;
-        if (scroll >= mainTop && scroll <= scrollLength) {
+		
+		//Save CPU
+		if(scroll<500){
+			scrollLength = mainContent.height() + calScrollLength;
+		}
+        
+		if (scroll >= mainTop && scroll <= scrollLength) {
+			//save CPU by not set same value. Cannot merged logic!!!
+			if(socialFloat.css('position') == 'fixed')return;
+			
             socialFloat.css({
                 'position': 'fixed',
-                'top': '10px',
-                'margin-left': marginLeft,
-                'height': (socialHeight + 'px')
+                'top': 0,
+                'margin-left': marginLeft
             });
         } else {
-            socialFloat.css({
+			//save CPU by not set same value. Cannot merged logic!!!
+			if(socialFloat.css('position') == 'relative')return
+			
+			socialFloat.css({
                 'position': 'relative',
                 'top': 0,
                 'margin-left': 0
@@ -459,8 +468,25 @@ $(".del").click(function() {
 		top: "-80px"
 	})
 });
+
+$('.tw').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = 'https://twitter.com/share?text=' + $('.post-title').text(),
+		
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, 'twitter', opts);
+
+    return false;
+  });
+
 $('#ft4').click(N);
 
 $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
-
-
