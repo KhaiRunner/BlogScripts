@@ -1,24 +1,11 @@
 ﻿/*
-(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
+(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)|(P)|(Q)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)
 */
 //==================All Page First section==================
 var A = document.getElementById('isContent').value == '1';
 var B = 0 < window.innerWidth ? window.innerWidth : screen.width;
 var O = false;
-
-//Init facebook need to finally ASAP due to slowest result cause effect.
-function C(){
-	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-	window.fbAsyncInit = function() {
-    FB.init({
-		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml      : true,
-		version    : 'v3.1'
-    });
-  };
-}
-C();
 
 function D(){
 	//rawRecentPosts -> r
@@ -106,6 +93,18 @@ function G(){
 }
 G();
 
+//Init facebook.
+function C(){
+	window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
+}
+C();
+
 //===================Content Page=============================
 function K() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
@@ -151,11 +150,54 @@ function L(width) {
     });
 }
 
+function P(url, title){
+	var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+		
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, title, opts);
+}
+
+function Q(){
+	var currentUrl = window.location.href.split('?')[0];
+	
+	$('.tw').click(function() {
+	var url    = 'https://twitter.com/share?text=' + $('.post-title').text();
+	P(url, 'twitter');
+    return false;
+  });
+ 
+	$('.fb').click(function(){
+		
+		var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
+		P(url, 'Facebook');
+
+		return false;
+	});
+
+	//Check number of FB share
+	$.getJSON( 'https://graph.facebook.com/?id=' + currentUrl, function( data ) {
+	  
+	  if(data && data.share && data.share.share_count > 0){
+		$('.fb').append(' ' + data.share.share_count)
+	  }
+	});
+}
+
 //-----------------------------------------------------------------------
 //Run Script Content Page
 if(A){
+	//Handle images first before user might redirect to image url.
 	K();
 	L(B);
+	Q();
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -457,6 +499,7 @@ function N() {
 if (1200 < B) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || M();
 }
+
 $("#sBtn").click(function() {
 	$("#sBox").animate({
 		top: "0px"
@@ -468,24 +511,6 @@ $(".del").click(function() {
 		top: "-80px"
 	})
 });
-
-$('.tw').click(function(event) {
-    var width  = 575,
-        height = 400,
-        left   = ($(window).width()  - width)  / 2,
-        top    = ($(window).height() - height) / 2,
-        url    = 'https://twitter.com/share?text=' + $('.post-title').text(),
-		
-        opts   = 'status=1' +
-                 ',width='  + width  +
-                 ',height=' + height +
-                 ',top='    + top    +
-                 ',left='   + left;
-
-    window.open(url, 'twitter', opts);
-
-    return false;
-  });
 
 $('#ft4').click(N);
 

@@ -1,24 +1,11 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)|(initSocialButtons)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 var isInitWidget = false;
-
-//Init facebook need to finally ASAP due to slowest result cause effect.
-function initFB(){
-	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-	window.fbAsyncInit = function() {
-    FB.init({
-		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml      : true,
-		version    : 'v3.1'
-    });
-  };
-}
-initFB();
 
 function getRecentPost(){
 	//rawRecentPosts -> r
@@ -106,6 +93,18 @@ function addWidgets(){
 }
 addWidgets();
 
+//Init facebook.
+function initFB(){
+	window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
+}
+initFB();
+
 //===================Content Page=============================
 function handleImg() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
@@ -151,11 +150,54 @@ function stickyFB(width) {
     });
 }
 
+function openNewWindow(url, title){
+	var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+		
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, title, opts);
+}
+
+function initSocialButtons(){
+	var currentUrl = window.location.href.split('?')[0];
+	
+	$('.tw').click(function() {
+	var url    = 'https://twitter.com/share?text=' + $('.post-title').text();
+	openNewWindow(url, 'twitter');
+    return false;
+  });
+ 
+	$('.fb').click(function(){
+		
+		var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
+		openNewWindow(url, 'Facebook');
+
+		return false;
+	});
+
+	//Check number of FB share
+	$.getJSON( 'https://graph.facebook.com/?id=' + currentUrl, function( data ) {
+	  
+	  if(data && data.share && data.share.share_count > 0){
+		$('.fb').append(' ' + data.share.share_count)
+	  }
+	});
+}
+
 //-----------------------------------------------------------------------
 //Run Script Content Page
 if(isContentPage){
+	//Handle images first before user might redirect to image url.
 	handleImg();
 	stickyFB(windowWidth);
+	initSocialButtons();
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -457,6 +499,7 @@ function initWidgetManager() {
 if (1200 < windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
 }
+
 $("#sBtn").click(function() {
 	$("#sBox").animate({
 		top: "0px"
@@ -468,24 +511,6 @@ $(".del").click(function() {
 		top: "-80px"
 	})
 });
-
-$('.tw').click(function(event) {
-    var width  = 575,
-        height = 400,
-        left   = ($(window).width()  - width)  / 2,
-        top    = ($(window).height() - height) / 2,
-        url    = 'https://twitter.com/share?text=' + $('.post-title').text(),
-		
-        opts   = 'status=1' +
-                 ',width='  + width  +
-                 ',height=' + height +
-                 ',top='    + top    +
-                 ',left='   + left;
-
-    window.open(url, 'twitter', opts);
-
-    return false;
-  });
 
 $('#ft4').click(initWidgetManager);
 
