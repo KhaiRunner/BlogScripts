@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -452,6 +452,21 @@ function initWidgetManager() {
     });
 }
 
+function openNewWindow(url, title){
+	var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+		
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, title, opts);
+}
+
 //-----------------------------------------------------------------------
 //Run Script All page Last section
 if (1200 < windowWidth) {
@@ -470,22 +485,18 @@ $(".del").click(function() {
 });
 
 $('.tw').click(function(event) {
-    var width  = 575,
-        height = 400,
-        left   = ($(window).width()  - width)  / 2,
-        top    = ($(window).height() - height) / 2,
-        url    = 'https://twitter.com/share?text=' + $('.post-title').text(),
-		
-        opts   = 'status=1' +
-                 ',width='  + width  +
-                 ',height=' + height +
-                 ',top='    + top    +
-                 ',left='   + left;
-
-    window.open(url, 'twitter', opts);
-
+	var url    = 'https://twitter.com/share?text=' + $('.post-title').text();
+	openNewWindow(url, 'twitter');
     return false;
   });
+ 
+$('.fb').click(function(event){
+	var currentPage = window.location.href.split('?')[0];
+	var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentPage;
+	openNewWindow(url, 'Facebook');
+    return false;
+});
+  
 
 $('#ft4').click(initWidgetManager);
 
