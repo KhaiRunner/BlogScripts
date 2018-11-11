@@ -7,19 +7,6 @@ var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 var isInitWidget = false;
 
-//Init facebook need to finally ASAP due to slowest result cause effect.
-function initFB(){
-	//Init Facebook if combine files was loaded that means facebook sdk is alreaded.
-	window.fbAsyncInit = function() {
-    FB.init({
-		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
-		xfbml      : true,
-		version    : 'v3.1'
-    });
-  };
-}
-initFB();
-
 function getRecentPost(){
 	//rawRecentPosts -> r
 	var allInfo = document.getElementById("r").value.split(',');
@@ -105,6 +92,18 @@ function addWidgets(){
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 }
 addWidgets();
+
+//Init facebook.
+function initFB(){
+	window.fbAsyncInit = function() {
+    FB.init({
+		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
+		xfbml      : true,
+		version    : 'v3.1'
+    });
+  };
+}
+initFB();
 
 //===================Content Page=============================
 function handleImg() {
@@ -484,13 +483,13 @@ $(".del").click(function() {
 	})
 });
 
-$('.tw').click(function(event) {
+$('.tw').click(function() {
 	var url    = 'https://twitter.com/share?text=' + $('.post-title').text();
 	openNewWindow(url, 'twitter');
     return false;
   });
  
-$('.fb').click(function(event){
+$('.fb').click(function(){
 	var currentPage = window.location.href.split('?')[0];
 	var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentPage;
 	openNewWindow(url, 'Facebook');
