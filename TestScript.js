@@ -493,7 +493,15 @@ $('.fb').click(function(){
 	var currentPage = window.location.href.split('?')[0];
 	var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentPage;
 	openNewWindow(url, 'Facebook');
+
     return false;
+});
+
+//Check number of FB share
+$.getJSON( 'http://graph.facebook.com/?id='+window.location.href.split('?')[0], function( data ) {
+  console.log(data);
+  console.log(data.share);
+  console.log(data.share.share_count);
 });
   
 
