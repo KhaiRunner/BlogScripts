@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)|(initSocialButtons)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -150,11 +150,54 @@ function stickyFB(width) {
     });
 }
 
+function openNewWindow(url, title){
+	var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+		
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, title, opts);
+}
+
+function initSocialButtons(){
+	var currentUrl = window.location.href.split('?')[0];
+	
+	$('.tw').click(function() {
+	var url    = 'https://twitter.com/share?text=' + $('.post-title').text();
+	openNewWindow(url, 'twitter');
+    return false;
+  });
+ 
+	$('.fb').click(function(){
+		
+		var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
+		openNewWindow(url, 'Facebook');
+
+		return false;
+	});
+
+	//Check number of FB share
+	$.getJSON( 'https://graph.facebook.com/?id=' + currentUrl, function( data ) {
+	  
+	  if(data && data.share && data.share.share_count > 0){
+		$('.fb').append(' ' + data.share.share_count)
+	  }
+	});
+}
+
 //-----------------------------------------------------------------------
 //Run Script Content Page
 if(isContentPage){
+	//Handle images first before user might redirect to image url.
 	handleImg();
 	stickyFB(windowWidth);
+	initSocialButtons();
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -451,26 +494,12 @@ function initWidgetManager() {
     });
 }
 
-function openNewWindow(url, title){
-	var width  = 575,
-        height = 400,
-        left   = ($(window).width()  - width)  / 2,
-        top    = ($(window).height() - height) / 2,
-		
-        opts   = 'status=1' +
-                 ',width='  + width  +
-                 ',height=' + height +
-                 ',top='    + top    +
-                 ',left='   + left;
-
-    window.open(url, title, opts);
-}
-
 //-----------------------------------------------------------------------
 //Run Script All page Last section
 if (1200 < windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
 }
+
 $("#sBtn").click(function() {
 	$("#sBox").animate({
 		top: "0px"
@@ -482,28 +511,6 @@ $(".del").click(function() {
 		top: "-80px"
 	})
 });
-
-$('.tw').click(function() {
-	var url    = 'https://twitter.com/share?text=' + $('.post-title').text();
-	openNewWindow(url, 'twitter');
-    return false;
-  });
- 
-$('.fb').click(function(){
-	var currentPage = window.location.href.split('?')[0];
-	var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentPage;
-	openNewWindow(url, 'Facebook');
-
-    return false;
-});
-
-//Check number of FB share
-$.getJSON( 'http://graph.facebook.com/?id='+window.location.href.split('?')[0], function( data ) {
-  console.log(data);
-  console.log(data.share);
-  console.log(data.share.share_count);
-});
-  
 
 $('#ft4').click(initWidgetManager);
 
