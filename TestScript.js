@@ -133,6 +133,7 @@ function stickyFB(width) {
 			if(socialFloat.css('position') == 'fixed')return;
 			
             socialFloat.css({
+				'display':'inline',
                 'position': 'fixed',
                 'top': 0,
                 'margin-left': marginLeft
@@ -142,6 +143,7 @@ function stickyFB(width) {
 			if(socialFloat.css('position') == 'relative')return
 			
 			socialFloat.css({
+				'display':'block',
                 'position': 'relative',
                 'top': 0,
                 'margin-left': 0
