@@ -141,7 +141,7 @@ function stickyFB(width) {
             });
         } else if(socialFloatPosition != 'static'){
 			//save CPU by not set same value. Cannot merged logic!!!
-			if(socialFloatPosition == 'relative')return
+			if(socialFloatPosition == 'relative')return;
 			
 			socialFloat.css({
 				'display':'block',

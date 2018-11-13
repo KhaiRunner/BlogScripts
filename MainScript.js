@@ -122,6 +122,7 @@ function stickyFB(width) {
     else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
+		var socialFloatPosition = socialFloat.css('position');
 		
 		//Save CPU
 		if(scroll<500){
@@ -130,18 +131,20 @@ function stickyFB(width) {
         
 		if (scroll >= mainTop && scroll <= scrollLength) {
 			//save CPU by not set same value. Cannot merged logic!!!
-			if(socialFloat.css('position') == 'fixed')return;
+			if(socialFloatPosition == 'fixed')return;
 			
             socialFloat.css({
+				'display':'inline',
                 'position': 'fixed',
                 'top': 0,
                 'margin-left': marginLeft
             });
-        } else {
+        } else if(socialFloatPosition != 'static'){
 			//save CPU by not set same value. Cannot merged logic!!!
-			if(socialFloat.css('position') == 'relative')return
+			if(socialFloatPosition == 'relative')return;
 			
 			socialFloat.css({
+				'display':'block',
                 'position': 'relative',
                 'top': 0,
                 'margin-left': 0
