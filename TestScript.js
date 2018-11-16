@@ -112,8 +112,8 @@ function handleImg() {
 
 function stickyFB(width) {
     if (width > 1200) return;
-    var mainContent = $('#main-wrapper .post-body'),
-        mainTop = mainContent.offset().top,
+    var mainTop = $('#main-wrapper .post-body').offset().top,
+		footerTop = $('#fc').offset().top;
         socialFloat = $('.soF'),
         marginLeft = '0';
     if (width > 440) marginLeft = '-25px';
@@ -122,7 +122,7 @@ function stickyFB(width) {
         var scroll = $(this).scrollTop();
 		var socialFloatPosition = socialFloat.css('position');
         
-		if (scroll >= mainTop) {
+		if (scroll > mainTop && scroll < footerTop) {
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloatPosition == 'fixed')return;
 			
