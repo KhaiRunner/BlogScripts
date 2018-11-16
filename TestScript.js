@@ -124,11 +124,12 @@ function stickyFB(width) {
 		var socialFloatPosition = socialFloat.css('position');
         
 		if (scroll > mainTop && scroll < footerTop) {
-			//save CPU by not set same value. Cannot merged logic!!!
-			if(scroll !== 500 && scroll !== 700 && scroll !== 1000 && scroll !== 1500 && scroll !== 2000 
-			&& socialFloatPosition == 'fixed')return;
-			
 			var checkAdPosition = $('.adsbygoogle-noablate:visible').css('top');
+			
+			//save CPU by not set same value. Cannot merged logic!!!
+			if(scroll > 3000 && socialFloatPosition == 'fixed')return;
+			
+			
 			if(checkAdPosition == '0px' || checkAdPosition == '0')topPosition = 65;
 			
             socialFloat.css({
