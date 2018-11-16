@@ -99,7 +99,7 @@ function C(){
     FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
 		xfbml      : true,
-		version    : 'v3.1'
+		version    : 'v3.2'
     });
   };
 }
@@ -112,24 +112,17 @@ function K() {
 
 function L(width) {
     if (width > 1200) return;
-    var mainContent = $('#main-wrapper .post-body'),
-        mainTop = mainContent.offset().top,
+    var mainTop = $('#main-wrapper .post-body').offset().top,
+		footerTop = $('#fc').offset().top;
         socialFloat = $('.soF'),
-        calScrollLength = mainTop + 235,
-        scrollLength = mainContent.height() + calScrollLength,
         marginLeft = '0';
     if (width > 440) marginLeft = '-25px';
     else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		var socialFloatPosition = socialFloat.css('position');
-		
-		//Save CPU
-		if(scroll<500){
-			scrollLength = mainContent.height() + calScrollLength;
-		}
         
-		if (scroll >= mainTop && scroll <= scrollLength) {
+		if (scroll > mainTop && scroll < footerTop) {
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloatPosition == 'fixed')return;
 			
@@ -139,6 +132,8 @@ function L(width) {
                 'top': 0,
                 'margin-left': marginLeft
             });
+			//Recalculate again for better display result but Only 1 time.
+			footerTop = $('#fc').offset().top;
         } else if(socialFloatPosition != 'static'){
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloatPosition == 'relative')return;
