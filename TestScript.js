@@ -127,9 +127,12 @@ function stickyFB(width) {
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(scroll > 3000 && socialFloatPosition == 'fixed')return;
 			
-			var checkAdPosition = $('.adsbygoogle-noablate[data-anchor-status="displayed"]').css('top');
-			if(checkAdPosition == '0px')topPosition = 65;
-			else topPosition = 0;
+			var adTopInMobile = $('.adsbygoogle-noablate[data-anchor-status="displayed"]');
+			if(adTopInMobile.css('top') == '0px'){
+				var calHeight = adTopInMobile.css('height');
+				topPosition = calHeight ? calHeight : 65;
+			}
+			else {topPosition = 0;}
 			
             socialFloat.css({
 				'display':'inline',
