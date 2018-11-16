@@ -99,7 +99,7 @@ function initFB(){
     FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
 		xfbml      : true,
-		version    : 'v3.1'
+		version    : 'v3.2'
     });
   };
 }
@@ -115,21 +115,14 @@ function stickyFB(width) {
     var mainContent = $('#main-wrapper .post-body'),
         mainTop = mainContent.offset().top,
         socialFloat = $('.soF'),
-        calScrollLength = mainTop + 235,
-        scrollLength = mainContent.height() + calScrollLength,
         marginLeft = '0';
     if (width > 440) marginLeft = '-25px';
     else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		var socialFloatPosition = socialFloat.css('position');
-		
-		//Save CPU
-		if(scroll<500){
-			scrollLength = mainContent.height() + calScrollLength;
-		}
         
-		if (scroll >= mainTop && scroll <= scrollLength) {
+		if (scroll >= mainTop) {
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloatPosition == 'fixed')return;
 			
