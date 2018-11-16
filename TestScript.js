@@ -125,7 +125,7 @@ function stickyFB(width) {
         
 		if (scroll > mainTop && scroll < footerTop) {
 			//save CPU by not set same value. Cannot merged logic!!!
-			if(socialFloatPosition == 'fixed')return;
+			if(scroll > 500 && socialFloatPosition == 'fixed')return;
 			
 			var checkAdPosition = $('.adsbygoogle-noablate:visible').css('top');
 			if(checkAdPosition == '0px' || checkAdPosition == '0')topPosition = 65;
@@ -136,7 +136,7 @@ function stickyFB(width) {
                 'top': topPosition,
                 'margin-left': marginLeft
             });
-			//Recalculate again for better display result but Only 1 time.
+			//Recalculate again for better display result but Only first section.
 			footerTop = $('#fc').offset().top;
         } else if(socialFloatPosition != 'static'){
 			//save CPU by not set same value. Cannot merged logic!!!
