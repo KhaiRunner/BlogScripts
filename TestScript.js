@@ -115,6 +115,7 @@ function stickyFB(width) {
     var mainTop = $('#main-wrapper .post-body').offset().top,
 		footerTop = $('#fc').offset().top;
         socialFloat = $('.soF'),
+		topPosition = 0,
         marginLeft = '0';
     if (width > 440) marginLeft = '-25px';
     else if (width > 320) marginLeft = '-15px';
@@ -126,10 +127,14 @@ function stickyFB(width) {
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloatPosition == 'fixed')return;
 			
+			var checkAdPosition = $('.adsbygoogle-noablate:visible').css('top');
+			console.log('Ad Position = ' + checkAdPosition);
+			if(checkAdPosition == '0px' || checkAdPosition == '0')topPosition = 70;
+			
             socialFloat.css({
 				'display':'inline',
                 'position': 'fixed',
-                'top': 0,
+                'top': topPosition,
                 'margin-left': marginLeft
             });
 			//Recalculate again for better display result but Only 1 time.
