@@ -128,8 +128,7 @@ function stickyFB(width) {
 			if(socialFloatPosition == 'fixed')return;
 			
 			var checkAdPosition = $('.adsbygoogle-noablate:visible').css('top');
-			console.log('Ad Position = ' + checkAdPosition);
-			if(checkAdPosition == '0px' || checkAdPosition == '0')topPosition = 70;
+			if(checkAdPosition == '0px' || checkAdPosition == '0')topPosition = 65;
 			
             socialFloat.css({
 				'display':'inline',
