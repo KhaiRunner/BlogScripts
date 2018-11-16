@@ -113,7 +113,7 @@ function handleImg() {
 function stickyFB(width) {
     if (width > 1200) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
-		footerTop = $('#sb').offset().top + 1500;
+		footerTop = $('#fc').offset().top;
         socialFloat = $('.soF'),
         marginLeft = '0';
     if (width > 440) marginLeft = '-25px';
@@ -132,6 +132,8 @@ function stickyFB(width) {
                 'top': 0,
                 'margin-left': marginLeft
             });
+			//Recalculate again for better display result but Only 1 time.
+			footerTop = $('#fc').offset().top;
         } else if(socialFloatPosition != 'static'){
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(socialFloatPosition == 'relative')return;
