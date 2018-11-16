@@ -125,7 +125,7 @@ function stickyFB(width) {
         
 		if (scroll > mainTop && scroll < footerTop) {
 			//save CPU by not set same value. Cannot merged logic!!!
-			if(scroll !== 500 && scroll !== 1000 && socialFloatPosition == 'fixed')return;
+			if(scroll > 1000 && socialFloatPosition == 'fixed')return;
 			
 			var checkAdPosition = $('.adsbygoogle-noablate:visible').css('top');
 			if(checkAdPosition == '0px' || checkAdPosition == '0')topPosition = 65;
