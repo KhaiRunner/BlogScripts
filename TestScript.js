@@ -113,7 +113,7 @@ function handleImg() {
 function stickyFB(width) {
     if (width > 1200) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
-		footerTop = $('#HTML9').offset().top;
+		footerTop = $('#sb').offset().top + 1500;
         socialFloat = $('.soF'),
         marginLeft = '0';
     if (width > 440) marginLeft = '-25px';
