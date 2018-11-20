@@ -476,7 +476,7 @@ function stickySidebar() {
 
 function searchButtonHandler(){
 	
-	if($("sBox").length > 0)return;
+	if($("#sBox").length > 0)return;
 	
 	//Append Search Box only first time click.
 	var searchBoxHtml = "<div id='sBox' style='position:absolute;top:-80px;width:100%'><form action='/search'><input id='sT' name='q' placeholder='Search' size='40' type='text'style='border:0;font-size:16px;height:36px;padding:0 9px;width:100%;float:left'/></form><button id='delBtn' style='font-size:1.5em;position:absolute;right:0;height:36px'>✖️</button></div>";
