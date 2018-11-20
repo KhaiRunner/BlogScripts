@@ -25,9 +25,9 @@ function getRecentPost(){
 		
 		//check img for add <img> or <div class="p1"></div>
 		if(allInfo[indexImg].length > 0){
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+			recentlyHtml += '<li><a class="p" href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a><a class="t" href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></li>';
 		}else{
-			recentlyHtml += '<li><div class="p"><a href="'+allInfo[indexLink]+'"><div class="p'+(++popIndex)+'"></div></a></div><div class="t"><a href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></div><div class="c"></div></li>';
+			recentlyHtml += '<li><a class="p" href="'+allInfo[indexLink]+'"><div class="p'+(++popIndex)+'"/></a><a class="t" href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></li>';
 		}		
 	}
 	recentlyHtml += '</ul>';
