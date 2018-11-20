@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)|(initSocialButtons)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)|(initSocialButtons)|(searchButtonHandler)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -474,6 +474,21 @@ function stickySidebar() {
     })
 };
 
+function searchButtonHandler(){
+	var searchBoxHtml = "<div id='sBox' style='position:absolute;top:-80px;width:100%'><form action='/search'><input id='sT' name='q' placeholder='Search' size='40' type='text'style='border:0;font-size:16px;height:36px;padding:0 9px;width:100%;float:left'/></form><button style='font-size:1.5em;position:absolute;right:0;height:36px'>✖️</button></div>";
+	$("#sbar").append(searchBoxHtml);
+	$("#sBox").animate({
+		top: "0px"
+	});
+	$("#sT").focus()
+	
+	$(".del").click(function() {
+		$("#sBox").animate({
+			top: "-80px"
+		})
+	});
+}
+
 function initWidgetManager() {
 	if(isInitWidget)return;
 	var urlScript = 'https://www.blogger.com/static/v1/widgets/1171408283-widgets.js';
@@ -506,17 +521,8 @@ if (1200 < windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
 }
 
-$("#sBtn").click(function() {
-	$("#sBox").animate({
-		top: "0px"
-	});
-	$("#sT").focus()
-});
-$(".del").click(function() {
-	$("#sBox").animate({
-		top: "-80px"
-	})
-});
+$("#sBtn").click(searchButtonHandler);
+
 
 $('#ft4').click(initWidgetManager);
 
