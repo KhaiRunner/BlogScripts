@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)|(initSocialButtons)|(searchButtonHandler)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)|(initSocialButtons)|(menuSelectHandler)|(searchButtonHandler)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -474,6 +474,15 @@ function stickySidebar() {
     })
 };
 
+function menuSelectHandler(){
+	if($("#m option").length > 1)return;
+	
+	//Init Option
+	var menu = $("#m");
+	menu.html("<option value='/'>Home</option><option value='/search/label/ห้องนอน'>ห้องนอน</option><option value='/search/label/ห้องนั่งเล่น'>ห้องนั่งเล่น</option><option value='/search/label/ห้องครัว'>ห้องครัว</option><option value='/search/label/สวนสวย'>สวนสวย</option><option value='/search/label/ห้องน้ำ'>ห้องน้ำ</option>");
+	menu.change(function(){location=this.value});
+}
+
 function searchButtonHandler(){
 	
 	if($("#sBox").length === 0){
@@ -527,10 +536,12 @@ function initWidgetManager() {
 if (1200 < windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
 }
+$("#m").click(menuSelectHandler);
 
 $("#sBtn").click(searchButtonHandler);
 
-
+//For send email
 $('#ft4').click(initWidgetManager);
 
+//For error page
 $(".error_page #main-wrapper").prepend('<div class="error-title"><span>404</span>');
