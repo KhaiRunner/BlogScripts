@@ -535,6 +535,15 @@ if (1200 < windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
 }
 
+$("#m").on('click mouseover', function(){
+	if($("#m option").length > 1)return;
+	
+	//Init Option
+	var menu = $("#m");
+	menu.html("<option value='/'>Home</option><option value='/search/label/ห้องนอน'>ห้องนอน</option><option value='/search/label/ห้องนั่งเล่น'>ห้องนั่งเล่น</option><option value='/search/label/ห้องครัว'>ห้องครัว</option><option value='/search/label/สวนสวย'>สวนสวย</option><option value='/search/label/ห้องน้ำ'>ห้องน้ำ</option>");
+	menu.change(function(){location=this.value});
+});
+
 $("#sBtn").click(searchButtonHandler);
 
 
