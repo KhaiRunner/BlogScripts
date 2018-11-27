@@ -188,6 +188,12 @@ function initSocialButtons(){
 		return false;
 	});
 
+	$('.g').click(function(){
+		var url    = 'https://plus.google.com/share?url=' + currentUrl;
+		openNewWindow(url, 'Google+');
+ 		return false;
+	});
+	
 	//Check number of FB share
 	$.getJSON( 'https://graph.facebook.com/?id=' + currentUrl, function( data ) {
 	  
