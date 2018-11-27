@@ -1,5 +1,5 @@
 ﻿/*
-isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(isInitFB)|(openNewWindow)|(initSocialButtons)|(searchButtonHandler)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(isInitFB)|(openNewWindow)|(initSocialButtons)|(searchButtonHandler)
 (?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)
 */
 //==================All Page First section==================

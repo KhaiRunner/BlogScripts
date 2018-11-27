@@ -1,11 +1,12 @@
 ﻿/*
-(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)|(P)|(Q)|(R)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)
+(A)|(B)|(C)|(D)|(E)|(F)|(G)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)|(P)|(Q)|(R)|(S)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)
 */
 //==================All Page First section==================
 var A = document.getElementById('isContent').value == '1';
 var B = 0 < window.innerWidth ? window.innerWidth : screen.width;
 var O = false;
+var P = false;
 
 function D(){
 	//rawRecentPosts -> r
@@ -95,25 +96,28 @@ G();
 
 //Init facebook.
 function C(){
-	window.fbAsyncInit = function() {
-    FB.init({
+  P = true;
+  var urlFBsdk = "https://connect.facebook.net/en_US/sdk.js";
+	$.getScript(urlFBsdk, function(){
+		FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
 		xfbml      : true,
 		version    : 'v3.2'
-    });
-  };
+		});
+	});
 }
-C();
 
 //===================Content Page=============================
 function K() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
 
+
 function L(width) {
     if (width > 1200) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
-		footerTop = $('#fc').offset().top;
+		footerTop = $('#fc').offset().top,
+		endOfContentPosition = $('.post-footer').offset().top,
         socialFloat = $('.soF'),
 		topPosition = 0,
         marginLeft = '0';
@@ -121,8 +125,15 @@ function L(width) {
     else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
-		var socialFloatPosition = socialFloat.css('position');
+		
+		//FB Comment Section
+		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !P){
+			C();
+		}
         
+		
+		//For Social Bar
+		var socialFloatPosition = socialFloat.css('position');
 		if (scroll > mainTop && scroll < footerTop) {
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(scroll > 3000 && socialFloatPosition == 'fixed')return;
@@ -156,7 +167,7 @@ function L(width) {
     });
 }
 
-function P(url, title){
+function Q(url, title){
 	var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,
@@ -171,26 +182,26 @@ function P(url, title){
     window.open(url, title, opts);
 }
 
-function Q(){
+function R(){
 	var currentUrl = window.location.href.split('?')[0];
 	
 	$('.tw').click(function() {
 	var url    = 'https://twitter.com/share?text=' + $('.post-title').text();
-	P(url, 'twitter');
+	Q(url, 'twitter');
     return false;
   });
  
 	$('.fb').click(function(){
 		
 		var url    = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
-		P(url, 'Facebook');
+		Q(url, 'Facebook');
 
 		return false;
 	});
 
 	$('.g').click(function(){
 		var url    = 'https://plus.google.com/share?url=' + currentUrl;
-		P(url, 'Google+');
+		Q(url, 'Google+');
  		return false;
 	});
 	
@@ -209,7 +220,7 @@ if(A){
 	//Handle images first before user might redirect to image url.
 	K();
 	L(B);
-	Q();
+	R();
 	
 	//Fix link
 	var pagerLink = $('.page a[href=""]');
@@ -458,17 +469,24 @@ if(!A){
 function M() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
+		endOfContentPosition = $('.post-footer').offset().top,
         c = $("#HTML3"),
         d = c.height(),
         e = a - d,
         f = b.height() + e,
         g = a + $("#HTML8").height();
     $(window).scroll(function() {
-        var a = $(this).scrollTop();
+        var scroll = $(this).scrollTop();
+		
+		//FB Comment Section
+		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !P){
+			C();
+		}
+		
         f = b.height() + e;
-        a < g ? c.css({
+        scroll < g ? c.css({
             position: "relative"
-        }) : a > f ? c.css({
+        }) : scroll > f ? c.css({
             position: "absolute",
             bottom: "0",
             top: "auto"
@@ -480,7 +498,7 @@ function M() {
     })
 };
 
-function R(){
+function S(){
 	
 	if($("#sBox").length === 0){
 		//Append Search Box only first time click.
@@ -534,7 +552,7 @@ if (1200 < B) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || M();
 }
 
-$("#sBtn").click(R);
+$("#sBtn").click(S);
 
 
 $('#ft4').click(N);

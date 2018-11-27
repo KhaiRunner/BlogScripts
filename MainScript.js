@@ -1,11 +1,12 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(openNewWindow)|(initSocialButtons)|(searchButtonHandler)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(isInitFB)|(openNewWindow)|(initSocialButtons)|(searchButtonHandler)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
 var windowWidth = 0 < window.innerWidth ? window.innerWidth : screen.width;
 var isInitWidget = false;
+var isInitFB = false;
 
 function getRecentPost(){
 	//rawRecentPosts -> r
@@ -95,25 +96,28 @@ addWidgets();
 
 //Init facebook.
 function initFB(){
-	window.fbAsyncInit = function() {
-    FB.init({
+  isInitFB = true;
+  var urlFBsdk = "https://connect.facebook.net/en_US/sdk.js";
+	$.getScript(urlFBsdk, function(){
+		FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
 		xfbml      : true,
 		version    : 'v3.2'
-    });
-  };
+		});
+	});
 }
-initFB();
 
 //===================Content Page=============================
 function handleImg() {
 	$('[id^=adMid_] a:has(img)').click(function(){return false;});
 }
 
+
 function stickyFB(width) {
     if (width > 1200) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
-		footerTop = $('#fc').offset().top;
+		footerTop = $('#fc').offset().top,
+		endOfContentPosition = $('.post-footer').offset().top,
         socialFloat = $('.soF'),
 		topPosition = 0,
         marginLeft = '0';
@@ -121,8 +125,15 @@ function stickyFB(width) {
     else if (width > 320) marginLeft = '-15px';
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
-		var socialFloatPosition = socialFloat.css('position');
+		
+		//FB Comment Section
+		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !isInitFB){
+			initFB();
+		}
         
+		
+		//For Social Bar
+		var socialFloatPosition = socialFloat.css('position');
 		if (scroll > mainTop && scroll < footerTop) {
 			//save CPU by not set same value. Cannot merged logic!!!
 			if(scroll > 3000 && socialFloatPosition == 'fixed')return;
@@ -458,17 +469,24 @@ if(!isContentPage){
 function stickySidebar() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
+		endOfContentPosition = $('.post-footer').offset().top,
         c = $("#HTML3"),
         d = c.height(),
         e = a - d,
         f = b.height() + e,
         g = a + $("#HTML8").height();
     $(window).scroll(function() {
-        var a = $(this).scrollTop();
+        var scroll = $(this).scrollTop();
+		
+		//FB Comment Section
+		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !isInitFB){
+			initFB();
+		}
+		
         f = b.height() + e;
-        a < g ? c.css({
+        scroll < g ? c.css({
             position: "relative"
-        }) : a > f ? c.css({
+        }) : scroll > f ? c.css({
             position: "absolute",
             bottom: "0",
             top: "auto"
