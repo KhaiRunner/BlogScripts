@@ -486,6 +486,7 @@ function stickySidebar() {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section will init only content page for desktop.
+		//BUG is tablet that stickyAd not running that means fb comment will not show.
 		if(!isInitFB && isContentPage && scroll > endOfContentPosition){
 			initFB();
 		}
