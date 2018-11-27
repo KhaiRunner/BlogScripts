@@ -66,12 +66,12 @@ function addWidgets(){
 	var html2 = getRecentPost();
 	var html7 = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
 	//var html12 = "<div class='wc'><div class='g-person' data-width='273' data-href='//plus.google.com/100314722402868942661' data-layout='landscape' data-rel='author'></div></div>";
-	var html12 = "<div class='widget gp' id='HTML12'><img src='//lh4.googleusercontent.com/-r3DwfG_MEqQ/AAAAAAAAAAI/AAAAAAAAwyE/iTJKG7-aDok/photo.jpg?sz=104' height='104' width='104'><h3>Khai Runner</h3><a href='https://plus.google.com/+KhaiRunner?prsrc=5'>Let's see</a></div></div>";
+	var html12 = "<img src='//lh4.googleusercontent.com/-r3DwfG_MEqQ/AAAAAAAAAAI/AAAAAAAAwyE/iTJKG7-aDok/photo.jpg?sz=104' height='104' width='104'><div><h3>Khai Runner</h3><a href='https://plus.google.com/+KhaiRunner?prsrc=5'>About Me</a></div>";
 	
 	var sidebarHtml = '<div class="widget" id="HTML6">'+html6+'</div>'
 											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>'
 											+ '<div class="widget" id="HTML7">'+html7+'</div>'
-											+ '<div class="widget" id="HTML12">'+html12+'</div>';
+											+ '<div class="widget gp" id="HTML12">'+html12+'</div>';
 
 											
 	//Check display screen fore
