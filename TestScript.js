@@ -128,7 +128,7 @@ function stickyFB(width) {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if(!isInitFB && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
+		if(!isInitFB && scroll > endOfContentPosition){
 			initFB();
 		}
         
@@ -480,7 +480,7 @@ function stickySidebar() {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if(!isInitFB && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
+		if(!isInitFB && scroll > endOfContentPosition){
 			initFB();
 		}
 		
