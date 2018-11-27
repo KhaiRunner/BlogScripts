@@ -98,14 +98,19 @@ addWidgets();
 function initFB(){
   isInitFB = true;
   var urlFBsdk = "https://connect.facebook.net/en_US/sdk.js";
-    
-	$.getScript(urlFBsdk, function(){
+  var callbackFuntion = function(){
 		FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
 		xfbml      : true,
 		version    : 'v3.2'
 		});
-	});
+	$.ajax({
+         type: "GET",
+         url: urlFBsdk,
+         success: callbackFuntion,
+         dataType: "script",
+         cache: true
+     });
 }
 
 //===================Content Page=============================
