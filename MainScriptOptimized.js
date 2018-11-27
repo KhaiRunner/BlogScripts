@@ -128,7 +128,7 @@ function L(width) {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if(!P && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
+		if(!P && scroll > endOfContentPosition){
 			C();
 		}
         
@@ -480,7 +480,7 @@ function M() {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if(!P && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
+		if(!P && scroll > endOfContentPosition){
 			C();
 		}
 		
