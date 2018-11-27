@@ -98,14 +98,20 @@ G();
 function C(){
   P = true;
   var urlFBsdk = "https://connect.facebook.net/en_US/sdk.js";
-    
-	$.getScript(urlFBsdk, function(){
+  var callbackFuntion = function(){
 		FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
 		xfbml      : true,
 		version    : 'v3.2'
 		});
-	});
+		};
+	$.ajax({
+         type: "GET",
+         url: urlFBsdk,
+         success: callbackFuntion,
+         dataType: "script",
+         cache: true
+     });
 }
 
 //===================Content Page=============================
@@ -470,7 +476,7 @@ if(!A){
 function M() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
-		endOfContentPosition = $('.post-footer').offset().top,
+		endOfContentPosition = A ? $('.post-footer').offset().top : 0,
         c = $("#HTML3"),
         d = c.height(),
         e = a - d,
@@ -479,8 +485,9 @@ function M() {
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
-		//FB Comment Section
-		if(!P && scroll > endOfContentPosition){
+		//FB Comment Section will init only content page for desktop.
+		//BUG is tablet that stickyAd not running that means fb comment will not show.
+		if(!P && A && scroll > endOfContentPosition){
 			C();
 		}
 		
