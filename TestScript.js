@@ -476,7 +476,7 @@ if(!isContentPage){
 function stickySidebar() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
-		endOfContentPosition = $('.post-footer').offset().top,
+		endOfContentPosition = isContentPage ? $('.post-footer').offset().top : 0,
         c = $("#HTML3"),
         d = c.height(),
         e = a - d,
@@ -485,8 +485,8 @@ function stickySidebar() {
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
-		//FB Comment Section
-		if(!isInitFB && scroll > endOfContentPosition){
+		//FB Comment Section will init only content page for desktop.
+		if(!isInitFB && !isContentPage && scroll > endOfContentPosition){
 			initFB();
 		}
 		
