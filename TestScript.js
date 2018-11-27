@@ -119,7 +119,7 @@ function stickyFB(width) {
     if (width > 1200) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
 		footerTop = $('#fc').offset().top,
-		endOfContentPosition = $('.so').offset().top,
+		endOfContentPosition = $('.post-footer').offset().top,
         socialFloat = $('.soF'),
 		topPosition = 0,
         marginLeft = '0';
@@ -471,6 +471,7 @@ if(!isContentPage){
 function stickySidebar() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
+		endOfContentPosition = $('.post-footer').offset().top,
         c = $("#HTML3"),
         d = c.height(),
         e = a - d,
@@ -478,6 +479,12 @@ function stickySidebar() {
         g = a + $("#HTML8").height();
     $(window).scroll(function() {
         var a = $(this).scrollTop();
+		
+		//FB Comment Section
+		if($('.fb-comments').children().length === 0 && a > endOfContentPosition){
+			initFB();
+		}
+		
         f = b.height() + e;
         a < g ? c.css({
             position: "relative"
