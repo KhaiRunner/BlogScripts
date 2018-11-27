@@ -98,9 +98,7 @@ addWidgets();
 function initFB(){
   isInitFB = true;
   var urlFBsdk = "https://connect.facebook.net/en_US/sdk.js";
-  
-  $('.fb-comments').html("Loading...");
-  
+    
 	$.getScript(urlFBsdk, function(){
 		FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
