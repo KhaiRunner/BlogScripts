@@ -486,7 +486,7 @@ function stickySidebar() {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section will init only content page for desktop.
-		if(!isInitFB && !isContentPage && scroll > endOfContentPosition){
+		if(!isInitFB && isContentPage && scroll > endOfContentPosition){
 			initFB();
 		}
 		
