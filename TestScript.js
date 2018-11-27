@@ -104,6 +104,7 @@ function initFB(){
 		xfbml      : true,
 		version    : 'v3.2'
 		});
+		};
 	$.ajax({
          type: "GET",
          url: urlFBsdk,
