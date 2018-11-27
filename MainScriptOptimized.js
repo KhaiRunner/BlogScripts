@@ -98,6 +98,7 @@ G();
 function C(){
   P = true;
   var urlFBsdk = "https://connect.facebook.net/en_US/sdk.js";
+    
 	$.getScript(urlFBsdk, function(){
 		FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
@@ -127,7 +128,7 @@ function L(width) {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !P){
+		if(!P && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
 			C();
 		}
         
@@ -479,7 +480,7 @@ function M() {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !P){
+		if(!P && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
 			C();
 		}
 		

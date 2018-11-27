@@ -98,6 +98,7 @@ addWidgets();
 function initFB(){
   isInitFB = true;
   var urlFBsdk = "https://connect.facebook.net/en_US/sdk.js";
+    
 	$.getScript(urlFBsdk, function(){
 		FB.init({
 		appId : document.querySelector("meta[property='fb:app_id']").getAttribute("content"),
@@ -127,7 +128,7 @@ function stickyFB(width) {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !isInitFB){
+		if(!isInitFB && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
 			initFB();
 		}
         
@@ -479,7 +480,7 @@ function stickySidebar() {
         var scroll = $(this).scrollTop();
 		
 		//FB Comment Section
-		if($('.fb-comments').children().length === 0 && scroll > endOfContentPosition && !isInitFB){
+		if(!isInitFB && $('.fb-comments').children().length === 0 && scroll > endOfContentPosition){
 			initFB();
 		}
 		
