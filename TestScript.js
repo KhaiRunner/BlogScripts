@@ -93,10 +93,8 @@ function addWidgets(){
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 	
 	//Menu - Jquery dependence
-	var isMobile = -1 != window.location.href.indexOf("?m=1");
-	var eventForMenu = isMobile ? 'click' : 'mousedown';
 	var menu = $('#m');
-	menu.on(eventForMenu, function(){
+	menu.on('mousedown click', function(){
 		if(menu.children().length > 1)return;
 		
 		menu.append("<option value='/search/label/ห้องนอน'>ห้องนอน</option><option value='/search/label/ห้องนั่งเล่น'>ห้องนั่งเล่น</option><option value='/search/label/ห้องครัว'>ห้องครัว</option><option value='/search/label/สวนสวย'>สวนสวย</option><option value='/search/label/ห้องน้ำ'>ห้องน้ำ</option><option value='/'>กลับหน้าบ้าน</option>");
