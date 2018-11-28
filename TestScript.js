@@ -100,6 +100,7 @@ function addWidgets(){
 		if(menu.children().length > 1)return;
 		
 		menu.append("<option value='/search/label/ห้องนอน'>ห้องนอน</option><option value='/search/label/ห้องนั่งเล่น'>ห้องนั่งเล่น</option><option value='/search/label/ห้องครัว'>ห้องครัว</option><option value='/search/label/สวนสวย'>สวนสวย</option><option value='/search/label/ห้องน้ำ'>ห้องน้ำ</option><option value='/'>กลับหน้าบ้าน</option>");
+		menu.attr('onchange', 'location=this.value');
 	});
 	
 }
