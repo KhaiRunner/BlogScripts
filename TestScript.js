@@ -247,7 +247,7 @@ if(isContentPage){
 			message = "This is the latest post."
 		}
 		pagerLink.removeAttr('href');
-		pagerLink[0].innerHTML += " <div style='font-weight:400'>"+message+"</div></a> ";
+		pagerLink[0].innerHTML += " <div>"+message+"</div></a> ";
 	}
 	
 }
