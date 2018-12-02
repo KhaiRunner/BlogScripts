@@ -240,14 +240,14 @@ if(A){
 	R();
 	
 	//Fix link
-	var pagerLink = $('.pr a[href=""]');
+	var pagerLink = $('a.pre[href=""],a.n[href=""]');
 	if(pagerLink.length > 0){
 		var message = "This is the oldest post.";
-		if(pagerLink.parent().hasClass('n')){
+		if(pagerLink.hasClass('n')){
 			message = "This is the latest post."
 		}
 		pagerLink.removeAttr('href');
-		pagerLink[0].innerHTML += " <div>"+message+"</div></a> ";
+		pagerLink[0].innerHTML += " <div style='color:#888'>"+message+"</div></a> ";
 	}
 	
 }
