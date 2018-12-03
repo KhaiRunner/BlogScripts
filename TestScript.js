@@ -591,6 +591,7 @@ if(windowWidth<=1200){
 			addWidgets();
 			$('#ft4').click(initWidgetManager);
 		}
+	});
 }
 
 
