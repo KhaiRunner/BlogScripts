@@ -584,7 +584,7 @@ $("#sBtn").click(searchButtonHandler);
 
 //*********Lazy Load Widgets*********
 if(windowWidth<=1200){
-	var endOfContentPosition = $('#sb').offset().top-300;
+	var endOfContentPosition = $('#sb').offset().top-1000;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		if(scroll > endOfContentPosition && $('#fc').html().length == 0){
