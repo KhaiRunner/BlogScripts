@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(isInitFB)|(openNewWindow)|(initSocialButtons)|(searchButtonHandler)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(isInitFB)|(openNewWindow)|(initSocialButtons)|(initMenu)|(searchButtonHandler)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)(?20T)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent').value == '1';
@@ -91,16 +91,6 @@ function addWidgets(){
 		+ "</div></div></div><div class='ft'><div class='widget' id='HTML9'><h2>More Topics</h2><div class='cl'><a href='/search/label/IKEA'>IKEA</a><a href='/search/label/SB Design Square'>SB</a><a href='/search/label/การเลือกซื้อบ้าน'>เล&#3639;อกซ&#3639;&#3657;อบ&#3657;าน</a><a href='/search/label/คอนโด'>คอนโด</a><a href='/search/label/ตากผ้า'>ตากผ&#3657;า</a><a href='/search/label/บันได'>บ&#3633;นได</a><a href='/search/label/บ้านชั้นเดียว'>บ&#3657;านช&#3633;&#3657;นเด&#3637;ยว</a><a href='/search/label/ม่าน'>ม&#3656;าน</a><a href='/search/label/วางแผนการเงิน'>แผนการเง&#3636;น</a><a href='/search/label/เครื่องซักผ้า'>เคร&#3639;&#3656;องซ&#3633;กผ&#3657;า</a><a href='/search/label/แต่งบ้าน'>แต&#3656;งบ&#3657;าน</a></div></div></div><div class='ft'><div id='ft4'><div class='widget ContactForm' id='ContactForm2'><h2>Contact Us</h2><form name='contact-form'>ช&#3639;&#3656;อ<br/><input class='cf' id='ContactForm2_contact-form-name' name='name' size='30' type='text' value=''/><p></p>อ&#3637;เมล*<br/><input class='cf' id='ContactForm2_contact-form-email' name='email' size='30' type='text' value=''/><p></p>ข&#3657;อความ*<br/><textarea class='cf' cols='25' id='ContactForm2_contact-form-email-message' name='email-message' rows='5'></textarea><p></p><input class='cfb' id='ContactForm2_contact-form-submit' type='button' value='ส่ง'/><div style='text-align:center;max-width:222px;width:100%'><p class='contact-form-error-message' id='ContactForm2_contact-form-error-message'></p><p class='contact-form-success-message' id='ContactForm2_contact-form-success-message'></p></div></form></div></div></div></div>"
 		+ "<div id='cr' class='woo'><p><a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2018 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a></div></div></div>";
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
-	
-	//Menu - Jquery dependence
-	var menu = $('#m');
-	menu.on('mousedown click', function(){
-		if(menu.children().length > 1)return;
-		
-		menu.append("<option value='/search/label/ห้องนั่งเล่น'>💺 ห้องนั่งเล่น</option><option value='/search/label/ห้องครัว'>🍳 ห้องครัว</option><option value='/search/label/ห้องนอน'>💤 ห้องนอน</option><option value='/search/label/สวนสวย'>💐 สวนสวย</option><option value='/search/label/ห้องน้ำ'>🚽 ห้องน้ำ</option><option value='/'>🏠 กลับหน้าบ้าน</option>");
-		menu.attr('onchange', 'location=this.value');
-	});
-	
 }
 //Add widget when display on desktop. For mobile will display with facebook comment.
 if(windowWidth>1200){addWidgets();}
@@ -486,6 +476,16 @@ if(!isContentPage){
 
 //----------------------------------------------------
 // All Page Last section
+function initMenu(){
+	var menu = $('#m');
+	menu.on('mousedown click', function(){
+		if(menu.children().length > 1)return;
+		
+		menu.append("<option value='/search/label/ห้องนั่งเล่น'>💺 ห้องนั่งเล่น</option><option value='/search/label/ห้องครัว'>🍳 ห้องครัว</option><option value='/search/label/ห้องนอน'>💤 ห้องนอน</option><option value='/search/label/สวนสวย'>💐 สวนสวย</option><option value='/search/label/ห้องน้ำ'>🚽 ห้องน้ำ</option><option value='/'>🏠 กลับหน้าบ้าน</option>");
+		menu.attr('onchange', 'location=this.value');
+	});
+}
+
 function stickySidebar() {
     var b = $("#main-wrapper"),
         a = b.offset().top,
@@ -572,7 +572,8 @@ function initWidgetManager() {
 if (1200 < windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || stickySidebar();
 }
-
+//Lazy load menu
+initMenu();
 
 //Search box
 $("#sBtn").click(searchButtonHandler);
