@@ -102,7 +102,8 @@ function addWidgets(){
 	});
 	
 }
-addWidgets();
+//Add widget when display on desktop. For mobile will display with facebook comment.
+if(windowWidth>1200){addWidgets();}
 
 //Init facebook.
 function initFB(){
@@ -143,9 +144,11 @@ function stickyFB(width) {
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
-		//FB Comment Section
+		//*********Lazy Load*********
+		//FB Comment Section and widgets
 		if(!isInitFB && scroll > endOfContentPosition){
 			initFB();
+			addWidgets();
 		}
         
 		
