@@ -534,6 +534,9 @@ function stickySidebar() {
 		//BUG is tablet that stickyAd not running that means fb comment will not show.
 		if(!isInitFB && isContentPage && scroll > endOfContentPosition){
 			initFB();
+			
+			//Add Please share
+			$(".so").append('<div style="padding-top:9px">&nbsp; 📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
 		
         f = b.height() + e;
