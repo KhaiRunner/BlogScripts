@@ -168,6 +168,9 @@ function stickyFB(width) {
 		//FB Comment Section
 		if(!isInitFB && scroll > endOfContentPosition){
 			initFB();
+			
+			//Add Please share
+			$(".soF").append('<div style="padding-top:13px;margin-left:-15px;float:left;background:#FFF">📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
         
 		
