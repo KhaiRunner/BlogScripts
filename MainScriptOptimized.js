@@ -66,7 +66,8 @@ function N() {
 	if(O)return;
 	var urlScript = 'https://www.blogger.com/static/v1/widgets/1171408283-widgets.js';
 	$.getScript(urlScript, function() {
-		var blogId = $('#b').val();
+		var blogInfo = $('link[rel="service.post"]').attr('href').split('/');
+		var blogId = blogInfo[blogInfo.length-3];
 		var sendInfoUrl = '\/\/www.blogger.com/rearrange?blogID\x3d' + blogId;
 		var currentUrl = '\/\/' + window.location.host + window.location.pathname;
 		
@@ -496,7 +497,6 @@ function J() {
 //Run Script Main/Search/Label page
 //Seperate if else before we need content page JavaScript process first.
 if(!A){
-	document.getElementById("overbg").classList.remove('item');
 	J();	
 	
 	//For label page.
