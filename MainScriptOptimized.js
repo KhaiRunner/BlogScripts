@@ -3,7 +3,7 @@
 (?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)(?20T)
 */
 //==================All Page First section==================
-var A = document.getElementById('isContent').value == '1';
+var A = document.getElementById('isContent') == null;
 var B = 0 < window.innerWidth ? window.innerWidth : screen.width;
 var O = false;
 var P = false;
