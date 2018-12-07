@@ -496,7 +496,7 @@ function LoadInfo() {
 //Run Script Main/Search/Label page
 //Seperate if else before we need content page JavaScript process first.
 if(!isContentPage){
-	document.getElementById("overbg").classList.remove('item');
+	//document.getElementById("overbg").classList.remove('item');
 	LoadInfo();	
 	
 	//For label page.
