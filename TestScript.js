@@ -104,7 +104,7 @@ function addWidgets(){
 							+ '<div class="gp" id="HTML12">'+html12+'</div>';
 	
 	document.getElementById('sbC').innerHTML = optimizeLink(sidebarHtml);
-	if(windowWidth>1200){
+	if(windowWidth>1024){
 		document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
 	}else{
 		document.getElementById('sb3').innerHTML = optimizeLink(htmlLeftSidebar);
@@ -120,7 +120,7 @@ function addWidgets(){
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 }
 //Add widget when display on desktop. For mobile will display later.
-if(windowWidth>1200){
+if(windowWidth>1024){
 	addWidgets();
 	$('#ft4').click(initWidgetManager);
 }
@@ -152,7 +152,7 @@ function handleImg() {
 
 
 function stickyFB(width) {
-    if (width > 1200) return;
+    if (width > 1024) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
 		footerTop = $('#fc').offset().top,
 		endOfContentPosition = $('.post-footer').offset().top,
@@ -577,7 +577,7 @@ function searchButtonHandler(){
 
 //-----------------------------------------------------------------------
 //Run Script All page Last section
-if (1200 < windowWidth) {
+if (1024 < windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || stickySidebar();
 }
 //Lazy load menu
@@ -588,7 +588,7 @@ $("#sBtn").click(searchButtonHandler);
 
 
 //*********Lazy Load Widgets*********
-if(windowWidth<=1200){
+if(windowWidth<=1024){
 	var endOfContentPosition = $('#sb').offset().top-1000;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
