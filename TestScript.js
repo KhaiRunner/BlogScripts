@@ -522,9 +522,9 @@ function stickySidebar() {
 		endOfContentPosition = isContentPage ? $('.post-footer').offset().top : 0,
         html3 = $("#HTML3"),
         html3Height = html3.height(),
-        e = topPos - html3Height,
-        f = mainWrapper.height() + e,
-        g = topPos + 930;
+        scrollLength = topPos - html3Height,
+        stopPos = mainWrapper.height() + scrollLength,
+        startPos = topPos + 930;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
@@ -537,10 +537,10 @@ function stickySidebar() {
 			$(".so").append('<div style="padding-top:9px">&nbsp; 📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
 		
-        f = mainWrapper.height() + e;
-        scroll < g ? html3.css({
+        stopPos = mainWrapper.height() + scrollLength;
+        scroll < startPos ? html3.css({
             position: "relative"
-        }) : scroll > f ? html3.css({
+        }) : scroll > stopPos ? html3.css({
             position: "absolute",
             bottom: "0",
             top: "auto"
