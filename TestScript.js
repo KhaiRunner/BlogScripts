@@ -519,14 +519,14 @@ function initMenu(){
 }
 
 function stickySidebar() {
-    var b = $("#main-wrapper"),
-        a = b.offset().top,
+    var mainWrapper = $("#main-wrapper"),
+        topPos = mainWrapper.offset().top,
 		endOfContentPosition = isContentPage ? $('.post-footer').offset().top : 0,
-        c = $("#HTML3"),
-        d = c.height(),
-        e = a - d,
-        f = b.height() + e,
-        g = a + $("#HTML8").height();
+        html3 = $("#HTML3"),
+        html3Height = html3.height(),
+        e = topPos - html3Height,
+        f = mainWrapper.height() + e,
+        g = topPos + $("#HTML8").height();
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
@@ -539,17 +539,17 @@ function stickySidebar() {
 			$(".so").append('<div style="padding-top:9px">&nbsp; 📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
 		
-        f = b.height() + e;
-        scroll < g ? c.css({
+        f = mainWrapper.height() + e;
+        scroll < g ? html3.css({
             position: "relative"
-        }) : scroll > f ? c.css({
+        }) : scroll > f ? html3.css({
             position: "absolute",
             bottom: "0",
             top: "auto"
-        }) : c.css({
+        }) : html3.css({
             position: "fixed",
             top: "0",
-            height: d + "px"
+            height: html3Height + "px"
         })
     })
 };
