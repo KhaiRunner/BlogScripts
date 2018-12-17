@@ -97,17 +97,15 @@ function addWidgets(){
 	var html12 = "<div class='p14'></div><div><h3> &nbsp; Khai Runner</h3><a href='https://plus.google.com/+KhaiRunner' target='_blank'> &nbsp; &nbsp;About Me</a></div>";
 	
 	var sidebarHtml = '<div class="widget" id="HTML6">'+html6+'</div>'
-											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>'
-											+ '<div class="widget" id="HTML7">'+html7+'</div>'
-											+ '<div class="gp" id="HTML12">'+html12+'</div>';
-
-											
+											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>';
 	//Check display screen fore
-	var htmlLeftSidebar = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
+	var htmlLeftSidebar = "<div class='widget' id='HTML8'><h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div></div>"
+							+ '<div class="widget" id="HTML7">'+html7+'</div>'
+							+ '<div class="gp" id="HTML12">'+html12+'</div>';
 	if(windowWidth>1200){
-		document.getElementById('HTML8').innerHTML = optimizeLink(htmlLeftSidebar);
+		document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
 	}else{
-		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'><div class='widget' id='HTML9'>"+htmlLeftSidebar+"</div></div></div>"
+		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'>"+htmlLeftSidebar+"</div></div>"
 	}
 	document.getElementById('sb').innerHTML = optimizeLink(sidebarHtml);
 	
@@ -526,7 +524,7 @@ function stickySidebar() {
         html3Height = html3.height(),
         e = topPos - html3Height,
         f = mainWrapper.height() + e,
-        g = topPos + $("#HTML8").height();
+        g = topPos + 930;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
