@@ -104,11 +104,11 @@ function addWidgets(){
 							+ '<div class="gp" id="HTML12">'+html12+'</div>';
 	
 	document.getElementById('sbC').innerHTML = optimizeLink(sidebarHtml);
-	if(windowWidth<=1200){
+	if(windowWidth>1200){
+		document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
+	}else{
 		//Under AD
 		document.getElementById('sb3').innerHTML = optimizeLink(htmlLeftSidebar);
-	}else{
-		document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
 	}
 	
 	
