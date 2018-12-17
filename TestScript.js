@@ -105,7 +105,7 @@ function addWidgets(){
 	if(windowWidth>1200){
 		document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
 	}else{
-		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'>"+htmlLeftSidebar+"</div></div>"
+		sidebarHtml += "<div id='sb3'>"+htmlLeftSidebar+"</div>"
 	}
 	document.getElementById('sbC').innerHTML = optimizeLink(sidebarHtml);
 	
