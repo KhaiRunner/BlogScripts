@@ -532,7 +532,7 @@ function stickySidebar() {
         html3Height = html3.height(),
         scrollLength = topPos - html3Height,
         stopPos = mainWrapper.height() + scrollLength,
-        startPos = topPos + 930;
+        startPos = topPos + 459;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
