@@ -97,27 +97,32 @@ function addWidgets(){
 	var htmlColor = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
 	var htmlGplus = "<div class='p14'></div><div><h3> &nbsp; Khai Runner</h3><a href='https://plus.google.com/+KhaiRunner' target='_blank'> &nbsp; &nbsp;About Me</a></div>";
 	
-	var beforeAdHtml = '';
 	//Check display screen for left sidebar
-	var htmlLeftSidebar = "<div class='widget'><h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div></div>"
-							+ '<div class="widget">'+htmlColor+'</div>'
-							+ '<div class="gp">'+htmlGplus+'</div>';
+	var htmlLeftSidebar =  "<div class='widget'><h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div></div>"
+						+ '<div class="widget">'+htmlColor+'</div>'
+						+ '<div class="gp">'+htmlGplus+'</div>';
 	
 	
-	if(windowWidth<1024){
+	if(windowWidth<911){
 		//Stop ad sticky and FB will stick
-		htmlLeftSidebar = htmlWeeklyPop+ htmlRecently + htmlLeftSidebar;
+		//Content after ad will be every widgets.
+		htmlLeftSidebar = htmlWeeklyPop + htmlRecently + htmlLeftSidebar;
+		document.getElementById('sb3').innerHTML = optimizeLink(htmlLeftSidebar);
 	}else{
 		//Ad sticky
-		beforeAdHtml = htmlWeeklyPop + htmlRecently;
-		document.getElementById('sbC').innerHTML = optimizeLink(beforeAdHtml);
-	}
-	
-	//sb2 -> Left hand
-	//sb3 -> Under Ad
-	var elementIdForLeftSidebar = windowWidth>1200?'sb2':'sb3';
-	document.getElementById(elementIdForLeftSidebar).innerHTML = optimizeLink(htmlLeftSidebar);
-	
+		//Content before Ad
+		document.getElementById('sbC').innerHTML = optimizeLink(htmlWeeklyPop);
+		
+		//Content after Ad
+		var contentAfterAd = htmlRecently;
+		if(windowWidth>1200){
+			document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
+			document.getElementById('sb3').innerHTML = optimizeLink(htmlRecently);
+		}else{
+			//window Width >= 911 && <=1200
+			document.getElementById('sb3').innerHTML = optimizeLink(htmlRecently + htmlLeftSidebar);
+		}	
+	}	
 	
 	//Footer
 	var footerHtml = "<div id='f' class='woo'><div class='ft'><div class='widget'><h2>Home Decor</h2><div class='cl i'><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a><a href='/search/label/พรม'><b>👣 </b>พรม</a><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></div></div></div>"
@@ -128,7 +133,7 @@ function addWidgets(){
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 }
 //Add widget when display on desktop. For mobile will display later.
-if(windowWidth>=1024){
+if(windowWidth>=911){
 	addWidgets();
 	$('#ft4').click(initWidgetManager);
 }
@@ -160,7 +165,7 @@ function handleImg() {
 
 
 function stickyFB(width) {
-    if (width >= 1024) return;
+    if (width >= 911) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
 		footerTop = $('#fc').offset().top,
 		endOfContentPosition = $('.post-footer').offset().top,
@@ -533,7 +538,7 @@ function stickySidebar() {
         html3Height = html3.height(),
         scrollLength = topPos - html3Height,
         stopPos = mainWrapper.height() + scrollLength,
-        startPos = topPos + 930;
+        startPos = topPos + 459;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
@@ -585,7 +590,7 @@ function searchButtonHandler(){
 
 //-----------------------------------------------------------------------
 //Run Script All page Last section
-if (1024 <= windowWidth) {
+if (911 <= windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || stickySidebar();
 }
 //Lazy load menu
@@ -596,7 +601,7 @@ $("#sBtn").click(searchButtonHandler);
 
 
 //*********Lazy Load Widgets*********
-if(windowWidth<1024){
+if(windowWidth<911){
 	var endOfContentPosition = $('#sb').offset().top-1000;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
