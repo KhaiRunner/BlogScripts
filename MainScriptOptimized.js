@@ -107,6 +107,7 @@ function G(){
 	if(B>1200){
 		document.getElementById('sb2').innerHTML = F(htmlLeftSidebar);
 	}else{
+		//Under AD
 		document.getElementById('sb3').innerHTML = F(htmlLeftSidebar);
 	}
 	
@@ -120,7 +121,7 @@ function G(){
 		document.getElementById('fc').innerHTML = F(footerHtml);
 }
 //Add widget when display on desktop. For mobile will display later.
-if(B>1200){
+if(B>=1024){
 	G();
 	$('#ft4').click(N);
 }
@@ -152,7 +153,7 @@ function K() {
 
 
 function L(width) {
-    if (width > 1200) return;
+    if (width >= 1024) return;
     var mainTop = $('#main-wrapper .post-body').offset().top,
 		footerTop = $('#fc').offset().top,
 		endOfContentPosition = $('.post-footer').offset().top,
@@ -577,7 +578,7 @@ function T(){
 
 //-----------------------------------------------------------------------
 //Run Script All page Last section
-if (1200 < B) {
+if (1024 <= B) {
 	-1 != window.location.href.indexOf("?m=1") || M();
 }
 //Lazy load menu
@@ -588,7 +589,7 @@ $("#sBtn").click(T);
 
 
 //*********Lazy Load Widgets*********
-if(B<=1200){
+if(B<1024){
 	var endOfContentPosition = $('#sb').offset().top-1000;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
