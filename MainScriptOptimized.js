@@ -97,19 +97,18 @@ function G(){
 	var html12 = "<div class='p14'></div><div><h3> &nbsp; Khai Runner</h3><a href='https://plus.google.com/+KhaiRunner' target='_blank'> &nbsp; &nbsp;About Me</a></div>";
 	
 	var sidebarHtml = '<div class="widget" id="HTML6">'+html6+'</div>'
-											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>'
-											+ '<div class="widget" id="HTML7">'+html7+'</div>'
-											+ '<div class="gp" id="HTML12">'+html12+'</div>';
-
-											
+											+ '<div class="section" id="sidebarRight"><div class="widget HTML" data-version="1" id="HTML2">'+html2+'</div></div>';
 	//Check display screen fore
-	var htmlLeftSidebar = "<h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div>";
+	var htmlLeftSidebar = "<div class='widget' id='HTML8'><h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div></div>"
+							+ '<div class="widget" id="HTML7">'+html7+'</div>'
+							+ '<div class="gp" id="HTML12">'+html12+'</div>';
+	
+	document.getElementById('sbC').innerHTML = F(sidebarHtml);
 	if(B>1200){
-		document.getElementById('HTML8').innerHTML = F(htmlLeftSidebar);
+		document.getElementById('sb2').innerHTML = F(htmlLeftSidebar);
 	}else{
-		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'><div class='widget' id='HTML9'>"+htmlLeftSidebar+"</div></div></div>"
+		document.getElementById('sb3').innerHTML = F(htmlLeftSidebar);
 	}
-	document.getElementById('sb').innerHTML = F(sidebarHtml);
 	
 	
 	//Footer
@@ -519,14 +518,14 @@ function S(){
 }
 
 function M() {
-    var b = $("#main-wrapper"),
-        a = b.offset().top,
+    var mainWrapper = $("#main-wrapper"),
+        topPos = mainWrapper.offset().top,
 		endOfContentPosition = A ? $('.post-footer').offset().top : 0,
-        c = $("#HTML3"),
-        d = c.height(),
-        e = a - d,
-        f = b.height() + e,
-        g = a + $("#HTML8").height();
+        html3 = $("#HTML3"),
+        html3Height = html3.height(),
+        scrollLength = topPos - html3Height,
+        stopPos = mainWrapper.height() + scrollLength,
+        startPos = topPos + 930;
     $(window).scroll(function() {
         var scroll = $(this).scrollTop();
 		
@@ -539,17 +538,17 @@ function M() {
 			$(".so").append('<div style="padding-top:9px">&nbsp; 📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
 		
-        f = b.height() + e;
-        scroll < g ? c.css({
+        stopPos = mainWrapper.height() + scrollLength;
+        scroll < startPos ? html3.css({
             position: "relative"
-        }) : scroll > f ? c.css({
+        }) : scroll > stopPos ? html3.css({
             position: "absolute",
             bottom: "0",
             top: "auto"
-        }) : c.css({
+        }) : html3.css({
             position: "fixed",
             top: "0",
-            height: d + "px"
+            height: html3Height + "px"
         })
     })
 };
@@ -579,7 +578,7 @@ function T(){
 //-----------------------------------------------------------------------
 //Run Script All page Last section
 if (1200 < B) {
-	-1 != window.location.href.indexOf("?m=1") || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || M();
+	-1 != window.location.href.indexOf("?m=1") || M();
 }
 //Lazy load menu
 S();
