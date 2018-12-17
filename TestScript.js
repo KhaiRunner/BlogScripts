@@ -577,7 +577,7 @@ function searchButtonHandler(){
 
 //-----------------------------------------------------------------------
 //Run Script All page Last section
-if (1024 < windowWidth) {
+if (1024 <= windowWidth) {
 	-1 != window.location.href.indexOf("?m=1") || stickySidebar();
 }
 //Lazy load menu
