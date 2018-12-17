@@ -117,6 +117,7 @@ function addWidgets(){
 		var contentAfterAd = htmlRecently;
 		if(windowWidth>1200){
 			document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
+			document.getElementById('sb3').innerHTML = optimizeLink(htmlRecently);
 		}else{
 			//window Width >= 911 && <=1200
 			document.getElementById('sb3').innerHTML = optimizeLink(htmlRecently + htmlLeftSidebar);
