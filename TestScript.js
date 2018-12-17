@@ -523,7 +523,7 @@ function stickySidebar() {
         topPos = mainWrapper.offset().top,
 		endOfContentPosition = isContentPage ? $('.post-footer').offset().top : 0,
         html3 = $("#HTML3"),
-        html3Height = windowWidth>1200 ? html3.height() : html3.height() + 800,
+        html3Height = html3.height(),
         scrollLength = topPos - html3Height,
         stopPos = mainWrapper.height() + scrollLength,
         startPos = topPos + 930;
