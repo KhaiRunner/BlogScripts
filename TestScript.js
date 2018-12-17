@@ -107,24 +107,21 @@ function addWidgets(){
 		//Stop ad sticky and FB will stick
 		//Content after ad will be every widgets.
 		htmlLeftSidebar = htmlWeeklyPop + htmlRecently + htmlLeftSidebar;
+		document.getElementById('sb3').innerHTML = optimizeLink(htmlLeftSidebar);
 	}else{
 		//Ad sticky
 		//Content before Ad
 		document.getElementById('sbC').innerHTML = optimizeLink(htmlWeeklyPop);
-	}
-	
-	//sb2 -> Left hand
-	//sb3 -> Under Ad
-	var elementIdForLeftSidebar = windowWidth>1200?'sb2':'sb3';
-	document.getElementById(elementIdForLeftSidebar).innerHTML = optimizeLink(htmlLeftSidebar);
-	
-	if(windowWidth>1200){
-		document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
-		document.getElementById('sb3').innerHTML = optimizeLink(htmlRecently);
-	}else{
-		document.getElementById('sb3').innerHTML = optimizeLink(htmlRecently + htmlLeftSidebar);
-	}
-	
+		
+		//Content after Ad
+		var contentAfterAd = htmlRecently;
+		if(windowWidth>1200){
+			document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
+		}else{
+			//window Width >= 911 && <=1200
+			document.getElementById('sb3').innerHTML = optimizeLink(htmlRecently + htmlLeftSidebar);
+		}	
+	}	
 	
 	//Footer
 	var footerHtml = "<div id='f' class='woo'><div class='ft'><div class='widget'><h2>Home Decor</h2><div class='cl i'><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a><a href='/search/label/พรม'><b>👣 </b>พรม</a><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></div></div></div>"
