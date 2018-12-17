@@ -107,7 +107,7 @@ function addWidgets(){
 	}else{
 		sidebarHtml += "<div id='sb3'><div id='sb2' class='sidebar'>"+htmlLeftSidebar+"</div></div>"
 	}
-	document.getElementById('sb').innerHTML = optimizeLink(sidebarHtml);
+	document.getElementById('sbC').innerHTML = optimizeLink(sidebarHtml);
 	
 	
 	//Footer
