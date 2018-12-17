@@ -102,12 +102,13 @@ function addWidgets(){
 	var htmlLeftSidebar = "<div class='widget' id='HTML8'><h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div></div>"
 							+ '<div class="widget" id="HTML7">'+html7+'</div>'
 							+ '<div class="gp" id="HTML12">'+html12+'</div>';
+	
+	document.getElementById('sbC').innerHTML = optimizeLink(sidebarHtml);
 	if(windowWidth>1200){
 		document.getElementById('sb2').innerHTML = optimizeLink(htmlLeftSidebar);
 	}else{
-		sidebarHtml += "<div id='sb3'>"+htmlLeftSidebar+"</div>"
+		document.getElementById('sb3').innerHTML = optimizeLink(htmlLeftSidebar);
 	}
-	document.getElementById('sbC').innerHTML = optimizeLink(sidebarHtml);
 	
 	
 	//Footer
