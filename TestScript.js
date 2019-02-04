@@ -508,8 +508,8 @@ if(!isContentPage){
 	if ($('#mainSlider').length){
 
 		if(HomePageInfo.length > 0){
-			console.log('Load local');
-			LoadInfo($.parseJSON( HomePageInfo ));
+			console.log('load from local');
+			LoadInfo(HomePageInfo);
 		}
 		else{
 			//Load by Url
