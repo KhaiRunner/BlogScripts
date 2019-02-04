@@ -510,7 +510,7 @@ if(!isContentPage){
 		var homePageInfo = $('#homePageInfo');
 		if(homePageInfo){
 			console.log('load from local');
-			LoadInfo($.parseJSON(homePageInfo));
+			LoadInfo($.parseJSON(homePageInfo.val()));
 		}
 		else{
 			//Load by Url
