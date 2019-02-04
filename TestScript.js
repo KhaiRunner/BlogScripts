@@ -168,7 +168,7 @@ function stickyFB(width) {
     if (width >= 911) return;
     var mainTop = $('#mw .pb').offset().top,
 		footerTop = $('#fc').offset().top,
-		endOfContentPosition = $('.post-footer').offset().top,
+		endOfContentPosition = $('.pf').offset().top,
         socialFloat = $('.soF'),
 		topPosition = 0,
         marginLeft = '0';
@@ -533,7 +533,7 @@ function initMenu(){
 function stickySidebar() {
     var mainWrapper = $("#mw"),
         topPos = mainWrapper.offset().top,
-		endOfContentPosition = isContentPage ? $('.post-footer').offset().top : 0,
+		endOfContentPosition = isContentPage ? $('.pf').offset().top : 0,
         html3 = $("#HTML3"),
         html3Height = html3.height(),
         scrollLength = topPos - html3Height,
