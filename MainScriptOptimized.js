@@ -325,7 +325,7 @@ function I(json, categoryNeeded, htmlElement, params) {
     var MaxNeedPosts = params.numposts;
     var countNeedPosts = 0;
     var displayHtml = '<ul id="label_with_thumbs">';
-    var entryList = json.feed.entry;
+    var entryList = json;
     for (var t = 0; t < entryList.length; ++t) {
         var n = entryList[t];
         if (!n) continue;
@@ -427,10 +427,7 @@ function I(json, categoryNeeded, htmlElement, params) {
     htmlElement.innerHTML = displayHtml;
 }
 
-function J() {
-    if (!$('#mainSlider').length) return;
-    var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
-    $.getJSON(recentlyPostUrl, function(data) {
+function J(data) {
         var paramsMainSlider = {
             numposts: 5,
             showpostthumbnails: true,
@@ -502,14 +499,27 @@ function J() {
 
 		$(".imageContainer img").resizeToParent();
 		E($('#mw a').toArray());
-    });
-}
+    }
 
 //-----------------------------------------------------------------------
 //Run Script Main/Search/Label page
 //Seperate if else before we need content page JavaScript process first.
 if(!A){
-	J();	
+	if ($('#mainSlider').length){
+
+		if(typeof DataHomePageInfo  !== 'undefined' && DataHomePageInfo.length>0){
+			//console.log('load from local');
+			J(DataHomePageInfo);
+		}
+		else{
+			//Load by Url
+			var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
+			$.getJSON(recentlyPostUrl, function(data){
+				J(data.feed.entry);
+			});
+		}
+		
+	};	
 	
 	//For label page.
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
