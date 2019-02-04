@@ -507,8 +507,8 @@ function LoadInfo(data) {
 if(!isContentPage){
 	if ($('#mainSlider').length){
 
-		if(DataHomePageInfo && DataHomePageInfo.length>0){
-			console.log('load from local');
+		if(typeof DataHomePageInfo  !== 'undefined' && DataHomePageInfo.length>0){
+			//console.log('load from local');
 			LoadInfo(DataHomePageInfo);
 		}
 		else{
