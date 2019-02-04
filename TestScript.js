@@ -325,7 +325,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
     var MaxNeedPosts = params.numposts;
     var countNeedPosts = 0;
     var displayHtml = '<ul id="label_with_thumbs">';
-    var entryList = json.feed.entry;
+    var entryList = json;
     for (var t = 0; t < entryList.length; ++t) {
         var n = entryList[t];
         if (!n) continue;
@@ -513,7 +513,9 @@ if(!isContentPage){
 		else{
 			//Load by Url
 			var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
-			$.getJSON(recentlyPostUrl, LoadInfo);
+			$.getJSON(recentlyPostUrl, function(data){
+				LoadInfo(data.feed.entry);
+			});
 		}
 		
 	};	
