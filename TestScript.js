@@ -166,7 +166,7 @@ function handleImg() {
 
 function stickyFB(width) {
     if (width >= 911) return;
-    var mainTop = $('#mw .post-body').offset().top,
+    var mainTop = $('#mw .pb').offset().top,
 		footerTop = $('#fc').offset().top,
 		endOfContentPosition = $('.post-footer').offset().top,
         socialFloat = $('.soF'),
