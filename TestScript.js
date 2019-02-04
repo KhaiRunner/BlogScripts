@@ -507,9 +507,10 @@ function LoadInfo(data) {
 if(!isContentPage){
 	if ($('#mainSlider').length){
 
-		if(HomePageInfo.length > 0){
+		var homePageInfo = $('#homePageInfo');
+		if(homePageInfo){
 			console.log('load from local');
-			LoadInfo(HomePageInfo);
+			LoadInfo($.parseJSON(homePageInfo));
 		}
 		else{
 			//Load by Url
