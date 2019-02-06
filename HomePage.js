@@ -211,11 +211,11 @@ HomePageHelper.LoadInfo = function(){
 	if ($('#mainSlider').length)	
 	{
 		if(dataHomePageInfo.length>0){
-			console.log('load from local');
+			//console.log('load from local');
 			ProcessData(dataHomePageInfo);
 		}
 		else{
-			console.log('Load by Url');
+			//console.log('Load by Url');
 			var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
 			$.getJSON(recentlyPostUrl, function(data){
 				ProcessData(data.feed.entry);
