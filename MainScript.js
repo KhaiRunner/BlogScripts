@@ -1,6 +1,6 @@
 ﻿/*
-(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(optimizeImg)|(labelthumbs)|(LoadInfo)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(isInitFB)|(openNewWindow)|(initSocialButtons)|(initMenu)|(searchButtonHandler)
-(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)(?18R)(?19S)(?20T)
+(isContentPage)|(windowWidth)|(initFB)|(getRecentPost)|(updateLink)|(optimizeLink)|(addWidgets)|(handleImg)|(stickyFB)|(stickySidebar)|(initWidgetManager)|(isInitWidget)|(isInitFB)|(openNewWindow)|(initSocialButtons)|(initMenu)|(searchButtonHandler)
+(?1A)(?2B)(?3C)(?4D)(?5E)(?6F)(?7G)(?8H)(?9I)(?10J)(?11K)(?12L)(?13M)(?14N)(?15O)(?16P)(?17Q)
 */
 //==================All Page First section==================
 var isContentPage = document.getElementById('isContent') == null;
@@ -253,12 +253,6 @@ function initSocialButtons(){
 
 		return false;
 	});
-
-	$('.g').click(function(){
-		var url    = 'https://plus.google.com/share?url=' + currentUrl;
-		openNewWindow(url, 'Google+');
- 		return false;
-	});
 	
 	//Check number of FB share
 	$.getJSON( 'https://graph.facebook.com/?id=' + currentUrl, function( data ) {
@@ -292,239 +286,21 @@ if(isContentPage){
 
 
 //===================Main/Search/Label=============================
-//init function resizeToParent
-(function(e){e.fn.resizeToParent=function(t){function r(e){e.css({width:"",height:"","margin-left":"","margin-top":""});var n=e.parents(t.parent).width();var r=e.parents(t.parent).height();var i=e.width();var s=e.height();var o=i/n;if(s/o<r){e.css({width:"auto",height:r});i=i/(s/r);s=r}else{e.css({height:"auto",width:n});i=n;s=s/o}var u=(i-n)/-2;var a=(s-r)/-2;e.css({"margin-left":u,"margin-top":a})}var n={parent:"div",delay:100};var t=e.extend(n,t);var i;var s=this;e(window).on("resize",function(){clearTimeout(i);i=setTimeout(function(){s.each(function(){r(e(this))})},t.delay)});return this.each(function(){var t=e(this);t.attr("src",t.attr("src"));t.load(function(){r(t)});if(this.complete){r(t)}})}})(jQuery);
-//init unslider for home page
-(function(e,d){if(!e)return d;var h=function(){this.items=this.el=d;this.sizes=[];this.max=[0,0];this.current=0;this.interval=d;this.opts={speed:500,delay:3E3,complete:d,keys:!d,dots:d,fluid:d};var a=this;this.init=function(a,c){this.el=a;this.ul=a.children("ul");this.max=[a.outerWidth(),a.outerHeight()];this.items=this.ul.children("li").each(this.calculate);this.opts=e.extend(this.opts,c);this.setup();return this};this.calculate=function(b){var c=e(this),f=c.outerWidth();c=c.outerHeight();a.sizes[b]=[f,c];f>a.max[0]&&(a.max[0]=f);c>a.max[1]&&(a.max[1]=c)};this.setup=function(){this.el.css({overflow:"hidden",width:a.max[0],height:this.items.first().outerHeight()});this.ul.css({width:100*this.items.length+"%",position:"relative"});this.items.css("width",100/this.items.length+"%");this.opts.delay!==d&&(this.start(),this.el.hover(this.stop,this.start));this.opts.keys&&e(document).keydown(this.keys);this.opts.dots&&this.dots();if(this.opts.fluid){var b=function(){a.el.css("width",Math.min(Math.round(a.el.outerWidth()/a.el.parent().outerWidth()*100),100)+"%")};b();e(window).resize(b)}this.opts.arrows&&this.el.parent().append('<p class="arrows"><span class="prev">\u00e2\u2020\u0090</span><span class="next">\u00e2\u2020\u2019</span></p>').find(".arrows span").click(function(){e.isFunction(a[this.className])&&a[this.className]()});if(e.event.swipe)this.el.on("swipeleft",a.prev).on("swiperight",a.next)};this.move=function(b,c){this.items.eq(b).length||(b=0);0>b&&(b=this.items.length-1);var f={height:this.items.eq(b).outerHeight()},d=c?5:this.opts.speed;this.ul.is(":animated")||(a.el.find(".dot:eq("+b+")").addClass("active").siblings().removeClass("active"),this.el.animate(f,d)&&this.ul.animate(e.extend({left:"-"+b+"00%"},f),d,function(d){a.current=b;e.isFunction(a.opts.complete)&&!c&&a.opts.complete(a.el)}))};this.start=function(){a.interval=setInterval(function(){a.move(a.current+1)},a.opts.delay)};this.stop=function(){a.interval=clearInterval(a.interval);return a};this.keys=function(b){b=b.which;var c={37:a.prev,39:a.next,27:a.stop};if(e.isFunction(c[b]))c[b]()};this.next=function(){return a.stop().move(a.current+1)};this.prev=function(){return a.stop().move(a.current-1)};this.dots=function(){var b='<ol class="dots">';e.each(this.items,function(a){b+='<li class="dot'+(1>a?" active":"")+'">'+(a+1)+"</li>"});b+="</ol>";this.el.addClass("has-dots").append(b).find(".dot").click(function(){a.move(e(this).index())})}};e.fn.unslider=function(a){var b=this.length;return this.each(function(c){var d=e(this),g=(new h).init(d,a);d.data("unslider"+(1<b?"-"+(c+1):""),g)})}})(window.jQuery,!1);
-
-function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
-    switch (htmlSectionId) {
-        case 'mainSliderArea':
-            return lowResUrl.replace('s72-c', 's1600');
-        case 'recent1Area':
-        case 'recent2Area':
-            return lowResUrl.replace('s72-c', 's300');
-        case 'recent5Area':
-        case 'recent6Area':
-            if (imageIndex == 1) {
-                return lowResUrl.replace('s72-c', 's300');
-            }
-            break;
-    }
-    return lowResUrl;
-}
-
-function labelthumbs(json, categoryNeeded, htmlElement, params) {
-    var showpostthumbnails = params.showpostthumbnails;
-    var displaymore = params.displaymore;
-    var displayseparator = params.displayseparator;
-    var showcommentnum = params.showcommentnum;
-    var showpostdate = params.showpostdate;
-    var showpostsummary = params.showpostsummary;
-    var numchars = params.numchars;
-    var MaxNeedPosts = params.numposts;
-    var countNeedPosts = 0;
-    var displayHtml = '<ul id="label_with_thumbs">';
-    var entryList = json;
-    for (var t = 0; t < entryList.length; ++t) {
-        var n = entryList[t];
-        if (!n) continue;
-        var foundItem = false;
-        var categories = n.category;
-        for (var indexCat = 0; indexCat < categories.length; ++indexCat) {
-            if (categories[indexCat].term == categoryNeeded) {
-                foundItem = true;
-                break;
-            }
-        }
-        if (!foundItem) continue;
-        ++countNeedPosts;
-        var r = n.title.$t;
-        var i, u, f;
-        if (t == entryList.length) break;
-        for (var o = 0; o < n.link.length; ++o) {
-            var linkObj = n.link[o];
-            if (linkObj.rel == "replies" && linkObj.type == "text/html") {
-                u = linkObj.title;
-                f = linkObj.href;
-            } else if (linkObj.rel == "alternate") {
-                i = linkObj.href;
-                break;
-            }
-        }
-        var thumb = n.media$thumbnail;
-        var l = (thumb && thumb.url) ? thumb.url : "http://goo.gl/LsGgtD";
-        l = optimizeImg(l, htmlElement.id, countNeedPosts);
-        var p = n.published.$t;
-        var v = p.substring(0, 4);
-        var m = p.substring(5, 7);
-        var g = p.substring(8, 10);
-        var y = new Array;
-        y[1] = "Jan";
-        y[2] = "Feb";
-        y[3] = "Mar";
-        y[4] = "Apr";
-        y[5] = "May";
-        y[6] = "June";
-        y[7] = "July";
-        y[8] = "Aug";
-        y[9] = "Sept";
-        y[10] = "Oct";
-        y[11] = "Nov";
-        y[12] = "Dec";
-        displayHtml += '<li class="recent-box">';
-        if (showpostthumbnails == true) displayHtml += '<div class="imageContainer"><a href="' + i + '"><img class="label_thumb" src="' + l + '" title="' + r + '" alt="' + r + '"/></a></div>';
-        displayHtml += '<a class="label_title" href="' + i + '">' + r + "</a>";
-        var w = "";
-        var E = 0;
-        p = n.published.$t;
-        var S = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-        var x = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
-        var T = p.split("-")[2].substring(0, 2);
-        var N = p.split("-")[1];
-        var C = p.split("-")[0];
-        for (var k = 0; k < S.length; ++k) {
-            if (parseInt(N) == S[k]) {
-                N = x[k];
-                break;
-            }
-        }
-        var L = T + " " + N + " " + C;
-        if (showpostdate == true) {
-            displayHtml += '<div class="toe"><a href="' + i + '" class="post-date">' + L + "</a>";
-        }
-        if (showcommentnum == true) {
-            if (E == 1) {
-                w = w + " | "
-            }
-            if (u == "1 Comments") u = "1 Comment";
-            if (u == "0 Comments") u = "No Comments";
-            w = w + u;
-            E = 1;
-            displayHtml += '<a class="recent-com" href="' + f + '">' + u + "</a></div>";
-        }
-        var A = '';
-        if ("content" in n) {
-            A = n.content.$t;
-        } else if ("summary" in n) {
-            A = n.summary.$t;
-        }
-        A = A.replace(/<\S[^>]*>/g, "");
-        if (showpostsummary == true) {
-            if (A.length < numchars) {
-                displayHtml += A;
-            } else {
-                A = A.substring(0, numchars);
-                var M = A.lastIndexOf(" ");
-                A = A.substring(0, M);
-                displayHtml += '<p class="post-summary">' + A + "...</p>";
-            }
-        }
-        displayHtml += "</li>";
-        if (MaxNeedPosts == countNeedPosts) break;
-    }
-    displayHtml += "</ul>";
-    htmlElement.innerHTML = displayHtml;
-}
-
-function LoadInfo(data) {
-        var paramsMainSlider = {
-            numposts: 5,
-            showpostthumbnails: true,
-            displaymore: false,
-            displayseparator: true,
-            showcommentnum: false,
-            showpostdate: false,
-            showpostsummary: false,
-            numchars: 100
-        };
-        labelthumbs(data, $('#mainSlider').val(), $('#mainSliderArea')[0], paramsMainSlider);
-        $('.slider').unslider({
-            speed: 500,
-            delay: 3000,
-            complete: function() {},
-            keys: true,
-            dots: true,
-            fluid: false
-        });
-        $("<div class='slideraro'><a class='unslider-arrow prev'></a><a class='unslider-arrow next'></a></div>").insertBefore(".slider ul#label_with_thumbs");
-        var unslider = $('.slider').unslider();
-        $('.unslider-arrow').click(function() {
-            var fn = this.className.split(' ')[1];
-            unslider.data('unslider')[fn]();
-        });
-        $(window).bind("load", function() {
-            $('.slider, .cover').css("visibility", "visible");
-        });
-        labelthumbs(data, $('#recent1Category').val(), $('#recent1Area')[0], {
-            numposts: 4,
-            showpostthumbnails: true,
-            showcommentnum: false,
-            showpostdate: true,
-            showpostsummary: false,
-            numchars: 100
-        });
-        labelthumbs(data, $('#recent2Category').val(), $('#recent2Area')[0], {
-            numposts: 2,
-            showpostthumbnails: true,
-            showcommentnum: false,
-            showpostdate: true,
-            showpostsummary: false,
-            numchars: 100
-        });
-        labelthumbs(data, $('#recent3Category').val(), $('#recent3Area')[0], {
-            numposts: 6,
-            showpostthumbnails: true,
-            showcommentnum: false,
-            showpostdate: true,
-            showpostsummary: false,
-            numchars: 100
-        });
-        labelthumbs(data, $('#recent5Category').val(), $('#recent5Area')[0], {
-            numposts: 5,
-            showpostthumbnails: true,
-            showcommentnum: false,
-            showpostdate: true,
-            showpostsummary: true,
-            numchars: 150
-        });
-        labelthumbs(data, $('#recent6Category').val(), $('#recent6Area')[0], {
-            numposts: 5,
-            showpostthumbnails: true,
-            showcommentnum: false,
-            showpostdate: true,
-            showpostsummary: true,
-            numchars: 150
-        });
-
-		$(".imageContainer img").resizeToParent();
-		updateLink($('#mw a').toArray());
-    }
-
-//-----------------------------------------------------------------------
+// Function Helper for Main & Search moving to HomePage.js
 //Run Script Main/Search/Label page
 //Seperate if else before we need content page JavaScript process first.
 if(!isContentPage){
-	if ($('#mainSlider').length){
-
-		if(typeof DataHomePageInfo  !== 'undefined' && DataHomePageInfo.length>0){
-			//console.log('load from local');
-			LoadInfo(DataHomePageInfo);
-		}
-		else{
-			//Load by Url
-			var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
-			$.getJSON(recentlyPostUrl, function(data){
-				LoadInfo(data.feed.entry);
-			});
-		}
-		
-	};	
+	if(typeof HomePageHelper  !== 'undefined'){
+		HomePageHelper.InitSlider();
+		HomePageHelper.LoadInfo();
+		updateLink($('#mw a').toArray());
+	}
 	
 	//For label page.
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
         return src.replace('s72-c', 's1600');
     });
+	HomePageHelper.InitResizeToParent();
 	$(".imageContainer img").resizeToParent();
 }
 
