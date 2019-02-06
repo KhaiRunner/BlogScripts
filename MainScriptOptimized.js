@@ -291,13 +291,20 @@ if(A){
 //Seperate if else before we need content page JavaScript process first.
 if(!A){
 	
+	var homePageAction = function(){
+		HomePageHelper.InitSlider();
+		HomePageHelper.LoadInfo(); //LoadInfo will check again for main page.
+		E($('#mw a').toArray());
+		HomePageHelper.InitResizeToParent();
+		$(".imageContainer img").resizeToParent();
+	};
+	
 	if(typeof HomePageHelper  === 'undefined'){
-		$.getScript( "https://cdn.jsdelivr.net/gh/KhaiRunner/BlogScripts@latest/HomePage.js");
+		$.getScript( "https://cdn.jsdelivr.net/gh/KhaiRunner/BlogScripts@latest/HomePage.js", homePageAction);
+	}else{
+		homePageAction();
 	}
 	
-	HomePageHelper.InitSlider();
-	HomePageHelper.LoadInfo(); //LoadInfo will check again for main page.
-	E($('#mw a').toArray());
 	
 	
 	
@@ -306,8 +313,7 @@ if(!A){
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
         return src.replace('s72-c', 's1600');
     });
-	HomePageHelper.InitResizeToParent();
-	$(".imageContainer img").resizeToParent();
+	
 }
 
 //----------------------------------------------------
