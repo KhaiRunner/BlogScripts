@@ -300,6 +300,7 @@ if(isContentPage){
 //Seperate if else before we need content page JavaScript process first.
 if(!isContentPage){
 	if(typeof HomePageHelper  !== 'undefined'){
+		HomePageHelper.InitSlider();
 		HomePageHelper.LoadInfo();
 		updateLink($('#mw a').toArray());
 	}
