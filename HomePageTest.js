@@ -202,8 +202,6 @@ function ProcessData(data){
             showpostsummary: true,
             numchars: 150
         });
-
-		$(".imageContainer img").resizeToParent();
     }
 
 //Global Function
