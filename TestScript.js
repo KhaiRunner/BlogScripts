@@ -292,8 +292,9 @@ if(isContentPage){
 if(!isContentPage){
 	
 	var homePageAction = function(){
-		HomePageHelper.InitSlider();
-		HomePageHelper.LoadInfo(); //LoadInfo will check again for main page.
+		//LoadInfo will check again for main page.
+		HomePageHelper.LoadInfo();
+		
 		updateLink($('#mw a').toArray());
 		HomePageHelper.InitResizeToParent();
 		$(".imageContainer img").resizeToParent();
