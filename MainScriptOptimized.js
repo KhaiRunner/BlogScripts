@@ -290,11 +290,17 @@ if(A){
 //Run Script Main/Search/Label page
 //Seperate if else before we need content page JavaScript process first.
 if(!A){
-	if(typeof HomePageHelper  !== 'undefined'){
-		HomePageHelper.InitSlider();
-		HomePageHelper.LoadInfo();
-		E($('#mw a').toArray());
+	
+	if(typeof HomePageHelper  === 'undefined'){
+		$.getScript( "https://cdn.jsdelivr.net/gh/KhaiRunner/BlogScripts@latest/HomePage.js");
 	}
+	
+	HomePageHelper.InitSlider();
+	HomePageHelper.LoadInfo(); //LoadInfo will check again for main page.
+	E($('#mw a').toArray());
+	
+	
+	
 	
 	//For label page.
     $('#Blog1 .imageContainer .post-thumbnail').attr('src', function(i, src) {
