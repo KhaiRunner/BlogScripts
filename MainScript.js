@@ -301,7 +301,7 @@ if(!isContentPage){
 	};
 	
 	if(typeof HomePageHelper  === 'undefined'){
-		var scriptTag = $('script[src*="HomePage.js"]');
+		var scriptTag = $('script[src*="HomePage"]');
 		var loadScriptUrl = scriptTag.length > 0 ? scriptTag.attr('src') : "https://cdn.jsdelivr.net/gh/KhaiRunner/BlogScripts@latest/HomePage.js";
 		$.getScript(loadScriptUrl, homePageAction);
 	}else{
