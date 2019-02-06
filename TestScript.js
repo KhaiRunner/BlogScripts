@@ -292,7 +292,7 @@ if(isContentPage){
 
 
 //===================Main/Search/Label=============================
-
+// Function Helper for Main & Search moving to HomePage.js
 //Run Script Main/Search/Label page
 //Seperate if else before we need content page JavaScript process first.
 if(!isContentPage){
