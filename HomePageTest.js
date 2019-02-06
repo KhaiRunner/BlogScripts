@@ -217,7 +217,7 @@ HomePageHelper.LoadInfo = function(){
 			ProcessData(dataHomePageInfo);
 		}
 		else{
-			//Load by Url
+			console.log('Load by Url');
 			var recentlyPostUrl = '/feeds/posts/default?orderby=published&alt=json&max-results=70';
 			$.getJSON(recentlyPostUrl, function(data){
 				ProcessData(data.feed.entry);
