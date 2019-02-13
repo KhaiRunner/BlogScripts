@@ -272,10 +272,6 @@ function initSocialButtons(){
 //-----------------------------------------------------------------------
 //Run Script Content Page
 if(isContentPage){
-	//Adjust first image.
-	$('.pb .separator:has("img"):first').appendTo('#firstImg');
-	
-	
 	//Handle images first before user might redirect to image url.
 	handleImg();
 	stickyFB(windowWidth);
