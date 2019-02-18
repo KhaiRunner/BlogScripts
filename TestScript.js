@@ -26,9 +26,9 @@ function getRecentPost(){
 		
 		//check img for add <img> or <a class="p p1"/>
 		if(allInfo[indexImg].length > 0){
-			recentlyHtml += '<li><a class="p" href="'+allInfo[indexLink]+'"><img alt="" border="0" height="72" src="'+allInfo[indexImg]+'" width="72"/></a><a class="t" href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></li>';
+			recentlyHtml += '<li><a class=p href="'+allInfo[indexLink]+'"><img alt=""border=0 height=72 src="'+allInfo[indexImg]+'" width=72/></a><a class=t href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></li>';
 		}else{
-			recentlyHtml += '<li><a class="p p'+(++popIndex)+'" href="'+allInfo[indexLink]+'"/><a class="t" href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></li>';
+			recentlyHtml += '<li><a class="p p'+(++popIndex)+'" href="'+allInfo[indexLink]+'"/><a class=t href="'+allInfo[indexLink]+'">'+allInfo[indexTitle]+'</a></li>';
 		}		
 	}
 	recentlyHtml += '</ul>';
@@ -95,17 +95,17 @@ function addWidgets(){
 	var recentlyInfo = '.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10,.p11,.p12,.p13,.p14{background:url('+ recentlyImageUrl +');width:72px;height:72px}';
 	
 	var htmlWeeklyPop = '<style>' + recentlyInfo + '.sb .wc{padding:9px}.sb h2{background-color:#7A5;color:#FFF;display:inline-block;font-size:13px;padding:8px}.ll a{display:block;padding:0 0 12px}.cl a{float:left;background-color:#222;padding:5px 9px;margin:4px}.gp{height:72px}.pp li{list-style:none;display:inline-block}.pp .p{float:left;margin:0 5px 10px 0}.pp .t{line-height:21px}.i b{font-size:17px}.p1{background-position:0 0}.p2{background-position:0 -72px}.p3{background-position:0 -144px}.p4{background-position:0 -216px}.p5{background-position:0 -288px}.p6{background-position:0 -360px}.p7{background-position:0 -432px}.p8{background-position:0 -504px}.p9{background-position:0 -576px}.p10{background-position:0 -648px}.p11{background-position:0 -720px}.p12{background-position:0 -792px}.p13{background-position:0 -864px}.p14{background-position:0 -936px}</style>'
-		+ '<div class="widget"><h2>Weekly Popular Posts</h2>'
-		+'<ul class="wc pp"><li><a class="p p1" href="/2017/02/front-garden-designs.html"/><a class="t" href="/2017/02/front-garden-designs.html">วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></li><li><a class="p p2" href="/2017/09/20-modern-two-story-house-design-ideas.html"/><a class="t" href="/2017/09/20-modern-two-story-house-design-ideas.html">20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></li><li><a class="p p3" href="/2017/04/2-bedrooms-cozy-condo-interior.html"/><a class="t" href="/2017/04/2-bedrooms-cozy-condo-interior.html">แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></li><li><a class="p p4" href="/2017/02/61-small-kitchen-designs.html"/><a class="t" href="/2017/02/61-small-kitchen-designs.html">61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></li><li><a class="p p5" href="/2017/09/47-garden-condo-ideas.html"/><a class="t" href="/2017/09/47-garden-condo-ideas.html">47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></li></ul>'
+		+ '<div class=widget><h2>Weekly Popular Posts</h2>'
+		+'<ul class="wc pp"><li><a class="p p1" href=/2017/02/front-garden-designs.html/><a class=t href=/2017/02/front-garden-designs.html>วิธีจัดสวนหน้าบ้านสวยๆ ประหยัดงบ พร้อม 65 แบบสวนสวย</a></li><li><a class="p p2" href=/2017/09/20-modern-two-story-house-design-ideas.html/><a class=t href=/2017/09/20-modern-two-story-house-design-ideas.html>20 แบบบ้าน 2 ชั้นสวยๆ สไตล์โมเดิร์น มาหาบ้านที่ชอบกัน</a></li><li><a class="p p3" href=/2017/04/2-bedrooms-cozy-condo-interior.html/><a class=t href=/2017/04/2-bedrooms-cozy-condo-interior.html>แต่งคอนโดสวยๆ 2 ห้องนอน น่าอยู่มากๆ (รูปเยอะ)</a></li><li><a class="p p4" href=/2017/02/61-small-kitchen-designs.html/><a class=t href=/2017/02/61-small-kitchen-designs.html>61 แบบห้องครัวขนาดเล็ก ห้องครัวเล็กๆก็สวยได้</a></li><li><a class="p p5" href=/2017/09/47-garden-condo-ideas.html/><a class=t href=/2017/09/47-garden-condo-ideas.html>47 ไอเดียจัดสวนคอนโด พื้นที่น้อยก็สวยได้</a></li></ul>'
 		+'</div>';
-	var htmlRecently = '<div class="widget">'+ getRecentPost() +'</div>';
-	var htmlColor = "<h2>สีห้อง</h2><div class='wc ll i'><a href='/search/label/โทนสีครีม'><b style='color:#FDA'>◼︎ </b>สีครีม</a><a href='/search/label/โทนสีชมพู'><b style='color:#F6B'>◼︎ </b>สีชมพู</a><a href='/search/label/โทนสีดำ'><b style='color:#000'>◼︎ </b>สีดำ</a><a href='/search/label/โทนสีฟ้า'><b style='color:#0FF'>◼︎ </b>สีฟ้า</a><a href='/search/label/โทนสีม่วง'><b style='color:#93C'>◼︎ </b>สีม่วง</a><a href='/search/label/โทนสีเขียว'><b style='color:#0F0'>◼︎ </b>สีเขียว</a></div>";
-	var htmlGplus = "<div class='p14'></div><div><h3> &nbsp; Khai Runner</h3><a href='https://plus.google.com/+KhaiRunner' target='_blank'> &nbsp; &nbsp;About Me</a></div>";
+	var htmlRecently = '<div class=widget>'+ getRecentPost() +'</div>';
+	var htmlColor = "<h2>สีห้อง</h2><div class='wc ll i'><a href=/search/label/โทนสีครีม><b style=color:#FDA>◼︎ </b>สีครีม</a><a href=/search/label/โทนสีชมพู><b style=color:#F6B>◼︎ </b>สีชมพู</a><a href=/search/label/โทนสีดำ><b style=color:#000>◼︎ </b>สีดำ</a><a href=/search/label/โทนสีฟ้า><b style=color:#0FF>◼︎ </b>สีฟ้า</a><a href=/search/label/โทนสีม่วง><b style=color:#93C>◼︎ </b>สีม่วง</a><a href=/search/label/โทนสีเขียว><b style=color:#0F0>◼︎ </b>สีเขียว</a></div>";
+	var htmlGplus = "<div class=p14></div><div><h3> &nbsp; Khai Runner</h3><a href=https://plus.google.com/+KhaiRunner target=_blank> &nbsp; &nbsp;About Me</a></div>";
 	
 	//Check display screen for left sidebar
-	var htmlLeftSidebar =  "<div class='widget'><h2>แต่งบ้าน</h2><div class='wc ll i'><a href='/search/label/ห้องนอน'><b>💤 </b>ห้องนอน</a><a href='/search/label/ห้องนอนเด็ก'><b>👶 </b>ห้องนอนเด็ก</a><a href='/search/label/ห้องนั่งเล่น'><b>📺 </b>ห้องนั่งเล่น</a><a href='/search/label/แบบตู้เสื้อผ้า'><b>👕 </b>ตู้เสื้อผ้า</a><a href='/search/label/เก้าอี้และโซฟา'><b>💺 </b>เก้าอี้และโซฟา</a><a href='/search/label/ชั้นหนังสือ'><b>📚 </b>ชั้นหนังสือ</a><a href='/search/label/แต่งผนัง'><b>🎨 </b>แต่งผนัง</a><a href='/search/label/แบบโฮมออฟฟิศ'><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href='/search/label/สวนสวย'><b>🌷 </b>สวนสวย</a><a href='/search/label/ห้องน้ำ'><b>🚽 </b>ห้องน้ำ</a><a href='/search/label/แบบห้องครัว'><b>🍴 </b>แบบห้องครัว</a></div></div>"
-						+ '<div class="widget">'+htmlColor+'</div>'
-						+ '<div class="gp">'+htmlGplus+'</div>';
+	var htmlLeftSidebar =  "<div class=widget><h2>แต่งบ้าน</h2><div class='wc ll i'><a href=/search/label/ห้องนอน><b>💤 </b>ห้องนอน</a><a href=/search/label/ห้องนอนเด็ก><b>👶 </b>ห้องนอนเด็ก</a><a href=/search/label/ห้องนั่งเล่น><b>📺 </b>ห้องนั่งเล่น</a><a href=/search/label/แบบตู้เสื้อผ้า><b>👕 </b>ตู้เสื้อผ้า</a><a href=/search/label/เก้าอี้และโซฟา><b>💺 </b>เก้าอี้และโซฟา</a><a href=/search/label/ชั้นหนังสือ><b>📚 </b>ชั้นหนังสือ</a><a href=/search/label/แต่งผนัง><b>🎨 </b>แต่งผนัง</a><a href=/search/label/แบบโฮมออฟฟิศ><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href=/search/label/สวนสวย><b>🌷 </b>สวนสวย</a><a href=/search/label/ห้องน้ำ><b>🚽 </b>ห้องน้ำ</a><a href=/search/label/แบบห้องครัว><b>🍴 </b>แบบห้องครัว</a></div></div>"
+						+ '<div class=widget>'+htmlColor+'</div>'
+						+ '<div class=gp>'+htmlGplus+'</div>';
 	
 	
 	if(windowWidth<911){
@@ -131,11 +131,11 @@ function addWidgets(){
 	
 	//Footer
 	var footerHtml = "<style>#fc{background-color:#111;color:#FFF}#fc a{color:#BBB}#f .widget{margin:0 15px}#f ul{padding:0}#f h2{border-bottom:5px solid #7A5;font-size:13px;margin-bottom:9px;padding:9px 0}.cf{border:0;background-color:#333;color:#FFF}.cf:focus,.cf:hover{border:0}.cfb{padding:6px}#cr{text-align:center}</style>"
-		+ "<div id='f' class='w'><div class='ft'><div class='widget'><h2>Home Decor</h2><div class='cl i'><a href='/search/label/ตู้วางทีวี'><b>📺 </b>ต&#3641;&#3657;วางท&#3637;ว&#3637;</a><a href='/search/label/โรงรถ'><b>🚗 </b>โรงรถ</a><a href='/search/label/สนามหญ้า'><b>🌿 </b>สนามหญ&#3657;า</a><a href='/search/label/สวนแนวตั้ง'><b>🌱 </b>สวนแนวต&#3633;&#3657;ง</a><a href='/search/label/ห้องพระ'><b>🙏 </b>ห&#3657;องพระ</a><a href='/search/label/บ่อปลา'><b>&#9970; </b>สระน&#3657;ำ</a><a href='/search/label/พรม'><b>👣 </b>พรม</a><a href='/search/label/เครื่องใช้ไฟฟ้า'><b>🔌 </b>เคร&#3639;&#3656;องใช&#3657;ไฟฟ&#3657;า</a><a href='/search/label/ซ่อมบ้าน'><b>🔧 </b>ซ&#3656;อมบ&#3657;าน</a></div></div></div>"
-		+ "<div class='ft'><div class='widget'><h2>Month's Popular Posts</h2><div class='pp'>"
-		+ '<ul><li><a class="p p11" href="/2017/02/42-small-front-yard-ideas.html"/><a class="t" href="/2017/02/42-small-front-yard-ideas.html">42 ไอเดียจัดสวนหน้าบ้าน พื้นที่น้อยๆ</a></li><li><a class="p p12" href="/2017/10/30-kitchen-ideas-for-one-floor-house.html"/><a class="t" href="/2017/10/30-kitchen-ideas-for-one-floor-house.html">30 แบบห้องครัวบ้านชั้นเดียว หาไอเดียที่ถูกใจกัน</a></li><li><a class="p p13" href="/2017/04/cozy-white-condo-interior.html"/><a class="t" href="/2017/04/cozy-white-condo-interior.html">แบบแต่งคอนโดสวยๆ เน้นสีขาว สวยงาม น่าอยู่</a></li></ul>'
-		+ "</div></div></div><div class='ft'><div class='widget'><h2>More Topics</h2><div class='cl'><a href='/search/label/IKEA'>IKEA</a><a href='/search/label/SB Design Square'>SB</a><a href='/search/label/การเลือกซื้อบ้าน'>เล&#3639;อกซ&#3639;&#3657;อบ&#3657;าน</a><a href='/search/label/คอนโด'>คอนโด</a><a href='/search/label/ตากผ้า'>ตากผ&#3657;า</a><a href='/search/label/บันได'>บ&#3633;นได</a><a href='/search/label/บ้านชั้นเดียว'>บ&#3657;านช&#3633;&#3657;นเด&#3637;ยว</a><a href='/search/label/ม่าน'>ม&#3656;าน</a><a href='/search/label/วางแผนการเงิน'>แผนการเง&#3636;น</a><a href='/search/label/เครื่องซักผ้า'>เคร&#3639;&#3656;องซ&#3633;กผ&#3657;า</a><a href='/search/label/แต่งบ้าน'>แต&#3656;งบ&#3657;าน</a></div></div></div><div class='ft'><div id='ft4'><div class='widget ContactForm' id='ContactForm2'><h2>Contact Us</h2><form name='contact-form'>ช&#3639;&#3656;อ<br/><input class='cf' id='ContactForm2_contact-form-name' name='name' size='30' type='text' value=''/><p></p>อ&#3637;เมล*<br/><input class='cf' id='ContactForm2_contact-form-email' name='email' size='30' type='text' value=''/><p></p>ข&#3657;อความ*<br/><textarea class='cf' cols='25' id='ContactForm2_contact-form-email-message' name='email-message' rows='5'></textarea><p></p><input class='cfb' id='ContactForm2_contact-form-submit' type='button' value='ส่ง'/><div style='text-align:center;max-width:222px;width:100%'><p class='contact-form-error-message' id='ContactForm2_contact-form-error-message'></p><p class='contact-form-success-message' id='ContactForm2_contact-form-success-message'></p></div></form></div></div></div></div>"
-		+ "<div id='cr' class='w'><p><a href='https://buildsweethome.blogspot.com/'>Build Sweet Home</a> &#169; 2019 All rights reserved.  สงวนล&#3636;ขส&#3636;ทธ&#3636;&#3660;เน&#3639;&#3657;อหาเว&#3655;บไซต&#3660; ห&#3657;ามค&#3633;ดลอก เผยแพร&#3656;ก&#3656;อนได&#3657;ร&#3633;บอน&#3640;ญาต | Theme by <a href='http://www.templateism.com' rel='nofollow'>Templateism</a></div></div></div>";
+		+ "<div id=f class=w><div class=ft><div class=widget><h2>Home Decor</h2><div class='cl i'><a href=/search/label/ตู้วางทีวี><b>📺 </b>ตู้วางทีวี</a><a href=/search/label/โรงรถ><b>🚗 </b>โรงรถ</a><a href=/search/label/สนามหญ้า><b>🌿 </b>สนามหญ้า</a><a href=/search/label/สวนแนวตั้ง><b>🌱 </b>สวนแนวตั้ง</a><a href=/search/label/ห้องพระ><b>🙏 </b>ห้องพระ</a><a href=/search/label/บ่อปลา><b>&#9970; </b>สระน&#3657;ำ</a><a href=/search/label/พรม><b>👣 </b>พรม</a><a href=/search/label/เครื่องใช้ไฟฟ้า><b>🔌 </b>เครื่องใช้ไฟฟ้า</a><a href=/search/label/ซ่อมบ้าน><b>🔧 </b>ซ่อมบ้าน</a></div></div></div>"
+		+ "<div class=ft><div class=widget><h2>Month's Popular Posts</h2><div class=pp>"
+		+ '<ul><li><a class="p p11" href=/2017/02/42-small-front-yard-ideas.html/><a class=t href=/2017/02/42-small-front-yard-ideas.html>42 ไอเดียจัดสวนหน้าบ้าน พื้นที่น้อยๆ</a></li><li><a class="p p12" href=/2017/10/30-kitchen-ideas-for-one-floor-house.html/><a class=t href=/2017/10/30-kitchen-ideas-for-one-floor-house.html>30 แบบห้องครัวบ้านชั้นเดียว หาไอเดียที่ถูกใจกัน</a></li><li><a class="p p13" href=/2017/04/cozy-white-condo-interior.html/><a class=t href=/2017/04/cozy-white-condo-interior.html>แบบแต่งคอนโดสวยๆ เน้นสีขาว สวยงาม น่าอยู่</a></li></ul>'
+		+ "</div></div></div><div class=ft><div class=widget><h2>More Topics</h2><div class=cl><a href=/search/label/IKEA>IKEA</a><a href='/search/label/SB Design Square'>SB</a><a href=/search/label/การเลือกซื้อบ้าน>การเลือกซื้อบ้าน</a><a href=/search/label/คอนโด>คอนโด</a><a href=/search/label/ตากผ้า>ตากผ้า</a><a href=/search/label/บันได>บันได</a><a href=/search/label/บ้านชั้นเดียว>บ้านชั้นเดียว</a><a href=/search/label/ม่าน>ม่าน</a><a href=/search/label/วางแผนการเงิน>วางแผนการเงิน</a><a href=/search/label/เครื่องซักผ้า>เครื่องซักผ้า</a><a href=/search/label/แต่งบ้าน>แต่งบ้าน</a></div></div></div><div class=ft><div id=ft4><div class='widget ContactForm' id=ContactForm2><h2>Contact Us</h2><form name=contact-form>ชื่อ<br/><input class=cf id=ContactForm2_contact-form-name name=name size=30 type=text value=''/><p></p>อีเมล์<br/><input class=cf id=ContactForm2_contact-form-email name=email size=30 type=text value=''/><p></p>ข้อความ*<br/><textarea class=cf cols=25 id=ContactForm2_contact-form-email-message name=email-message rows=5></textarea><p></p><input class=cfb id=ContactForm2_contact-form-submit type=button value=ส่ง/><div style=text-align:center;max-width:222px;width:100%><p class=contact-form-error-message id=ContactForm2_contact-form-error-message></p><p class=contact-form-success-message id=ContactForm2_contact-form-success-message></p></div></form></div></div></div></div>"
+		+ "<div id=cr class=w><p><a href=https://buildsweethome.blogspot.com/>Build Sweet Home</a> © 2019 All rights reserved. สงวนลิขสิทธิ์เนื้อหาเว็บไซต์ ห้ามคัดลอก เผยแพร่ก่อนได้รับอนุญาต | Theme by <a href=http://www.templateism.com rel=nofollow>Templateism</a></div></div></div>";
 		document.getElementById('fc').innerHTML = optimizeLink(footerHtml);
 }
 //Add widget when display on desktop. For mobile will display later.
@@ -189,7 +189,7 @@ function stickyFB(width) {
 			initFB();
 			
 			//Add Please share
-			$(".soF").append('<div style="padding-top:13px;margin-left:-15px;float:left;background:#FFF">📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
+			$(".soF").append('<div style=padding-top:13px;margin-left:-15px;float:left;background:#FFF>📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
         
 		
@@ -285,7 +285,7 @@ if(isContentPage){
 			message = "This is the latest post."
 		}
 		pagerLink.removeAttr('href');
-		pagerLink[0].innerHTML += " <div style='color:#888'>"+message+"</div></a> ";
+		pagerLink[0].innerHTML += " <div style=color:#888>"+message+"</div></a> ";
 	}
 	
 }
@@ -332,7 +332,7 @@ function initMenu(){
 	menu.on('mousedown click', function(){
 		if(menu.children().length > 1)return;
 		
-		menu.append("<option value='/search/label/ห้องนั่งเล่น'>💺 ห้องนั่งเล่น</option><option value='/search/label/ห้องครัว'>🍳 ห้องครัว</option><option value='/search/label/ห้องนอน'>💤 ห้องนอน</option><option value='/search/label/สวนสวย'>💐 สวนสวย</option><option value='/search/label/ห้องน้ำ'>🚽 ห้องน้ำ</option><option value='/'>🏠 กลับหน้าบ้าน</option>");
+		menu.append("<option value=/search/label/ห้องนั่งเล่น>💺 ห้องนั่งเล่น</option><option value=/search/label/ห้องครัว>🍳 ห้องครัว</option><option value=/search/label/ห้องนอน>💤 ห้องนอน</option><option value=/search/label/สวนสวย>💐 สวนสวย</option><option value=/search/label/ห้องน้ำ>🚽 ห้องน้ำ</option><option value=/>🏠 กลับหน้าบ้าน</option>");
 		menu.attr('onchange', 'location=this.value');
 	});
 }
@@ -355,7 +355,7 @@ function stickySidebar() {
 			initFB();
 			
 			//Add Please share
-			$(".so").append('<div style="padding-top:9px">&nbsp; 📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
+			$(".so").append('<div style=padding-top:9px>&nbsp; 📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
 		
         stopPos = mainWrapper.height() + scrollLength;
@@ -378,7 +378,7 @@ function searchButtonHandler(){
 	if($("#sBox").length === 0){
 		//Append Search Box only first time click.
 		var width = $('#b').width();
-		var searchBoxHtml = "<div id='sBox' style='position:absolute;top:-80px;width:"+width+"px'><form action='/search'><input id='sT' name='q' placeholder='Search' size='40' type='text'style='border:0;font-size:16px;height:36px;padding:0 9px;width:100%;float:left'/></form><button id='delBtn' style='font-size:1.5em;position:absolute;right:0;height:36px'>✖️</button></div>";
+		var searchBoxHtml = "<div id=sBox style=position:absolute;top:-80px;width:"+width+"px><form action=/search><input id=sT name=q placeholder=Search size=40 type=textstyle='border:0;font-size:16px;height:36px;padding:0 9px;width:100%;float:left'/></form><button id=delBtn style=font-size:1.5em;position:absolute;right:0;height:36px>✖️</button></div>";
 		$("#b").append(searchBoxHtml);
 		
 		//Handle del button only once.
@@ -421,4 +421,4 @@ if(windowWidth<911){
 }
 
 
-$(".error_page #mw").prepend('<div class="error-title"><span>404</span>');
+$(".error_page #mw").prepend('<div class=error-title><span>404</span>');
