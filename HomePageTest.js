@@ -81,7 +81,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
         y[10] = "Oct";
         y[11] = "Nov";
         y[12] = "Dec";
-        displayHtml += '<li class="recent-box">';
+        displayHtml += '<li class="rb">';
         if (showpostthumbnails == true) displayHtml += '<div class="imageContainer"><a href="' + i + '"><img class="label_thumb" src="' + l + '" title="' + r + '" alt="' + r + '"/></a></div>';
         displayHtml += '<a class="label_title" href="' + i + '">' + r + "</a>";
         var w = "";
@@ -126,7 +126,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
                 A = A.substring(0, numchars);
                 var M = A.lastIndexOf(" ");
                 A = A.substring(0, M);
-                displayHtml += '<p class="post-summary">' + A + "...</p>";
+                displayHtml += '<p class="sum">' + A + "...</p>";
             }
         }
         displayHtml += "</li>";
