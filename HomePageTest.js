@@ -162,7 +162,7 @@ function ProcessData(data){
             dots: true,
             fluid: false
         });
-        $("<div class='slideraro'><a class='unslider-arrow prev'> < </a><a class='unslider-arrow next'> > </a></div>").insertBefore(".slider ul#label_with_thumbs");
+        $("<div class='slideraro'><a class='unslider-arrow prev'> › </a><a class='unslider-arrow next'> ‹ </a></div>").insertBefore(".slider ul#label_with_thumbs");
         var unslider = $('.slider').unslider();
         $('.unslider-arrow').click(function() {
             var fn = this.className.split(' ')[1];
