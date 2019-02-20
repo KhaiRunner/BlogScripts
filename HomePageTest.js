@@ -10,11 +10,11 @@ function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
     switch (htmlSectionId) {
         case 'mSliderA':
             return lowResUrl.replace('s72-c', 's1600');
-        case 'r1Area':
-        case 'r2Area':
+        case 'r1A':
+        case 'r2A':
             return lowResUrl.replace('s72-c', 's300');
-        case 'r5Area':
-        case 'r6Area':
+        case 'r5A':
+        case 'r6A':
             if (imageIndex == 1) {
                 return lowResUrl.replace('s72-c', 's300');
             }
@@ -171,7 +171,7 @@ function ProcessData(data){
         $(window).bind("load", function() {
             $('.slider, .cover').css("visibility", "visible");
         });
-        labelthumbs(data, $('#r1Category').val(), $('#r1Area')[0], {
+        labelthumbs(data, $('#r1C').val(), $('#r1A')[0], {
             numposts: 4,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -179,7 +179,7 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#r2Category').val(), $('#r2Area')[0], {
+        labelthumbs(data, $('#r2C').val(), $('#r2A')[0], {
             numposts: 2,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -187,7 +187,7 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#r3Category').val(), $('#r3Area')[0], {
+        labelthumbs(data, $('#r3C').val(), $('#r3A')[0], {
             numposts: 6,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -195,7 +195,7 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#r5Category').val(), $('#r5Area')[0], {
+        labelthumbs(data, $('#r5C').val(), $('#r5A')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -203,7 +203,7 @@ function ProcessData(data){
             showpostsummary: true,
             numchars: 150
         });
-        labelthumbs(data, $('#r6Category').val(), $('#r6Area')[0], {
+        labelthumbs(data, $('#r6C').val(), $('#r6A')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
