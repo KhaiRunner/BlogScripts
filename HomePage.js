@@ -5,7 +5,7 @@ var dataHomePageInfo=[{"published":{"$t":"2019-02-21T08:58:00.000+07:00"},"categ
 //Private Function
 function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
     switch (htmlSectionId) {
-        case 'mSliderA':
+        case 'mslA':
             return lowResUrl.replace('s72-c', 's1600');
         case 'r1A':
         case 'r2A':
@@ -79,8 +79,8 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
         y[11] = "Nov";
         y[12] = "Dec";
         displayHtml += '<li class="rb">';
-        if (showpostthumbnails == true) displayHtml += '<div class="imageContainer"><a href="' + i + '"><img class="label_thumb" src="' + l + '" title="' + r + '" alt="' + r + '"/></a></div>';
-        displayHtml += '<a class="label_title" href="' + i + '">' + r + "</a>";
+        if (showpostthumbnails == true) displayHtml += '<div class="imageContainer"><a href="' + i + '"><img class="thu" src="' + l + '" title="' + r + '" alt="' + r + '"/></a></div>';
+        displayHtml += '<a class="tit" href="' + i + '">' + r + "</a>";
         var w = "";
         var E = 0;
         p = n.published.$t;
@@ -133,14 +133,14 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
     htmlElement.innerHTML = displayHtml;
 }
 
-function InitSlider(){
-	//init unslider for home page
-	(function(e,d){if(!e)return d;var h=function(){this.items=this.el=d;this.sizes=[];this.max=[0,0];this.current=0;this.interval=d;this.opts={speed:500,delay:3E3,complete:d,keys:!d,dots:d,fluid:d};var a=this;this.init=function(a,c){this.el=a;this.ul=a.children("ul");this.max=[a.outerWidth(),a.outerHeight()];this.items=this.ul.children("li").each(this.calculate);this.opts=e.extend(this.opts,c);this.setup();return this};this.calculate=function(b){var c=e(this),f=c.outerWidth();c=c.outerHeight();a.sizes[b]=[f,c];f>a.max[0]&&(a.max[0]=f);c>a.max[1]&&(a.max[1]=c)};this.setup=function(){this.el.css({overflow:"hidden",width:a.max[0],height:this.items.first().outerHeight()});this.ul.css({width:100*this.items.length+"%",position:"relative"});this.items.css("width",100/this.items.length+"%");this.opts.delay!==d&&(this.start(),this.el.hover(this.stop,this.start));this.opts.keys&&e(document).keydown(this.keys);this.opts.dots&&this.dots();if(this.opts.fluid){var b=function(){a.el.css("width",Math.min(Math.round(a.el.outerWidth()/a.el.parent().outerWidth()*100),100)+"%")};b();e(window).resize(b)}this.opts.arrows&&this.el.parent().append('<p class="arrows"><span class="prev">\u00e2\u2020\u0090</span><span class="next">\u00e2\u2020\u2019</span></p>').find(".arrows span").click(function(){e.isFunction(a[this.className])&&a[this.className]()});if(e.event.swipe)this.el.on("swipeleft",a.prev).on("swiperight",a.next)};this.move=function(b,c){this.items.eq(b).length||(b=0);0>b&&(b=this.items.length-1);var f={height:this.items.eq(b).outerHeight()},d=c?5:this.opts.speed;this.ul.is(":animated")||(a.el.find(".dot:eq("+b+")").addClass("active").siblings().removeClass("active"),this.el.animate(f,d)&&this.ul.animate(e.extend({left:"-"+b+"00%"},f),d,function(d){a.current=b;e.isFunction(a.opts.complete)&&!c&&a.opts.complete(a.el)}))};this.start=function(){a.interval=setInterval(function(){a.move(a.current+1)},a.opts.delay)};this.stop=function(){a.interval=clearInterval(a.interval);return a};this.keys=function(b){b=b.which;var c={37:a.prev,39:a.next,27:a.stop};if(e.isFunction(c[b]))c[b]()};this.next=function(){return a.stop().move(a.current+1)};this.prev=function(){return a.stop().move(a.current-1)};this.dots=function(){var b='<ol class="dots">';e.each(this.items,function(a){b+='<li class="dot'+(1>a?" active":"")+'">'+(a+1)+"</li>"});b+="</ol>";this.el.addClass("has-dots").append(b).find(".dot").click(function(){a.move(e(this).index())})}};e.fn.unslider=function(a){var b=this.length;return this.each(function(c){var d=e(this),g=(new h).init(d,a);d.data("unslider"+(1<b?"-"+(c+1):""),g)})}})(window.jQuery,!1);
+function Initsl(){
+	//init unsl for home page
+	(function(e,d){if(!e)return d;var h=function(){this.items=this.el=d;this.sizes=[];this.max=[0,0];this.current=0;this.interval=d;this.opts={speed:500,delay:3E3,complete:d,keys:!d,dots:d,fluid:d};var a=this;this.init=function(a,c){this.el=a;this.ul=a.children("ul");this.max=[a.outerWidth(),a.outerHeight()];this.items=this.ul.children("li").each(this.calculate);this.opts=e.extend(this.opts,c);this.setup();return this};this.calculate=function(b){var c=e(this),f=c.outerWidth();c=c.outerHeight();a.sizes[b]=[f,c];f>a.max[0]&&(a.max[0]=f);c>a.max[1]&&(a.max[1]=c)};this.setup=function(){this.el.css({overflow:"hidden",width:a.max[0],height:this.items.first().outerHeight()});this.ul.css({width:100*this.items.length+"%",position:"relative"});this.items.css("width",100/this.items.length+"%");this.opts.delay!==d&&(this.start(),this.el.hover(this.stop,this.start));this.opts.keys&&e(document).keydown(this.keys);this.opts.dots&&this.dots();if(this.opts.fluid){var b=function(){a.el.css("width",Math.min(Math.round(a.el.outerWidth()/a.el.parent().outerWidth()*100),100)+"%")};b();e(window).resize(b)}this.opts.arrows&&this.el.parent().append('<p class="arrows"><span class="prev">\u00e2\u2020\u0090</span><span class="next">\u00e2\u2020\u2019</span></p>').find(".arrows span").click(function(){e.isFunction(a[this.className])&&a[this.className]()});if(e.event.swipe)this.el.on("swipeleft",a.prev).on("swiperight",a.next)};this.move=function(b,c){this.items.eq(b).length||(b=0);0>b&&(b=this.items.length-1);var f={height:this.items.eq(b).outerHeight()},d=c?5:this.opts.speed;this.ul.is(":animated")||(a.el.find(".dot:eq("+b+")").addClass("active").siblings().removeClass("active"),this.el.animate(f,d)&&this.ul.animate(e.extend({left:"-"+b+"00%"},f),d,function(d){a.current=b;e.isFunction(a.opts.complete)&&!c&&a.opts.complete(a.el)}))};this.start=function(){a.interval=setInterval(function(){a.move(a.current+1)},a.opts.delay)};this.stop=function(){a.interval=clearInterval(a.interval);return a};this.keys=function(b){b=b.which;var c={37:a.prev,39:a.next,27:a.stop};if(e.isFunction(c[b]))c[b]()};this.next=function(){return a.stop().move(a.current+1)};this.prev=function(){return a.stop().move(a.current-1)};this.dots=function(){var b='<ol class="dots">';e.each(this.items,function(a){b+='<li class="dot'+(1>a?" active":"")+'">'+(a+1)+"</li>"});b+="</ol>";this.el.addClass("has-dots").append(b).find(".dot").click(function(){a.move(e(this).index())})}};e.fn.unsl=function(a){var b=this.length;return this.each(function(c){var d=e(this),g=(new h).init(d,a);d.data("unsl"+(1<b?"-"+(c+1):""),g)})}})(window.jQuery,!1);
 }
 
 function ProcessData(data){
-	InitSlider();
-        var paramsmSlider = {
+	Initsl();
+        var paramsmsl = {
             numposts: 5,
             showpostthumbnails: true,
             displaymore: false,
@@ -150,8 +150,8 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         };
-        labelthumbs(data, $('#mSlider').val(), $('#mSliderA')[0], paramsmSlider);
-        $('.slider').unslider({
+        labelthumbs(data, $('#msl').val(), $('#mslA')[0], paramsmsl);
+        $('.sl').unsl({
             speed: 500,
             delay: 3000,
             complete: function() {},
@@ -159,14 +159,14 @@ function ProcessData(data){
             dots: true,
             fluid: false
         });
-        $("<div class='arrW'><a class='arr prev'> › </a><a class='arr next'> ‹ </a></div>").insertBefore(".slider ul#laT");
-        var unslider = $('.slider').unslider();
+        $("<div class='arrW'><a class='arr prev'> › </a><a class='arr next'> ‹ </a></div>").insertBefore(".sl ul#laT");
+        var unsl = $('.sl').unsl();
         $('.arr').click(function() {
             var fn = this.className.split(' ')[1];
-            unslider.data('unslider')[fn]();
+            unsl.data('unsl')[fn]();
         });
         $(window).bind("load", function() {
-            $('.slider, .cover').css("visibility", "visible");
+            $('.sl, .cover').css("visibility", "visible");
         });
         labelthumbs(data, $('#r1C').val(), $('#r1A')[0], {
             numposts: 4,
@@ -213,7 +213,7 @@ function ProcessData(data){
 //Global Function
 HomePageHelper = {}
 HomePageHelper.LoadInfo = function(){
-	if ($('#mSlider').length)	
+	if ($('#msl').length)	
 	{
 		if(dataHomePageInfo.length>0){
 			//console.log('load from local');
