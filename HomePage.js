@@ -30,7 +30,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
     var numchars = params.numchars;
     var MaxNeedPosts = params.numposts;
     var countNeedPosts = 0;
-    var displayHtml = '<ul id="label_with_thumbs">';
+    var displayHtml = '<ul id="laT">';
     var entryList = json;
     for (var t = 0; t < entryList.length; ++t) {
         var n = entryList[t];
@@ -159,9 +159,9 @@ function ProcessData(data){
             dots: true,
             fluid: false
         });
-        $("<div class='slideraro'><a class='unslider-arrow prev'> › </a><a class='unslider-arrow next'> ‹ </a></div>").insertBefore(".slider ul#label_with_thumbs");
+        $("<div class='arrW'><a class='arr prev'> › </a><a class='arr next'> ‹ </a></div>").insertBefore(".slider ul#laT");
         var unslider = $('.slider').unslider();
-        $('.unslider-arrow').click(function() {
+        $('.arr').click(function() {
             var fn = this.className.split(' ')[1];
             unslider.data('unslider')[fn]();
         });
