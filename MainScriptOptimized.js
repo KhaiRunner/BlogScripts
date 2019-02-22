@@ -100,7 +100,7 @@ function G(){
 		+'</div>';
 	var htmlRecently = '<div class=widget>'+ D() +'</div>';
 	var htmlColor = "<h2>สีห้อง</h2><div class='wc ll i'><a href=/search/label/โทนสีครีม><b style=color:#FDA>◼︎ </b>สีครีม</a><a href=/search/label/โทนสีชมพู><b style=color:#F6B>◼︎ </b>สีชมพู</a><a href=/search/label/โทนสีดำ><b style=color:#000>◼︎ </b>สีดำ</a><a href=/search/label/โทนสีฟ้า><b style=color:#0FF>◼︎ </b>สีฟ้า</a><a href=/search/label/โทนสีม่วง><b style=color:#93C>◼︎ </b>สีม่วง</a><a href=/search/label/โทนสีเขียว><b style=color:#0F0>◼︎ </b>สีเขียว</a></div>";
-	var htmlGplus = "<div class=p14></div><div><h3> &nbsp; Khai Runner</h3><a href=https://plus.google.com/+KhaiRunner target=_blank> &nbsp; &nbsp;About Me</a></div>";
+	var htmlGplus = "<div class=p14></div><div><h3> &nbsp; Khai Runner</h3><a href=https://www.blogger.com/profile/07779304167810427455 target=_blank> &nbsp; &nbsp;About Me</a></div>";
 	
 	//Check display screen for left sidebar
 	var htmlLeftSidebar =  "<div class=widget><h2>แต่งบ้าน</h2><div class='wc ll i'><a href=/search/label/ห้องนอน><b>💤 </b>ห้องนอน</a><a href=/search/label/ห้องนอนเด็ก><b>👶 </b>ห้องนอนเด็ก</a><a href=/search/label/ห้องนั่งเล่น><b>📺 </b>ห้องนั่งเล่น</a><a href=/search/label/แบบตู้เสื้อผ้า><b>👕 </b>ตู้เสื้อผ้า</a><a href=/search/label/เก้าอี้และโซฟา><b>💺 </b>เก้าอี้และโซฟา</a><a href=/search/label/ชั้นหนังสือ><b>📚 </b>ชั้นหนังสือ</a><a href=/search/label/แต่งผนัง><b>🎨 </b>แต่งผนัง</a><a href=/search/label/แบบโฮมออฟฟิศ><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href=/search/label/สวนสวย><b>🌷 </b>สวนสวย</a><a href=/search/label/ห้องน้ำ><b>🚽 </b>ห้องน้ำ</a><a href=/search/label/แบบห้องครัว><b>🍴 </b>แบบห้องครัว</a></div></div>"
