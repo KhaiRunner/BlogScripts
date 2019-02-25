@@ -166,7 +166,7 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         };
-        labelthumbs(data, $('#msl').val(), $('#mslA')[0], paramsmsl);
+        labelthumbs(data, 'ห้องนอน', $('#mslA')[0], paramsmsl);
         $('.sl').unsl({
             speed: 500,
             delay: 3000,
@@ -184,7 +184,7 @@ function ProcessData(data){
         $(window).bind("load", function() {
             $('.sl, .cover').css("visibility", "visible");
         });
-        labelthumbs(data, $('#r1C').val(), $('#r1A')[0], {
+        labelthumbs(data, 'ห้องครัว', $('#r1A')[0], {
             numposts: 4,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -192,7 +192,7 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#r2C').val(), $('#r2A')[0], {
+        labelthumbs(data, 'สวนสวย', $('#r2A')[0], {
             numposts: 2,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -200,7 +200,7 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#r3C').val(), $('#r3A')[0], {
+        labelthumbs(data, 'ห้องน้ำ', $('#r3A')[0], {
             numposts: 6,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -208,7 +208,7 @@ function ProcessData(data){
             showpostsummary: false,
             numchars: 100
         });
-        labelthumbs(data, $('#r5C').val(), $('#r5A')[0], {
+        labelthumbs(data, 'รัดเข็มขัด ประหยัดเงิน', $('#r5A')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -216,7 +216,7 @@ function ProcessData(data){
             showpostsummary: true,
             numchars: 150
         });
-        labelthumbs(data, $('#r6C').val(), $('#r6A')[0], {
+        labelthumbs(data, 'ห้องนั่งเล่น', $('#r6A')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
@@ -229,7 +229,7 @@ function ProcessData(data){
 //Global Function
 HomePageHelper = {}
 HomePageHelper.LoadInfo = function(){
-	if ($('#msl').length)	
+	if ($('#mslA').length)	
 	{
 		//For Home Page
 		initHomePageStyle();
