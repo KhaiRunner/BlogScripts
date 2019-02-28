@@ -166,7 +166,7 @@ function initFB(){
 
 //===================Content Page=============================
 function handleImg() {
-	$('[id^=adMid_] a:has(img)').click(function(){return false;});
+	$('#c1 a:has(img),#c2 a:has(img)').click(function(){return false;});
 }
 
 
