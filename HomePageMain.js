@@ -177,13 +177,14 @@ function ProcessData(data){
         });
         $("<div class='arrW'><a class='arr prev'> › </a><a class='arr next'> ‹ </a></div>").insertBefore(".sl ul#laT");
         var unsl = $('.sl').unsl();
-        $('.arr').click(function() {
+        $('.sl, .cover').css("visibility", "visible");
+		$('.arr').click(function() {
             var fn = this.className.split(' ')[1];
             unsl.data('unsl')[fn]();
         });
-        $(window).bind("load", function() {
-            $('.sl, .cover').css("visibility", "visible");
-        });
+        
+		
+		
         labelthumbs(data, 'ห้องครัว', $('#r1A')[0], {
             numposts: 4,
             showpostthumbnails: true,
