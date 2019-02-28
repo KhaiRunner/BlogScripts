@@ -181,9 +181,9 @@ function ProcessData(data){
             var fn = this.className.split(' ')[1];
             unsl.data('unsl')[fn]();
         });
-        $(window).bind("load", function() {
-            $('.sl, .cover').css("visibility", "visible");
-        });
+        $('.sl, .cover').css("visibility", "visible");
+		
+		
         labelthumbs(data, 'ห้องครัว', $('#r1A')[0], {
             numposts: 4,
             showpostthumbnails: true,
