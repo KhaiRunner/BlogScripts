@@ -8,7 +8,7 @@ var dataHomePageInfo=[{"published":{"$t":"2017-09-30T14:38:00.000+07:00"},"categ
 //Private Function
 function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
     switch (htmlSectionId) {
-        case 'main-up':
+        case 'mslA':
             return lowResUrl.replace('s72-c', 's1600');
         case 'r1':
         case 'r2':
@@ -167,7 +167,7 @@ function ProcessData(data){
             numchars: 100,
 			htmlPrepend: ''
         };
-        labelthumbs(data, 'ห้องนอน', $('#main-up')[0], paramsmsl);
+        labelthumbs(data, 'ห้องนอน', $('#mslA')[0], paramsmsl);
         $('.sl').unsl({
             speed: 500,
             delay: 3000,
@@ -236,7 +236,7 @@ function ProcessData(data){
 //Global Function
 HomePageHelper = {}
 HomePageHelper.LoadInfo = function(){
-	if ($('#main-up').length)	
+	if ($('#mslA').length)	
 	{
 		//For Home Page
 		initHomePageStyle();
