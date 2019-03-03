@@ -10,11 +10,11 @@ function optimizeImg(lowResUrl, htmlSectionId, imageIndex) {
     switch (htmlSectionId) {
         case 'mslA':
             return lowResUrl.replace('s72-c', 's1600');
-        case 'r1A':
-        case 'r2A':
+        case 'r1':
+        case 'r2':
             return lowResUrl.replace('s72-c', 's300');
-        case 'r5A':
-        case 'r6A':
+        case 'r5':
+        case 'r6':
             if (imageIndex == 1) {
                 return lowResUrl.replace('s72-c', 's300');
             }
@@ -33,7 +33,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
     var numchars = params.numchars;
     var MaxNeedPosts = params.numposts;
     var countNeedPosts = 0;
-    var displayHtml = '<ul id="laT">';
+    var displayHtml = params.htmlPrepend + '<ul id="laT">';
     var entryList = json;
     for (var t = 0; t < entryList.length; ++t) {
         var n = entryList[t];
@@ -138,7 +138,7 @@ function labelthumbs(json, categoryNeeded, htmlElement, params) {
 
 function initHomePageStyle(){
 	//add style for slider
-	var cssSlider = '<style>#r5,#r1 .rb,.sl li{float:left}#r6{float:right}.tit{display:block;font-size:14px;line-height:23px}.tit:before{color:#7A5;margin-right:3px;font-size:18px;content:"»"}.ro{margin-bottom:20px;overflow:hidden}#main-up .rb:after{background:url(https://2.bp.blogspot.com/-BJYQzaOHxBY/U2rZzP9ZInI/AAAAAAAAEFI/oliAqBKX2yE/s1600/gradient.png) repeat-x;bottom:0;content:no-close-quote;height:151px;left:0;position:absolute;width:100%}.recent{overflow:hidden}.recent .title a{background-color:#7A5;color:#FFF;display:inline-block;padding:3px 15px}#r1,#r2{width:100%}#r2 .imageContainer{float:none;height:300px;width:350px}#r2 .rb{margin:9px 5px;overflow:hidden;width:48%;float:left}.recent .sum{padding-top:8px;color:#999}#r2 .toe,#r2 .sum{margin:10px}#r2 .tit{font-size:1.2em;margin:10px}#r1 .rb{box-sizing:border-box;display:inline-block;padding:0 10px 8px;width:50%;max-height:202px}#r1 .imageContainer{float:none;height:150px;width:100%}#r3 .rb{display:inline-table;margin-bottom:8px;width:50%}#r3 .tit{margin-right:15px}#r5 .rb:first-child .imageContainer img:hover,#r6 .rb:first-child .imageContainer img:hover,#r2 .thu:hover,#r1 .thu:hover{-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-o-transform:scale(1.1)}#r5,#r6{width:49%}#r5 .rb,#r6 .rb{padding-bottom:15px}#r5 .rb:first-child .imageContainer,#r6 .rb:first-child .imageContainer{float:none;height:150px;margin-bottom:5px;width:100%}#r5 .rb .sum,#r6 .rb .sum{display:none}#r5 .rb:first-child .sum,#r6 .rb:first-child .sum{display:block}.recent .title{background-color:#EEE;font-size:16px;line-height:32px;margin-bottom:10px;text-align:center}.recent a{color:#111}.recent .title a:hover{text-decoration:underline}.recent ul{padding:0}li.rb:last-child{border-bottom:0!important}.toe{margin-bottom:5px;overflow:hidden}.sum{line-height:18px}.arr{font-weight:900;font-size:30px;line-height:24px}.sl{visibility:hidden;height:300px;max-height:300px;direction:ltr!important;overflow:auto;position:relative;width:100%!important}.sl ul#laT,.sl ul#laT li{border:0;margin:0!important;padding:0!important}.sl ul li{padding:0;position:relative}.sl .imageContainer{height:300px;width:100%}.sl .thu{height:300px;width:100%!important}.sl .tit{bottom:30px;color:#FFF!important;display:block;font-size:1.3em;font-weight:400;left:0;margin:0;opacity:1;position:absolute;right:0;text-align:center;width:auto;z-index:1}.arrW{position:absolute;top:15px;z-index:1;left:15px}.arrW a{background-color:rgba(0,0,0,0.33);color:#FFF;cursor:pointer;display:block;overflow:hidden;padding:10px 15px;margin-right:5px;float:right}.dots{position:absolute;top:10px;right:2%}.dots li.active{background:#FFF}.dots li{float:right;margin-left:2px;background-color:#7A5;border:0;border-radius:50px;cursor:pointer;display:inline-block;font-size:0;height:8px;padding:2px;width:8px}.post-date{color:#888!important;font-size:11px;float:left}.post-date:before{content:"📅";display:inline-block;margin-right:5px;float:left}.thu{max-width:none!important;position:relative}.imageContainer{overflow:hidden;float:left;margin-right:8px}#laT li{display:inline-block;padding:0;width:100%}@media screen and (max-width:600px){.sl .imageContainer{height:200px}#r1 .rb{width:100%;max-height:230px}#r1 ul{padding:0}#r2 .rb{float:none!important;width:95%}#r5,#r6{float:none!important;width:100%}#r3 .rb{display:inline-block;width:100%}}</style>';
+	var cssSlider = '<style>#r5,#r1 .rb,.sl li{float:left}.ah{background-color:#EEE;padding:20px 0;margin-bottom:20px}#r6{float:right}.tit{display:block;font-size:14px;line-height:23px}.tit:before{color:#7A5;margin-right:3px;font-size:18px;content:"»"}.ro{margin-bottom:20px;overflow:hidden}#main-up .rb:after{background:url(https://2.bp.blogspot.com/-BJYQzaOHxBY/U2rZzP9ZInI/AAAAAAAAEFI/oliAqBKX2yE/s1600/gradient.png) repeat-x;bottom:0;content:no-close-quote;height:151px;left:0;position:absolute;width:100%}.recent{overflow:hidden}.recent .title a{background-color:#7A5;color:#FFF;display:inline-block;padding:3px 15px}#r1,#r2{width:100%}#r2 .imageContainer{float:none;height:300px;width:350px}#r2 .rb{margin:9px 5px;overflow:hidden;width:48%;float:left}.recent .sum{padding-top:8px;color:#999}#r2 .toe,#r2 .sum{margin:10px}#r2 .tit{font-size:1.2em;margin:10px}#r1 .rb{box-sizing:border-box;display:inline-block;padding:0 10px 8px;width:50%;max-height:202px}#r1 .imageContainer{float:none;height:150px;width:100%}#r3 .rb{display:inline-table;margin-bottom:8px;width:50%}#r3 .tit{margin-right:15px}#r5 .rb:first-child .imageContainer img:hover,#r6 .rb:first-child .imageContainer img:hover,#r2 .thu:hover,#r1 .thu:hover{-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-o-transform:scale(1.1)}#r5,#r6{width:49%}#r5 .rb,#r6 .rb{padding-bottom:15px}#r5 .rb:first-child .imageContainer,#r6 .rb:first-child .imageContainer{float:none;height:150px;margin-bottom:5px;width:100%}#r5 .rb .sum,#r6 .rb .sum{display:none}#r5 .rb:first-child .sum,#r6 .rb:first-child .sum{display:block}.recent .title{background-color:#EEE;font-size:16px;line-height:32px;margin-bottom:10px;text-align:center}.recent a{color:#111}.recent .title a:hover{text-decoration:underline}.recent ul{padding:0}li.rb:last-child{border-bottom:0!important}.toe{margin-bottom:5px;overflow:hidden}.sum{line-height:18px}.arr{font-weight:900;font-size:30px;line-height:24px}.sl{visibility:hidden;height:300px;max-height:300px;direction:ltr!important;overflow:auto;position:relative;width:100%!important}.sl ul#laT,.sl ul#laT li{border:0;margin:0!important;padding:0!important}.sl ul li{padding:0;position:relative}.sl .imageContainer{height:300px;width:100%}.sl .thu{height:300px;width:100%!important}.sl .tit{bottom:30px;color:#FFF!important;display:block;font-size:1.3em;font-weight:400;left:0;margin:0;opacity:1;position:absolute;right:0;text-align:center;width:auto;z-index:1}.arrW{position:absolute;top:15px;z-index:1;left:15px}.arrW a{background-color:rgba(0,0,0,0.33);color:#FFF;cursor:pointer;display:block;overflow:hidden;padding:10px 15px;margin-right:5px;float:right}.dots{position:absolute;top:10px;right:2%}.dots li.active{background:#FFF}.dots li{float:right;margin-left:2px;background-color:#7A5;border:0;border-radius:50px;cursor:pointer;display:inline-block;font-size:0;height:8px;padding:2px;width:8px}.post-date{color:#888!important;font-size:11px;float:left}.post-date:before{content:"📅";display:inline-block;margin-right:5px;float:left}.thu{max-width:none!important;position:relative}.imageContainer{overflow:hidden;float:left;margin-right:8px}#laT li{display:inline-block;padding:0;width:100%}@media screen and (max-width:600px){.sl .imageContainer{height:200px}#r1 .rb{width:100%;max-height:230px}#r1 ul{padding:0}#r2 .rb{float:none!important;width:95%}#r5,#r6{float:none!important;width:100%}#r3 .rb{display:inline-block;width:100%}}</style>';
 	$('#main-up').prepend(cssSlider);
 }
 
@@ -164,7 +164,8 @@ function ProcessData(data){
             showcommentnum: false,
             showpostdate: false,
             showpostsummary: false,
-            numchars: 100
+            numchars: 100,
+			htmlPrepend: ''
         };
         labelthumbs(data, 'ห้องนอน', $('#mslA')[0], paramsmsl);
         $('.sl').unsl({
@@ -185,45 +186,50 @@ function ProcessData(data){
         
 		
 		
-        labelthumbs(data, 'ห้องครัว', $('#r1A')[0], {
+        labelthumbs(data, 'ห้องครัว', $('#r1')[0], {
             numposts: 4,
             showpostthumbnails: true,
             showcommentnum: false,
             showpostdate: true,
             showpostsummary: false,
-            numchars: 100
+            numchars: 100,
+			htmlPrepend: '<div class="title"><a href="/search/label/ห้องครัว">ห้องครัว</a></div>'
         });
-        labelthumbs(data, 'สวนสวย', $('#r2A')[0], {
+        labelthumbs(data, 'สวนสวย', $('#r2')[0], {
             numposts: 2,
             showpostthumbnails: true,
             showcommentnum: false,
             showpostdate: true,
             showpostsummary: false,
-            numchars: 100
+            numchars: 100,
+			htmlPrepend: '<div class="title"><a href="/search/label/สวนสวย">สวนสวย</a></div>'
         });
-        labelthumbs(data, 'ห้องน้ำ', $('#r3A')[0], {
+        labelthumbs(data, 'ห้องน้ำ', $('#r3')[0], {
             numposts: 6,
             showpostthumbnails: true,
             showcommentnum: false,
             showpostdate: true,
             showpostsummary: false,
-            numchars: 100
+            numchars: 100,
+			htmlPrepend:'<div class="title"><a href="/search/label/ห้องน้ำ">ห้องน้ำ</a></div>'
         });
-        labelthumbs(data, 'รัดเข็มขัด ประหยัดเงิน', $('#r5A')[0], {
+        labelthumbs(data, 'รัดเข็มขัด ประหยัดเงิน', $('#r5')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
             showpostdate: true,
             showpostsummary: true,
-            numchars: 150
+            numchars: 150,
+			htmlPrepend: '<div class="title"><a href="/search/label/รัดเข็มขัด ประหยัดเงิน">Promotions</a></div>'
         });
-        labelthumbs(data, 'ห้องนั่งเล่น', $('#r6A')[0], {
+        labelthumbs(data, 'ห้องนั่งเล่น', $('#r6')[0], {
             numposts: 5,
             showpostthumbnails: true,
             showcommentnum: false,
             showpostdate: true,
             showpostsummary: true,
-            numchars: 150
+            numchars: 150,
+			htmlPrepend: '<div class="title"><a href="/search/label/ห้องนั่งเล่น">ห้องนั่งเล่น</a></div>'
         });
     }
 
