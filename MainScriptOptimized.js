@@ -7,6 +7,7 @@ var A = document.getElementById('isContent') == null;
 var B = 0 < window.innerWidth ? window.innerWidth : screen.width;
 var L = false;
 var M = false;
+//recentlyImageUrl
 
 function D(){
 	//rawRecentPosts -> r
@@ -91,7 +92,7 @@ function K() {
 
 function G(){
 	//i -> image url.
-	var recentlyImageUrl = document.getElementById('i').value;
+	var recentlyImageUrl = 'https://4.bp.blogspot.com/-FigQ8t7-s3I/XICsyMCU-0I/AAAAAAABjDE/hiFtqEQkTI4m2AEixTIULZX7d33b4GsQQCLcBGAs/s1600/r.png';
 	var recentlyInfo = '.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10,.p11,.p12,.p13,.p14{background:url('+ recentlyImageUrl +');width:72px;height:72px}';
 	
 	var htmlWeeklyPop = '<style>' + recentlyInfo + '.sb .wc{padding:9px}.sb h2{background-color:#7A5;color:#FFF;display:inline-block;font-size:13px;padding:8px}.ll a{display:block;padding:0 0 12px}.cl a{float:left;background-color:#222;padding:5px 9px;margin:4px}.gp{height:72px}.pp li{list-style:none;display:inline-block}.pp .p{float:left;margin:0 5px 10px 0}.pp .t{line-height:21px}.i b{font-size:17px}.p1{background-position:0 0}.p2{background-position:0 -72px}.p3{background-position:0 -144px}.p4{background-position:0 -216px}.p5{background-position:0 -288px}.p6{background-position:0 -360px}.p7{background-position:0 -432px}.p8{background-position:0 -504px}.p9{background-position:0 -576px}.p10{background-position:0 -648px}.p11{background-position:0 -720px}.p12{background-position:0 -792px}.p13{background-position:0 -864px}.p14{background-position:0 -936px}</style>'
@@ -100,7 +101,7 @@ function G(){
 		+'</div>';
 	var htmlRecently = '<div class=widget>'+ D() +'</div>';
 	var htmlColor = "<h2>สีห้อง</h2><div class='wc ll i'><a href=/search/label/โทนสีครีม><b style=color:#FDA>◼︎ </b>สีครีม</a><a href=/search/label/โทนสีชมพู><b style=color:#F6B>◼︎ </b>สีชมพู</a><a href=/search/label/โทนสีดำ><b style=color:#000>◼︎ </b>สีดำ</a><a href=/search/label/โทนสีฟ้า><b style=color:#0FF>◼︎ </b>สีฟ้า</a><a href=/search/label/โทนสีม่วง><b style=color:#93C>◼︎ </b>สีม่วง</a><a href=/search/label/โทนสีเขียว><b style=color:#0F0>◼︎ </b>สีเขียว</a></div>";
-	var htmlGplus = "<div class=p14></div><div><h3> &nbsp; Khai Runner</h3><a href=https://www.blogger.com/profile/07779304167810427455 target=_blank> &nbsp; &nbsp;About Me</a></div>";
+	var htmlGplus = "<div class=p14></div><div><h3>&#8193;Khai Runner</h3><a href=https://www.blogger.com/profile/07779304167810427455 target=_blank>&#8193;About Me</a></div>";
 	
 	//Check display screen for left sidebar
 	var htmlLeftSidebar =  "<div class=widget><h2>แต่งบ้าน</h2><div class='wc ll i'><a href=/search/label/ห้องนอน><b>💤 </b>ห้องนอน</a><a href=/search/label/ห้องนอนเด็ก><b>👶 </b>ห้องนอนเด็ก</a><a href=/search/label/ห้องนั่งเล่น><b>📺 </b>ห้องนั่งเล่น</a><a href=/search/label/แบบตู้เสื้อผ้า><b>👕 </b>ตู้เสื้อผ้า</a><a href=/search/label/เก้าอี้และโซฟา><b>💺 </b>เก้าอี้และโซฟา</a><a href=/search/label/ชั้นหนังสือ><b>📚 </b>ชั้นหนังสือ</a><a href=/search/label/แต่งผนัง><b>🎨 </b>แต่งผนัง</a><a href=/search/label/แบบโฮมออฟฟิศ><b>🏢 </b>แบบโฮมออฟฟิศ</a><a href=/search/label/สวนสวย><b>🌷 </b>สวนสวย</a><a href=/search/label/ห้องน้ำ><b>🚽 </b>ห้องน้ำ</a><a href=/search/label/แบบห้องครัว><b>🍴 </b>แบบห้องครัว</a></div></div>"
@@ -355,7 +356,7 @@ function J() {
 			C();
 			
 			//Add Please share
-			$(".so").append('<div style=padding-top:9px>&nbsp; 📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
+			$(".so").append('<div style=padding-top:9px>&#8193;📣 ช่วยแชร์หน่อยนะ 😙🙏</div>');
 		}
 		
         stopPos = mainWrapper.height() + scrollLength;
