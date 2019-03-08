@@ -10,8 +10,11 @@ var M = false;
 //recentlyImageUrl
 
 function D(){
+	var directInfo = "ปลูกดอกไม้ริมระเบียง แต่งบ้านสวยๆ บรรยากาศน่าอยู่สุดๆ,ตัวอย่างแต่งผนังห้องนอนน่ารักๆ เนรมิตบรรยากาศให้น่าอยู่,ตัวอย่างตั้งหิ้งพระในห้องนอน หาตำแหน่งวางพระในห้องนอนกัน,โปรโมชั่นโลตัส เดือนมีนาคม 62 (7-13 มี.ค.),เลือกสีห้องนอนตามราศี แต่งห้องนอนถูกโฉลก,/2019/03/flower-garden-at-balcony.html,/2019/03/cozy-and-cute-decorate-bedroom-wall.html,/2019/03/shrine-position-in-your-bedroom.html,/2019/03/promotion-tesco-lotus-7-13Mar2019.html,/2019/03/choosing-bedroom-colors-by-zodiac.html,,,,,";
+	
 	//rawRecentPosts -> r
-	var allInfo = document.getElementById("r").value.split(',');
+	var infoElement = document.getElementById("r");
+	var allInfo = (infoElement ? infoElement.value : directInfo).split(',');
 	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
 	var popIndex = 5;
 	
@@ -92,7 +95,7 @@ function K() {
 
 function G(){
 	//i -> image url.
-	var recentlyImageUrl = 'https://4.bp.blogspot.com/-FigQ8t7-s3I/XICsyMCU-0I/AAAAAAABjDE/hiFtqEQkTI4m2AEixTIULZX7d33b4GsQQCLcBGAs/s1600/r.png';
+	var recentlyImageUrl = 'https://4.bp.blogspot.com/-z7vrztPVgpY/XIH0pDOeggI/AAAAAAABjN0/HxHbEiG1KS41TfnkoCen7ZO5iwjKUtMvwCLcBGAs/s1600/r.png';
 	var recentlyInfo = '.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10,.p11,.p12,.p13,.p14{background:url('+ recentlyImageUrl +');width:72px;height:72px}';
 	
 	var htmlWeeklyPop = '<style>' + recentlyInfo + '.sb .wc{padding:9px}.sb h2{background-color:#7A5;color:#FFF;display:inline-block;font-size:13px;padding:8px}.ll a{display:block;padding:0 0 12px}.cl a{float:left;background-color:#222;padding:5px 9px;margin:4px}.gp{height:72px}.pp li{list-style:none;display:inline-block}.pp .p{float:left;margin:0 5px 10px 0}.pp .t{line-height:21px}.i b{font-size:17px}.p1{background-position:0 0}.p2{background-position:0 -72px}.p3{background-position:0 -144px}.p4{background-position:0 -216px}.p5{background-position:0 -288px}.p6{background-position:0 -360px}.p7{background-position:0 -432px}.p8{background-position:0 -504px}.p9{background-position:0 -576px}.p10{background-position:0 -648px}.p11{background-position:0 -720px}.p12{background-position:0 -792px}.p13{background-position:0 -864px}.p14{background-position:0 -936px}</style>'
