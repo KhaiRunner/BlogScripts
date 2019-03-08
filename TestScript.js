@@ -14,7 +14,7 @@ function getRecentPost(){
 	
 	//rawRecentPosts -> r
 	var infoElement = document.getElementById("r");
-	var allInfo = infoElement ? infoElement.value.split(',') : directInfo;
+	var allInfo = (infoElement ? infoElement.value : directInfo).split(',');
 	var recentlyHtml = '<h2>Recent Posts</h2><ul class="wc pp">';
 	var popIndex = 5;
 	
