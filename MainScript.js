@@ -311,8 +311,8 @@ if(!isContentPage){
 	};
 	
 	if(typeof HomePageHelper  === 'undefined'){
-		var scriptTag = $('script[src*="HomePage"]');
-		var loadScriptUrl = scriptTag.length > 0 ? scriptTag.attr('src') : "https://cdn.jsdelivr.net/gh/KhaiRunner/BlogScripts@latest/HomePage.js";
+		var scriptTag = $('script[src*="h.js"]');
+		var loadScriptUrl = scriptTag.length > 0 ? scriptTag.attr('src') : "https://cdn.jsdelivr.net/gh/KhaiRunner/D@latest/h.js";
 		$.getScript(loadScriptUrl, homePageAction);
 	}else{
 		homePageAction();

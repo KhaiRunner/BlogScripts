@@ -233,12 +233,18 @@ function ProcessData(data){
         });
     }
 
+	
 //Global Function
 HomePageHelper = {}
 HomePageHelper.LoadInfo = function(){
-	if ($('#mslA').length)	
+	$('head').append('<title>Build Sweet Home</title><meta content="https://buildsweethome.blogspot.com/favicon.ico" property="og:image"/>');	
+	
+	if ($('#mslA').length || window.location.pathname == '/')
 	{
 		//For Home Page
+		$('head').append('<meta content="ผมอยากให้บ้านเป็นมากกว่าแค่ที่อยู่อาศัย ผมอยากให้เป็นที่ที่เราสามารถอยู่ได้อย่างมีความสุข ได้พักใจได้ผ่อนคลาย พอเวลาผ่านไปเราจะพบว่านี้คือ“ชีวิตที่ดี”" name="description"/><meta content="บ้านสวยๆ,สวนสวย,แต่งบ้าน,แบบห้องครัว,ห้องนอน,แต่งผนัง" name="keywords"/>');	
+		
+		
 		initHomePageStyle();
 		if(dataHomePageInfo.length>0){
 			//console.log('load from local');
