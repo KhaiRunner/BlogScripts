@@ -10,7 +10,7 @@ var isInitFB = false;
 //recentlyImageUrl
 
 function getRecentPost(){
-	var directInfo = "ปลูกดอกไม้ริมระเบียง แต่งบ้านสวยๆ บรรยากาศน่าอยู่สุดๆ,ตัวอย่างแต่งผนังห้องนอนน่ารักๆ เนรมิตบรรยากาศให้น่าอยู่,ตัวอย่างตั้งหิ้งพระในห้องนอน หาตำแหน่งวางพระในห้องนอนกัน,โปรโมชั่นโลตัส เดือนมีนาคม 62 (7-13 มี.ค.),เลือกสีห้องนอนตามราศี แต่งห้องนอนถูกโฉลก,/2019/03/flower-garden-at-balcony.html,/2019/03/cozy-and-cute-decorate-bedroom-wall.html,/2019/03/shrine-position-in-your-bedroom.html,/2019/03/promotion-tesco-lotus-7-13Mar2019.html,/2019/03/choosing-bedroom-colors-by-zodiac.html,,,,,";
+	var directInfo = "แบบห้องนอนเล็กๆ พื้นที่น้อยมาก ดูไอเดียแต่งห้องนอนกัน,แบบสวนที่โรงรถ มาปลูกต้นไม้ที่โรงรถกันดีกว่า,ตัวอย่างห้องครัวสวยๆ ราคาประหยัด มาหาไอเดียกัน,ไอเดียจัดสวนเก๋ๆ ปลูกต้นไม้ธรรมดาๆให้ดูเก๋ น่ามอง,แบบห้องนอนสวยๆ มาแต่งห้องนอนกันเองบ้างดีกว่า,/2019/03/very-small-bedroom-designs.html,/2019/03/garden-design-with-garage.html,/2019/03/budgeted-kitchen-designs.html,/2019/03/cool-ideas-for-decor-your-garden.html,/2019/03/cozy-bedroom-ideas-for-your-home.html,,,,,";
 	
 	//rawRecentPosts -> r
 	var infoElement = document.getElementById("r");
