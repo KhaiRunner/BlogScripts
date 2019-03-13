@@ -278,6 +278,12 @@ function O(){
 if(A){
 	//Handle images first before user might redirect to image url.
 	H();
+	
+	//Add Meta tags for content pages.
+	var firstImageUrl = $('.pb img').first().attr('src');
+	$('head').append("<meta content='article' property='og:type'/><meta content='"+ firstImageUrl +"' property='og:image'/>");	
+	
+	
 	I(B);
 	O();
 	
@@ -407,6 +413,12 @@ if (911 <= B) {
 }
 //Lazy load menu
 P();
+
+//Add Meta Tags for All pages.
+$('head').append("<meta content='Build Sweet Home' property='og:site_name'/>");
+if($("meta[property='fb:app_id']").length === 0){
+	$('head').append('<meta content="1510960629171997" property="fb:app_id"/><meta content="365944176913300" property="fb:admins"/>');
+}
 
 //Search box
 $("#s").click(Q);
