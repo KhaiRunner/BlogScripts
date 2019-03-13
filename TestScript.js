@@ -280,8 +280,8 @@ if(isContentPage){
 	handleImg();
 	
 	//Add Meta tags for content pages.
-	var firstImageUrl = $('#c1 img').attr('src');
-	$('head').append("<meta content='article' property='og:type'/><meta expr:content='"+ firstImageUrl +"' property='og:image'/>");	
+	var firstImageUrl = $('.pb img').first().attr('src');
+	$('head').append("<meta content='article' property='og:type'/><meta content='"+ firstImageUrl +"' property='og:image'/>");	
 	
 	
 	stickyFB(windowWidth);
