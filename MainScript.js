@@ -171,6 +171,9 @@ function initFB(){
 //===================Content Page=============================
 function handleImg() {
 	//Fix ad near clickable.
+	var a0 = $('#c1 a:has(img):first');
+	a0.parent().html(a0.html());
+	
 	var a1 = $('#c1 a:has(img):last');
 	a1.parent().html(a1.html());
 	
