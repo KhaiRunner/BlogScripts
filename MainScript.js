@@ -170,6 +170,14 @@ function initFB(){
 
 //===================Content Page=============================
 function handleImg() {
+	//Fix ad near clickable.
+	var a1 = $('#c1 a:has(img):last');
+	a1.parent().html(a1.html());
+	
+	var a2 = $('#c2 a:has(img):first');
+	a2.parent().html(a2.html());
+	
+	//handle all images.
 	$('#c1 a:has(img),#c2 a:has(img)').click(function(){return false;});
 }
 
