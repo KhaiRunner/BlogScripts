@@ -10,7 +10,7 @@ var M = false;
 //recentlyImageUrl
 
 function D(){
-	var directInfo = "แต่งบ้านสวยงาม น่าอยู่ด้วยโทนสีพาสเทล สีทาบ้านสวยมากๆ,ประดิษฐ์ของแต่งบ้านให้สีเสน่ห์ เก๋ เท่ห์เฉพาะตัว,สีทาบ้านสีเหลืองอมเขียว บ้านของเราจะโดดเด่นแค่ไหนมาดูกัน,แบบห้องครัวประหยัดๆ กับตัวอย่างมากกว่า 40 แบบ,Art In Paradise พัทยา กว้างมาก มุมถ่ายรูปเยอะ,/2019/03/pastel-color-home-interior-examples.html,/2019/03/DIY-ideas-decorate-items-for-your-home.html,/2019/03/yellow-green-home-designs.html,/2019/03/cheap-and-budget-kitchen-design-ideas.html,/2019/03/art-in-paradise-pattaya.html,,,,,";
+	var directInfo = "แบบบ้านทาสีม่วงอ่อนสวยๆ มาดูตัวอย่างสีทาภายนอกตัวบ้านกัน,แต่งบ้านแบบนี้ บางคนตกใจกลัวกันได้ง่ายๆ!!! มาดูกันเลย,โปรเซเว่น ประจำวันที่ 21-27 มีนาคม 2562,แต่งบ้านสวยงาม น่าอยู่ด้วยโทนสีพาสเทล สีทาบ้านสวยมากๆ,ประดิษฐ์ของแต่งบ้านให้สีเสน่ห์ เก๋ เท่ห์เฉพาะตัว,/2019/03/purple-house-exterior-designs.html,/2019/03/cool-ideas-decor-home.html,/2019/03/711-promotion-21-27Mar.html,/2019/03/pastel-color-home-interior-examples.html,/2019/03/DIY-ideas-decorate-items-for-your-home.html,,,,,";
 	
 	//rawRecentPosts -> r
 	var infoElement = document.getElementById("r");
@@ -95,7 +95,7 @@ function K() {
 
 function G(){
 	//i -> image url.
-	var recentlyImageUrl = 'https://2.bp.blogspot.com/-pK76e7cgNiE/XJHVFXBERpI/AAAAAAABkOc/8iz1__2uFh8ES4ejKuUTdwXYzCQUBvXeQCLcBGAs/s1600/r.png';
+	var recentlyImageUrl = 'https://1.bp.blogspot.com/-qUn6tiwqaeY/XJL-56ySsLI/AAAAAAABkTw/w1qMgtxzrpYiQhxRdA2cCbZI7cCxHXxHACLcBGAs/s1600/r.png';
 	var recentlyInfo = '.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10,.p11,.p12,.p13,.p14{background:url('+ recentlyImageUrl +');width:72px;height:72px}';
 	
 	var htmlWeeklyPop = '<style>' + recentlyInfo + '.sb .wc{padding:9px}.sb h2{background-color:#7A5;color:#FFF;display:inline-block;font-size:13px;padding:8px}.ll a{display:block;padding:0 0 12px}.cl a{float:left;background-color:#222;padding:5px 9px;margin:4px}.gp{height:72px}.pp li{list-style:none;display:inline-block}.pp .p{float:left;margin:0 5px 10px 0}.pp .t{line-height:21px}.i b{font-size:17px}.p1{background-position:0 0}.p2{background-position:0 -72px}.p3{background-position:0 -144px}.p4{background-position:0 -216px}.p5{background-position:0 -288px}.p6{background-position:0 -360px}.p7{background-position:0 -432px}.p8{background-position:0 -504px}.p9{background-position:0 -576px}.p10{background-position:0 -648px}.p11{background-position:0 -720px}.p12{background-position:0 -792px}.p13{background-position:0 -864px}.p14{background-position:0 -936px}</style>'
@@ -291,8 +291,7 @@ if(A){
 	H();
 	
 	//Add Meta tags for content pages.
-	var firstImageUrl = $('.pb img').first().attr('src');
-	$('head').append("<meta content='article' property='og:type'/><meta content='"+ firstImageUrl +"' property='og:image'/>");	
+	$('head').append("<meta content='article' property='og:type'/>");	
 	
 	
 	I(B);
