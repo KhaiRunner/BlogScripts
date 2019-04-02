@@ -179,6 +179,12 @@ function ProcessData(){
             unsl.data('unsl')[fn]();
         });
         
+		$('#r1').html(r1);
+		$('#r2').html(r2);
+		$('#r3').html(r3);
+		$('#r4').html(r4);
+		$('#r5').html(r5);
+		$('#r6').html(r6);
 		
 		
     
