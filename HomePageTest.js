@@ -197,7 +197,7 @@ HomePageHelper.LoadInfo = function(){
 		
 		
 		initHomePageStyle();
-		
+		ProcessData();
 		
 		
 	}else{
