@@ -10,7 +10,7 @@ var isInitFB = false;
 //recentlyImageUrl
 
 function getRecentPost(){
-	var directInfo = "ไอเดียตกแต่งเสาบ้าน มาตกแต่งเสาบ้านเก๋ๆกันเลย,วิธีแก้แอร์ไม่เย็น ถอดแอร์มาล้างกันให้ดีๆก่อน,แบบบ้านไม้สวยๆ แนวคลาสสิค หลังใหญ่ น่าอยู่,รีวิว Xiaomi Air Purifier Pro เครื่องฟอกอากาศยอดฮิต,ไอเดียแต่งห้องนอนพ่อแม่ลูก มาดูตัวอย่างเก๋ๆกันเลย,/2019/04/house-poles-decorate-ideas.html,/2019/04/fix-air-conditioner-is-not-cooling.html,/2019/04/classic-wooden-house-design.html,/2019/04/review-Xiaomi-Air-Purifier-Pro.html,/2019/04/bedroom-designs-for-dad-mom-and-kids.html,,,,,";
+	var directInfo = "แสตมป์โลตัสล่าสุด สามหมีจอมป่วน We bare bears.,โปรโมชั่นเทสโก้ โลตัส 4-10 เมษายน 2562,โปรโมชั่น 711 ประจำวันที่ 4-10 เดือนเมษายน 2562 พร้อม barcode ลดราคา,ไอเดียตกแต่งเสาบ้าน มาตกแต่งเสาบ้านเก๋ๆกันเลย,วิธีแก้แอร์ไม่เย็น ถอดแอร์มาล้างกันให้ดีๆก่อน,/2019/04/latest-stamp-lotus-2019-We-bare-bears.html,/2019/04/promotion-tesco-lotus-4-10April2019.html,/2019/04/711-promotion-4-10April.html,/2019/04/house-poles-decorate-ideas.html,/2019/04/fix-air-conditioner-is-not-cooling.html,,,,,";
 	
 	//rawRecentPosts -> r
 	var infoElement = document.getElementById("r");
@@ -95,7 +95,7 @@ function initWidgetManager() {
 
 function addWidgets(){
 	//i -> image url.
-	var recentlyImageUrl = 'https://1.bp.blogspot.com/-0nDs0RlExI0/XKR7yXTHbHI/AAAAAAABk_w/1lZlSiWmz-gOpu8ZScxwaiBKfcen5iIEQCLcBGAs/s1600/r.png';
+	var recentlyImageUrl = 'https://4.bp.blogspot.com/-XuCuNry0ED8/XKV1W6iK_WI/AAAAAAABlEo/wySDbteWI1MQ9EvDO19h4Yps3lFrC1F8gCLcBGAs/s1600/r.png';
 	var recentlyInfo = '.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10,.p11,.p12,.p13,.p14{background:url('+ recentlyImageUrl +');width:72px;height:72px}';
 	
 	var htmlWeeklyPop = '<style>' + recentlyInfo + '.sb .wc{padding:9px}.sb h2{background-color:#7A5;color:#FFF;display:inline-block;font-size:13px;padding:8px}.ll a{display:block;padding:0 0 12px}.cl a{float:left;background-color:#222;padding:5px 9px;margin:4px}.gp{height:72px}.pp li{list-style:none;display:inline-block}.pp .p{float:left;margin:0 5px 10px 0}.pp .t{line-height:21px}.i b{font-size:17px}.p1{background-position:0 0}.p2{background-position:0 -72px}.p3{background-position:0 -144px}.p4{background-position:0 -216px}.p5{background-position:0 -288px}.p6{background-position:0 -360px}.p7{background-position:0 -432px}.p8{background-position:0 -504px}.p9{background-position:0 -576px}.p10{background-position:0 -648px}.p11{background-position:0 -720px}.p12{background-position:0 -792px}.p13{background-position:0 -864px}.p14{background-position:0 -936px}</style>'
