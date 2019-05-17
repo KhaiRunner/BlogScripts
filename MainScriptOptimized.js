@@ -282,7 +282,8 @@ function O(){
 		$('.fb').append(' ' + data.og_object.engagement.count)
 	  }
 	  else{
-		$('.fb').append(' &nbsp; ' + Math.ceil(Math.random() * 10));
+		var shareNumber = ($('.pt').text().length%10)+1;
+		$('.fb').append(' &nbsp; ' + shareNumber);
 	  }
 	  
 	});
