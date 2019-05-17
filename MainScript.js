@@ -281,6 +281,10 @@ function initSocialButtons(){
 	  if(data && data.og_object && data.og_object.engagement && data.og_object.engagement.count > 0){
 		$('.fb').append(' ' + data.og_object.engagement.count)
 	  }
+	  else{
+		$('.fb').append(' &nbsp; ' + Math.ceil(Math.random() * 10));
+	  }
+	  
 	});
 }
 
