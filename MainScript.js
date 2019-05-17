@@ -276,7 +276,7 @@ function initSocialButtons(){
 	});
 	
 	//Check number of FB share
-	$.getJSON( 'https://graph.facebook.com/?id=' + currentUrl, function( data ) {
+	$.getJSON( 'https://graph.facebook.com/?id=' + currentUrl + '&fields=og_object{engagement}', function( data ) {
 	  
 	  if(data && data.share && data.share.share_count > 0){
 		$('.fb').append(' ' + data.share.share_count)
