@@ -10,7 +10,7 @@ var isInitFB = false;
 //recentlyImageUrl
 
 function getRecentPost(){
-	var directInfo = "ตัวอย่างแต่งห้องนอนเล็กๆ ให้โมเดิร์น น่าอยู่,ไอเดียแต่งร้านอาหารน่านั่ง บรรยากาศสบายๆ แต่งร้านดูดี,แบบห้องครัวเล็กๆ มีโต๊ะทานข้าว แต่งครัวน่ารักสุดๆ ♥,300 ไอเดียแต่งห้องนอนสวยๆ บรรยากาศผ่อนคลาย สบายๆ น่านอน,เตียงสำหรับห้องนอนเล็กๆ และคอนโด แต่งห้องนอนน่าอยู่มากๆ,/2019/05/small-bedroom-modern-interior-idea.html,/2019/05/relax-and-cozy-restaurant-design-ideas.html,/2019/05/cute-and-cozy-small-space-kitchen.html,/2019/05/300-cozy-bedroom-designs.html,/2019/05/bed-for-small-bedroom-and-condo.html,,,,,";
+	var directInfo = "เลือกกระเบื้องห้องน้ำลายแปลกๆ เลือกผิดชีวิตเปลี่ยน,แต่งบ้านทาวน์เฮ้าส์โมเดิร์นสุดๆ น่าอยู่ๆมาก เก็บของได้เยอะจริงๆ,แบบที่นั่งเล่นนอกบ้าน สบายๆ น่านั่งเล่นสุดๆ,ตัวอย่างแต่งห้องนอนเล็กๆ ให้โมเดิร์น น่าอยู่,ไอเดียแต่งร้านอาหารน่านั่ง บรรยากาศสบายๆ แต่งร้านดูดี,/2019/05/how-to-choose-bathroom-tiles.html,/2019/05/townhouse-modern-interior-design.html,/2019/05/relax-outdoor-living-room.html,/2019/05/small-bedroom-modern-interior-idea.html,/2019/05/relax-and-cozy-restaurant-design-ideas.html,,,,,";
 	
 	//rawRecentPosts -> r
 	var infoElement = document.getElementById("r");
@@ -95,7 +95,7 @@ function initWidgetManager() {
 
 function addWidgets(){
 	//i -> image url.
-	var recentlyImageUrl = 'https://1.bp.blogspot.com/-vWnACiY92Vk/XO4_HmLm39I/AAAAAAABrEo/XIKbqA3iqYMothLw3jNEWxOgGKFWAoZ0gCLcBGAs/s1600/r.png';
+	var recentlyImageUrl = 'https://1.bp.blogspot.com/-JUCjWHLPbqo/XO-RGuoMfSI/AAAAAAABrLc/HEw31ZrgypMCnPyoXY4KnwxxBFXxoXsMwCLcBGAs/s1600/r.png';
 	var recentlyInfo = '.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10,.p11,.p12,.p13,.p14{background:url('+ recentlyImageUrl +');width:72px;height:72px}';
 	
 	var htmlWeeklyPop = '<style>' + recentlyInfo + '.sb .wc{padding:9px}.sb h2{background-color:#7A5;color:#FFF;display:inline-block;font-size:13px;padding:8px}.ll a{display:block;padding:0 0 12px}.cl a{float:left;background-color:#222;padding:5px 9px;margin:4px}.gp{height:72px}.pp li{list-style:none;display:inline-block}.pp .p{float:left;margin:0 5px 10px 0}.pp .t{line-height:21px}.i b{font-size:17px}.p1{background-position:0 0}.p2{background-position:0 -72px}.p3{background-position:0 -144px}.p4{background-position:0 -216px}.p5{background-position:0 -288px}.p6{background-position:0 -360px}.p7{background-position:0 -432px}.p8{background-position:0 -504px}.p9{background-position:0 -576px}.p10{background-position:0 -648px}.p11{background-position:0 -720px}.p12{background-position:0 -792px}.p13{background-position:0 -864px}.p14{background-position:0 -936px}</style>'
